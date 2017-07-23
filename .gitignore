@@ -85,11 +85,14 @@ Thumbs.db
 # "mu-plugins" directory
 # "plugins" directory
 # "themes" directory
-wp-content/
+wp-content/*
 !wp-content/mu-plugins/
-!wp-content/plugins/mk-admin/
+!wp-content/plugins/
+wp-content/plugins/akismet/
+wp-content/plugins/index.php
 
 # ignore these plugins
+wp-content/plugins/hello.php
 
 # ignore specific themes
 

@@ -1,0 +1,17 @@
+{
+  "name": "MK Group WordPress CMS Extension",
+  "type": "wordpress-plugin",
+  "description": "Plugin built specifically for MK Group in order to provide required extension of WordPress functionality",
+  "authors": [
+    {
+      "name": "Vuk Stankovic",
+      "email": "me@vukstankovic.com",
+      "homepage": "http://vukstankovic.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "MkGroup\\":"src/"
+    }
+  }
+}
