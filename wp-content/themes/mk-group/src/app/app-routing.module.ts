@@ -4,9 +4,7 @@ import {HomeComponent} from "./home/home.component";
 import {HomeResolver} from "./services/home-resolver.service"
 
 const appRoutes: Routes = [
-    { path: '', component: HomeComponent, resolve: {
-        video: HomeResolver
-    }}
+    { path: '', component: HomeComponent, resolve: { video: HomeResolver }}
 ];
 
 @NgModule({

@@ -6,7 +6,6 @@ import {HomeComponent} from './home/home.component';
 import {HttpModule} from "@angular/http";
 import {AppRoutingModule} from "./app-routing.module";
 import {HomeResolver} from "./services/home-resolver.service";
-import {ActivatedRoute, ActivatedRouteSnapshot} from "@angular/router";
 
 @NgModule({
     declarations: [

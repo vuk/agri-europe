@@ -8,8 +8,10 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class HomeResolver implements Resolve<Option> {
-    constructor (private _http: Http) {}
-    resolve (route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Option> | any {
+    constructor(private _http: Http) {
+    }
+
+    resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Option> | any {
         let videos = {};
         return this._http.get('http://localhost/agri-backend/wp-json/mk/options/?option=home_webm')
             .map((res: Response) => {
