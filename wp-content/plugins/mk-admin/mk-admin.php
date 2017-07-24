@@ -14,19 +14,23 @@ require_once __DIR__ . '/vendor/autoload.php';
 
 use MkGroup\Company;
 use MkGroup\People;
+use MkGroup\APIExtend;
 
 class Mk {
 
 	private $companies;
 	private $people;
+	private $rest;
 
 	public function __construct()
 	{
 		$this->companies = new Company();
 		$this->people = new People();
+		$this->rest = new APIExtend();
 		load_plugin_textdomain('mkgroup', false, basename( dirname( __FILE__ ) ) . '/languages' );
 		add_action( 'init', array($this, 'hookCompanies') );
 		add_action( 'init', array($this, 'hookPeople') );
+		$this->rest->addOptionsEndpoint();
 	}
 
 	public function hookCompanies () {
