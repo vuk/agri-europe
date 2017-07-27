@@ -113,6 +113,13 @@ function optionsframework_options() {
 	);
 
 	$options[] = array(
+		'name' => __( 'Video Background', 'agrieurope' ),
+		'desc' => __( 'Home page Video background', 'agrieurope' ),
+		'id' => 'video_bg',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
 		'name' => __( 'Basic Settings', 'agrieurope' ),
 		'type' => 'heading'
 	);
