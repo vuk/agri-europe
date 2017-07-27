@@ -1,11 +1,13 @@
 import {BrowserModule} from '@angular/platform-browser';
-import {NgModule} from '@angular/core';
+import {APP_INITIALIZER, NgModule} from '@angular/core';
 
 import {AppComponent} from './app.component';
 import {HomeComponent} from './home/home.component';
 import {HttpModule} from "@angular/http";
 import {AppRoutingModule} from "./app-routing.module";
-import {HomeResolver} from "./services/home-resolver.service";
+import {ConfigService} from "./services/config.service";
+import 'rxjs/add/operator/toPromise';
+import {init} from "./appInit";
 
 @NgModule({
     declarations: [
@@ -17,8 +19,17 @@ import {HomeResolver} from "./services/home-resolver.service";
         HttpModule,
         AppRoutingModule
     ],
-    providers: [HomeResolver],
+    providers: [
+        ConfigService,
+        {
+            'provide': APP_INITIALIZER,
+            'useFactory': init,
+            'deps': [ConfigService],
+            'multi': true,
+        }
+    ],
     bootstrap: [AppComponent]
 })
 export class AppModule {
+
 }

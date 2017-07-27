@@ -1,5 +1,5 @@
 import {Component, OnInit} from '@angular/core';
-import {ActivatedRoute, Data} from "@angular/router";
+import {ConfigService} from "../services/config.service";
 
 @Component({
     selector: 'app-home',
@@ -8,20 +8,17 @@ import {ActivatedRoute, Data} from "@angular/router";
 })
 export class HomeComponent implements OnInit {
 
-    webmVideo = '';
-    mp4Video = '';
+    config: Array<String>;
+    webmVideo: String = '';
+    mp4Video: String = '';
 
-    constructor(private route: ActivatedRoute) {
+    constructor(private configService: ConfigService) {
     }
 
     ngOnInit() {
-        this.route.data
-            .subscribe(
-                (data: Data) => {
-                    this.webmVideo = data['video'].webm;
-                    this.mp4Video = data['video'].mp4;
-                }
-            );
+        this.config = this.configService.getConfig();
+        this.webmVideo = this.config['home_webm'];
+        this.mp4Video = this.config['home_mp4'];
     }
 
 }

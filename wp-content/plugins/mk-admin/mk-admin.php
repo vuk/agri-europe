@@ -31,6 +31,7 @@ class Mk {
 		add_action( 'init', array($this, 'hookCompanies') );
 		add_action( 'init', array($this, 'hookPeople') );
 		$this->rest->addOptionsEndpoint();
+		$this->rest->addOptionEndpoint();
 	}
 
 	public function hookCompanies () {
