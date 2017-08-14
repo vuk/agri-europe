@@ -7,13 +7,14 @@ import 'rxjs/add/operator/map';
 @Injectable()
 export class ConfigService {
 
-    config: Array<String>;
+    config: Array<string>;
+    apiUrl: string = 'http://localhost/agri-backend/';
 
     constructor(private http: Http) {
     }
 
     init(): Observable<String[]> {
-        return this.http.get('http://localhost/agri-backend/wp-json/mk/options')
+        return this.http.get( this.apiUrl + 'wp-json/mk/options')
             .map((res: Response) => {
                 this.config = res.json().value;
                 return this.config;
