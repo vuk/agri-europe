@@ -14,6 +14,7 @@ import { SwiperModule } from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { GridDecorationComponent } from './minor-components/grid-decoration/grid-decoration.component';
 import { CurtainComponent } from './minor-components/curtain/curtain.component';
+import { AgriSwiperComponent } from './minor-components/agri-swiper/agri-swiper.component';
 
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -27,7 +28,8 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     HomeComponent,
     MenuComponent,
     GridDecorationComponent,
-    CurtainComponent
+    CurtainComponent,
+    AgriSwiperComponent
   ],
   imports: [
     BrowserModule,
