@@ -1,4 +1,8 @@
 /** 1. General style */
+html,
+body {
+    height: 100%;
+}
 body {
     padding:0;
     margin: 0;
@@ -8,8 +12,6 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'CeraPRO', sans-serif;
 }
-
-
 /** 2. Preloader screen */
 .logo-inner {
     position: fixed;
@@ -17,3 +19,21 @@ h1, h2, h3, h4, h5, h6 {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+/* Small only */
+@media screen and (max-width: 39.9375em) {
+    .hide-mob {
+        display: none;
+    }
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
