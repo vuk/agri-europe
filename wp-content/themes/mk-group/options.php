@@ -99,23 +99,106 @@ function optionsframework_options() {
 	);
 
 	$options[] = array(
-		'name' => __( 'Home Page Video', 'agrieurope' ),
+		'name' => __( 'Home Page Video 1', 'agrieurope' ),
 		'desc' => __( 'Home Page .webm Video', 'agrieurope' ),
 		'id' => 'home_webm',
 		'type' => 'upload'
 	);
 
 	$options[] = array(
-		'name' => __( 'Home Page Video', 'agrieurope' ),
+		'name' => __( 'Home Page Video 1', 'agrieurope' ),
 		'desc' => __( 'Home Page .mp4 Video', 'agrieurope' ),
 		'id' => 'home_mp4',
 		'type' => 'upload'
 	);
 
 	$options[] = array(
-		'name' => __( 'Video Background', 'agrieurope' ),
+		'name' => __( 'Video Background 1', 'agrieurope' ),
 		'desc' => __( 'Home page Video background', 'agrieurope' ),
 		'id' => 'video_bg',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Home Page Video 2', 'agrieurope' ),
+		'desc' => __( 'Home Page .webm Video', 'agrieurope' ),
+		'id' => 'home_webm2',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Home Page Video 2', 'agrieurope' ),
+		'desc' => __( 'Home Page .mp4 Video', 'agrieurope' ),
+		'id' => 'home_mp42',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Video Background 2', 'agrieurope' ),
+		'desc' => __( 'Home page Video background', 'agrieurope' ),
+		'id' => 'video_bg2',
+		'type' => 'upload'
+	);
+	$options[] = array(
+		'name' => __( 'Home Page Video 3', 'agrieurope' ),
+		'desc' => __( 'Home Page .webm Video', 'agrieurope' ),
+		'id' => 'home_webm3',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Home Page Video 3', 'agrieurope' ),
+		'desc' => __( 'Home Page .mp4 Video', 'agrieurope' ),
+		'id' => 'home_mp43',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Video Background 3', 'agrieurope' ),
+		'desc' => __( 'Home page Video background', 'agrieurope' ),
+		'id' => 'video_bg3',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Home Page Video 4', 'agrieurope' ),
+		'desc' => __( 'Home Page .webm Video', 'agrieurope' ),
+		'id' => 'home_webm4',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Home Page Video 4', 'agrieurope' ),
+		'desc' => __( 'Home Page .mp4 Video', 'agrieurope' ),
+		'id' => 'home_mp44',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Video Background 4', 'agrieurope' ),
+		'desc' => __( 'Home page Video background', 'agrieurope' ),
+		'id' => 'video_bg4',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Home Page Video 5', 'agrieurope' ),
+		'desc' => __( 'Home Page .webm Video', 'agrieurope' ),
+		'id' => 'home_webm5',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Home Page Video 5', 'agrieurope' ),
+		'desc' => __( 'Home Page .mp4 Video', 'agrieurope' ),
+		'id' => 'home_mp45',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Video Background 5', 'agrieurope' ),
+		'desc' => __( 'Home page Video background', 'agrieurope' ),
+		'id' => 'video_bg5',
 		'type' => 'upload'
 	);
 
