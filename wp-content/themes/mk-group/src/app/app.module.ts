@@ -19,6 +19,7 @@ import { AgriSwiperComponent } from './minor-components/agri-swiper/agri-swiper.
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
   slidesPerView: 'auto',
+  autoplay: 3000,
   keyboardControl: true
 };
 
