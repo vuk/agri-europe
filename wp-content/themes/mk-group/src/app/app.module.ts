@@ -10,18 +10,31 @@ import {ConfigService} from "./services/config.service";
 import 'rxjs/add/operator/toPromise';
 import {init} from "./appInit";
 import { MenuComponent } from './menu/menu.component';
+import { SwiperModule } from 'ngx-swiper-wrapper';
+import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
+import { GridDecorationComponent } from './minor-components/grid-decoration/grid-decoration.component';
+import { CurtainComponent } from './minor-components/curtain/curtain.component';
+
+const SWIPER_CONFIG: SwiperConfigInterface = {
+  direction: 'horizontal',
+  slidesPerView: 'auto',
+  keyboardControl: true
+};
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    MenuComponent
+    MenuComponent,
+    GridDecorationComponent,
+    CurtainComponent
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SwiperModule.forRoot(SWIPER_CONFIG)
   ],
   providers: [
     ConfigService,
