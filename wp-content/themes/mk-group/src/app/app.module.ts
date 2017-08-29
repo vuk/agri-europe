@@ -10,7 +10,7 @@ import {ConfigService} from "./services/config.service";
 import 'rxjs/add/operator/toPromise';
 import {init} from "./appInit";
 import { MenuComponent } from './menu/menu.component';
-import { SwiperModule } from 'ngx-swiper-wrapper';
+import {SwiperDirective, SwiperModule} from 'ngx-swiper-wrapper';
 import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { GridDecorationComponent } from './minor-components/grid-decoration/grid-decoration.component';
 import { CurtainComponent } from './minor-components/curtain/curtain.component';
@@ -19,7 +19,7 @@ import { AgriSwiperComponent } from './minor-components/agri-swiper/agri-swiper.
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
   slidesPerView: 'auto',
-  autoplay: 3000,
+  autoplay: 0,
   keyboardControl: true
 };
 
@@ -46,7 +46,8 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
       'useFactory': init,
       'deps': [ConfigService],
       'multi': true,
-    }
+    },
+    SwiperDirective
   ],
   bootstrap: [AppComponent]
 })
