@@ -1,0 +1,30 @@
+.menu-bar {
+    position: relative;
+    z-index: 1;
+    padding-top: 1rem;
+    color: #fff;
+    display: flex;
+    align-items: center;
+}
+.trigger {
+    float: right;
+    font-size: 1.3rem;
+    font-family: 'CeraPRO', Helvetica, Arial, sans-serif;
+    font-weight: 700;
+}
+.trigger i {
+    -ms-transform: rotate(90deg); /* IE 9 */
+    -webkit-transform: rotate(90deg); /* Chrome, Safari, Opera */
+    transform: rotate(90deg);
+    -webkit-transition: all 200ms;
+    -moz-transition: all 200ms;
+    -ms-transition: all 200ms;
+    -o-transition: all 200ms;
+    transition: all 200ms;
+    margin-left: 10px;
+}
+.trigger:hover i {
+    -ms-transform: rotate(0); /* IE 9 */
+    -webkit-transform: rotate(0); /* Chrome, Safari, Opera */
+    transform: rotate(0);
+}

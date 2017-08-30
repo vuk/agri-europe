@@ -18,7 +18,6 @@ export class AgriSwiperComponent implements OnInit {
   
   config = null;
   slides = [];
-  swDirective = null;
   
   @ViewChild(SwiperComponent)
   private swiper: SwiperComponent;
@@ -28,7 +27,6 @@ export class AgriSwiperComponent implements OnInit {
   ngOnInit() {
     this.config = this.configService.getConfig();
     this.slides = this.config.homeHero.slides;
-    console.log(this.slides);
     this.runSlider();
   }
   
@@ -36,6 +34,9 @@ export class AgriSwiperComponent implements OnInit {
     setInterval(() => {
       jQuery('.curtain__tile').removeClass('transparent');
       jQuery('.curtain__tile').addClass('unfolded');
+      jQuery('.curtain').css({
+        'z-index': '20'
+      });
       setTimeout(() => {
         this.swiper.nextSlide();
         jQuery('.curtain__tile').addClass('opposite');
@@ -43,11 +44,14 @@ export class AgriSwiperComponent implements OnInit {
           jQuery('.curtain__tile').addClass('transparent');
           jQuery('.curtain__tile').removeClass('unfolded');
           jQuery('.curtain__tile').removeClass('opposite');
+          jQuery('.curtain').css({
+            'z-index': '2'
+          });
         }, 500);
       }, 1000);
       /*jQuery('.curtain__tile').css({
         transform: 'translateX(100%)'
       });*/
-    }, 5000);
+    }, this.config.time_delay);
   }
 }

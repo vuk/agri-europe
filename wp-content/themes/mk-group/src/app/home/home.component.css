@@ -25,3 +25,7 @@ section.home-section {
     html { background: #000 no-repeat center center fixed; }
     #bgvid { display: none; }
 }
+.page-content {
+    position: relative;
+    z-index: 3;
+}

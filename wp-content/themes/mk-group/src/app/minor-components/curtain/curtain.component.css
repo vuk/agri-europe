@@ -21,7 +21,7 @@
     -webkit-transform: translateX(-100%);
     -ms-transform: translateX(-100%);
     transform: translateX(-100%);
-    z-index: 5;
+    z-index: 2;
     -moz-transition: transform 500ms ease, background-color 0ms ease;
     -o-transition: transform 500ms ease, background-color 0ms ease;
     -webkit-transition: transform 500ms ease, background-color 0ms ease;
@@ -54,7 +54,7 @@
     height: 100%;
     width: 100%;
     position: absolute;
-    z-index: 55;
+    z-index: 2;
     top: 0;
     right: 0;
     display: -webkit-box;

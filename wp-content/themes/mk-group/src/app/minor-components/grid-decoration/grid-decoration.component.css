@@ -33,7 +33,7 @@
     display: flex;
 }
 .slider__grid {
-    z-index: 10;
+    z-index: 2;
     position: relative;
 }
 .decor-grid__item:after {

@@ -24,6 +24,7 @@
     "@angular/platform-browser-dynamic": "^4.3.4",
     "@angular/router": "^4.3.4",
     "core-js": "^2.5.0",
+    "font-awesome": "^4.7.0",
     "foundation-sites": "^6.4.3",
     "jquery": "^3.2.1",
     "ngx-swiper-wrapper": "^4.6.0",
