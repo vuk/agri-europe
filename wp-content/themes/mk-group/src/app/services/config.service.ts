@@ -6,22 +6,27 @@ import 'rxjs/add/operator/map';
 
 @Injectable()
 export class ConfigService {
-
-    config: Array<string>;
-    apiUrl: string = 'http://localhost/agri-backend/';
-
-    constructor(private http: Http) {
-    }
-
-    init(): Observable<String[]> {
-        return this.http.get( this.apiUrl + 'wp-json/mk/options')
-            .map((res: Response) => {
-                this.config = res.json().value;
-                return this.config;
-            });
-    }
-
-    getConfig(): Array<String> {
+  
+  config: Array<string>;
+  apiUrl: string = 'http://localhost/agri-backend/';
+  
+  constructor(private http: Http) {
+  }
+  
+  init(): Observable<String[]> {
+    return this.http.get(this.apiUrl + 'wp-json/mk/options')
+      .map((res: Response) => {
+        this.config = res.json().value;
         return this.config;
-    }
+      })
+      .flatMap(() => this.http.get(this.apiUrl + 'wp-json/mk/slides?category=2'))
+      .map((res: Response) => {
+        this.config['homeHero'] = res.json();
+        return this.config;
+      });
+  }
+  
+  getConfig(): Array<String> {
+    return this.config;
+  }
 }

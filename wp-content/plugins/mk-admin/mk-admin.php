@@ -32,16 +32,17 @@ class Mk {
 		add_action( 'init', array($this, 'hookPeople') );
 		$this->rest->addOptionsEndpoint();
 		$this->rest->addOptionEndpoint();
+		$this->rest->addSlideEndpoint();
 	}
 
 	public function hookCompanies () {
-		$this->companies->addCompanies();
-		$this->companies->addCompanyCategories();
+		/*$this->companies->addCompanies();
+		$this->companies->addCompanyCategories();*/
 	}
 
 	public function hookPeople () {
-		$this->people->addPeople();
-		$this->people->addPeopleGroups();
+		/*$this->people->addPeople();
+		$this->people->addPeopleGroups();*/
 	}
 }
 

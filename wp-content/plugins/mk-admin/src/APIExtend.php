@@ -80,4 +80,38 @@ class APIExtend {
 		];
 	}
 
+	public function getSlides ($data) {
+		$parameters = $data->get_params();
+		$slideQuery = new \WP_Query([
+			'post_type' => 'slide',
+			'tax_query' => array(
+				array (
+					'taxonomy' => 'slide_category',
+					'field' => 'id',
+					'terms' => $parameters['category'],
+				)
+			),
+		]);
+		$slides = $slideQuery->get_posts();
+		$processedSlides = [];
+		foreach ( $slides as $key => $slide ) {
+			$slide->mp4_video_url = get_field('mp4_video_url', $slide->ID);
+			$slide->webm_video_url = get_field('webm_video_url', $slide->ID);
+			$slide->video_poster = get_field('video_poster', $slide->ID);
+			array_push($processedSlides, $slide);
+		}
+		return [
+			'slides' => $processedSlides
+		];
+	}
+
+	public function addSlideEndpoint () {
+		add_action( 'rest_api_init', function () {
+			register_rest_route( 'mk', '/slides/', array(
+				'methods' => \WP_REST_Server::READABLE,
+				'callback' => array($this, 'getSlides'),
+			) );
+		} );
+	}
+
 }

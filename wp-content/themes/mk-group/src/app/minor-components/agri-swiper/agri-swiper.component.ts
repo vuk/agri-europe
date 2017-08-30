@@ -27,43 +27,9 @@ export class AgriSwiperComponent implements OnInit {
 
   ngOnInit() {
     this.config = this.configService.getConfig();
-    this.slides = [
-      {
-        mp4Video: this.config['home_mp4'],
-        webmVideo: this.config['home_webm'],
-        poster: this.config['video_bg']
-      }
-    ];
-    if (this.config['home_mp42']) {
-      this.slides.push({
-        mp4Video: this.config['home_mp42'],
-        webmVideo: this.config['home_webm2'],
-        poster: this.config['video_bg2']
-      })
-    }
-    if (this.config['home_mp43']) {
-      this.slides.push({
-        mp4Video: this.config['home_mp43'],
-        webmVideo: this.config['home_webm3'],
-        poster: this.config['video_bg3']
-      })
-    }
-    if (this.config['home_mp44']) {
-      this.slides.push({
-        mp4Video: this.config['home_mp44'],
-        webmVideo: this.config['home_webm4'],
-        poster: this.config['video_bg4']
-      })
-    }
-    if (this.config['home_mp45']) {
-      this.slides.push({
-        mp4Video: this.config['home_mp45'],
-        webmVideo: this.config['home_webm5'],
-        poster: this.config['video_bg5']
-      })
-    }
-    this.runSlider();
+    this.slides = this.config.homeHero.slides;
     console.log(this.slides);
+    this.runSlider();
   }
   
   runSlider () {
