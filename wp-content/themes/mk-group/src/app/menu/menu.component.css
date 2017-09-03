@@ -1,16 +1,35 @@
 .menu-bar {
-    position: relative;
-    z-index: 1;
+    position: fixed;
+    z-index: 5;
     padding-top: 1rem;
     color: #fff;
     display: flex;
     align-items: center;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100%;
+}
+.menu-bar.white-bg {
+    color: #151515;
 }
 .trigger {
     float: right;
     font-size: 1.3rem;
     font-family: 'CeraPRO', Helvetica, Arial, sans-serif;
     font-weight: 700;
+}
+.trigger a {
+    color: #fff;
+}
+.trigger a:hover {
+    color: #fff;
+    text-decoration: none;
+}
+.menu-bar.white-bg .trigger a {
+    color: #151515;
+}
+.menu-bar.white-bg .trigger a:hover {
+    color: #151515;
 }
 .trigger i {
     -ms-transform: rotate(90deg); /* IE 9 */
@@ -27,4 +46,26 @@
     -ms-transform: rotate(0); /* IE 9 */
     -webkit-transform: rotate(0); /* Chrome, Safari, Opera */
     transform: rotate(0);
+}
+.menu-animation {
+    display: flex;
+    width: 0;
+    height: 0;
+    position: fixed;
+    top: 0;
+    right: 0;
+    background: #fff;
+    z-index: 3;
+    -webkit-border-radius: 50% 0 0 50%;
+    -moz-border-radius: 50% 0 0 50%;
+    border-radius: 50% 0 0 50%;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+}
+.menu-animation.open {
+    width: 200%;
+    height: 200%;
 }

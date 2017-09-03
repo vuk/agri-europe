@@ -15,6 +15,10 @@ import { SwiperConfigInterface } from 'ngx-swiper-wrapper';
 import { GridDecorationComponent } from './minor-components/grid-decoration/grid-decoration.component';
 import { CurtainComponent } from './minor-components/curtain/curtain.component';
 import { AgriSwiperComponent } from './minor-components/agri-swiper/agri-swiper.component';
+import { SectorsComponent } from './sectors/sectors.component';
+import { SingleSectorComponent } from './single-sector/single-sector.component';
+import { CompaniesComponent } from './companies/companies.component';
+import { CompanyComponent } from './company/company.component';
 
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -30,7 +34,11 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     MenuComponent,
     GridDecorationComponent,
     CurtainComponent,
-    AgriSwiperComponent
+    AgriSwiperComponent,
+    SectorsComponent,
+    SingleSectorComponent,
+    CompaniesComponent,
+    CompanyComponent
   ],
   imports: [
     BrowserModule,

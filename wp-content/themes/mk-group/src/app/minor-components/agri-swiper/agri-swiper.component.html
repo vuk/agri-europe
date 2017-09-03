@@ -1,4 +1,4 @@
-<swiper [config]="swiperConfig">
+<swiper #agriSwiper [config]="swiperConfig">
   <div class="agrieurope-swiper-container" *ngFor="let slide of slides">
     <video [poster]="slide.video_poster" id="bgvid" playsinline autoplay muted
            loop>

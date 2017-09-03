@@ -7,6 +7,7 @@ import {
   animate,
   transition
 } from '@angular/animations';
+import * as jQuery from 'jquery';
 
 @Component({
   selector: 'app-home',
@@ -43,6 +44,8 @@ export class HomeComponent implements OnInit {
     this.webmVideo = this.config['home_webm'];
     this.mp4Video = this.config['home_mp4'];
     this.videoPoster = this.config['video_bg'];
+    let $menu = jQuery('.menu-bar');
+    $menu.removeClass('white-bg');
   }
   
 }

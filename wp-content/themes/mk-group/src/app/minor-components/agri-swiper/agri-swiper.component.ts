@@ -1,4 +1,4 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import {SwiperComponent, SwiperConfigInterface} from "ngx-swiper-wrapper";
 import * as jQuery from 'jquery';
 import {ConfigService} from "../../services/config.service";
@@ -8,7 +8,7 @@ import {ConfigService} from "../../services/config.service";
   templateUrl: './agri-swiper.component.html',
   styleUrls: ['./agri-swiper.component.css']
 })
-export class AgriSwiperComponent implements OnInit {
+export class AgriSwiperComponent implements OnInit, OnDestroy {
   
   swiperConfig: SwiperConfigInterface = {
     direction: 'horizontal',
@@ -18,9 +18,9 @@ export class AgriSwiperComponent implements OnInit {
   
   config = null;
   slides = [];
+  sliderInterval;
   
-  @ViewChild(SwiperComponent)
-  private swiper: SwiperComponent;
+  @ViewChild('agriSwiper') swiper: SwiperComponent;
 
   constructor(private configService: ConfigService) { }
 
@@ -31,27 +31,22 @@ export class AgriSwiperComponent implements OnInit {
   }
   
   runSlider () {
-    setInterval(() => {
+    this.sliderInterval = setInterval(() => {
       jQuery('.curtain__tile').removeClass('transparent');
       jQuery('.curtain__tile').addClass('unfolded');
-      jQuery('.curtain').css({
-        'z-index': '20'
-      });
       setTimeout(() => {
-        this.swiper.nextSlide();
+        this.swiper.directiveRef.nextSlide();
         jQuery('.curtain__tile').addClass('opposite');
         setTimeout(() => {
           jQuery('.curtain__tile').addClass('transparent');
           jQuery('.curtain__tile').removeClass('unfolded');
           jQuery('.curtain__tile').removeClass('opposite');
-          jQuery('.curtain').css({
-            'z-index': '2'
-          });
         }, 500);
       }, 1000);
-      /*jQuery('.curtain__tile').css({
-        transform: 'translateX(100%)'
-      });*/
     }, this.config.time_delay);
+  }
+  
+  ngOnDestroy() {
+    clearInterval(this.sliderInterval);
   }
 }
