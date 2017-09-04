@@ -80,10 +80,10 @@ class APIExtend {
 		];
 	}
 
-	public function getSlides ($data) {
+	public function getPostType ($data) {
 		$parameters = $data->get_params();
 		$slideQuery = new \WP_Query([
-			'post_type' => 'slide',
+			'post_type' => $parameters['post_type'],
 			'tax_query' => array(
 				array (
 					'taxonomy' => 'slide_category',
@@ -107,9 +107,9 @@ class APIExtend {
 
 	public function addSlideEndpoint () {
 		add_action( 'rest_api_init', function () {
-			register_rest_route( 'mk', '/slides/', array(
+			register_rest_route( 'mk', '/post_type/', array(
 				'methods' => \WP_REST_Server::READABLE,
-				'callback' => array($this, 'getSlides'),
+				'callback' => array($this, 'getPostType'),
 			) );
 		} );
 	}

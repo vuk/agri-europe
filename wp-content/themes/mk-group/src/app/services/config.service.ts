@@ -19,7 +19,7 @@ export class ConfigService {
         this.config = res.json().value;
         return this.config;
       })
-      .flatMap(() => this.http.get(this.apiUrl + 'wp-json/mk/slides?category=2'))
+      .flatMap(() => this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=slide&category=2'))
       .map((res: Response) => {
         this.config['homeHero'] = res.json();
         return this.config;

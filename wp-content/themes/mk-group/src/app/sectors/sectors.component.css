@@ -1,15 +1,35 @@
 section.sectors {
     padding-top: 10rem;
+    display: flex;
+    width: 100%;
+    height: 100%;
+    flex-direction: column;
+}
+section.sectors > .row {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    height: calc(100% - 100px);
+}
+section.sectors > .row .columns {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
 }
 .sectors-inner {
     display: flex;
     flex-direction: row;
+    height: 100%;
 }
 .sector {
     display: flex;
     width: 20%;
     background: #fff;
     color: #151515;
+    border-top: 1px solid #f1f1f1;
+    border-right: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    overflow: hidden;
 }
 .swiper-container {
     display: flex;
@@ -31,4 +51,144 @@ section.sectors {
     top: -1px;
     left: 0;
     z-index: 3;
+}
+.sector-inner-wrapper {
+    width: 100%;
+    padding: 3rem 0;
+    position: relative;
+}
+.sector-inner-wrapper h3 {
+    font-weight: 100;
+    text-align: left;
+    padding-left: 15px;
+}
+.sector-menu-holder {
+    direction: rtl;
+    bottom: 0;
+    position: absolute;
+    width: 100%;
+}
+.sector-menu-holder ul {
+    text-align: left;
+    margin: 0;
+}
+.sector-menu-holder ul li {
+    position: relative;
+    padding: 10px 10px 10px 15px;
+    border-top: 1px solid rgba(255,255,255,0.3);
+    font-size: 14px;
+}
+.sector-menu-holder ul li a {
+    color: #fff;
+    display: block;
+}
+.sector-menu-holder ul li:before, .sector-menu ul li:after {
+    display: inline-block;
+    content: '';
+    border-radius: 50%;
+    background-color: #fff;
+    position: absolute;
+    -webkit-transition: -webkit-transform .5s;
+    transition: -webkit-transform .5s;
+    transition: transform .5s;
+    transition: transform .5s,-webkit-transform .5s;
+}
+.sector-menu-holder ul li:before {
+    width: 11px;
+    height: 11px;
+    -webkit-transform: scale(0.25);
+    -ms-transform: scale(0.25);
+    transform: scale(0.25);
+    top: 2px;
+    right: 20px;
+}
+.sector-menu-holder ul li:hover:before {
+    -webkit-transform: translateY(13px) scale(1);
+    -ms-transform: translateY(13px) scale(1);
+    transform: translateY(13px) scale(1);
+}
+.sector-menu-holder ul li:after {
+    width: 11px;
+    height: 11px;
+    -webkit-transform: scale(1);
+    -ms-transform: scale(1);
+    transform: scale(1);
+    top: 17px;
+    right: 20px;
+}
+.sector-menu-holder ul li:hover:after {
+    -webkit-transform: translateY(13px) scale(0.25);
+    -ms-transform: translateY(13px) scale(0.25);
+    transform: translateY(13px) scale(0.25);
+}
+.swiper-container .sector .sector-title {
+    width: 100%;
+    text-align: center;
+    position: relative;
+    z-index: 2;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+}
+.swiper-container .sector {
+    align-items:center;
+    position: relative;
+}
+.swiper-container .sector:hover {
+    cursor: pointer;
+}
+.sector-dot {
+    position: absolute;
+    bottom:2rem;
+    width: 100%;
+    z-index: 2;
+}
+.sector-dot span {
+    width: 10px;
+    height: 10px;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+    background-color: #151515;
+    display: block;
+    margin: 0 auto;
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+}
+.sector-title h4 {
+    text-decoration: none;
+    text-transform: uppercase;
+    font-weight: 900;
+    font-size: 18px;
+}
+.image-layer {
+    position: absolute;
+    height: 100%;
+    overflow: hidden;
+    z-index: 0;
+    transform: translateY(100%);
+    -webkit-transition: all 300ms;
+    -moz-transition: all 300ms;
+    -ms-transition: all 300ms;
+    -o-transition: all 300ms;
+    transition: all 300ms;
+}
+.sector:hover .image-layer {
+    -webkit-transform: translateY(0);
+    -moz-transform: translateY(0);
+    -ms-transform: translateY(0);
+    -o-transform: translateY(0);
+    transform: translateY(0);
+}
+.swiper-container .sector:hover .sector-title {
+    color: #fff;
+}
+.swiper-container .sector:hover .sector-dot span {
+    background: #fff;
+    zoom: 1.5;
 }
