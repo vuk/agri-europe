@@ -29,4 +29,14 @@ export class ConfigService {
   getConfig(): Array<String> {
     return this.config;
   }
+  
+  getSectors(): Observable<any> {
+    return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=sector&order=asc&orderby=menu_order')
+      .map((res: Response) => res.json());
+  }
+  
+  getMenu (menu): Observable<any> {
+    return this.http.get(this.apiUrl + 'wp-json/mk/menu/?menu=' + menu)
+      .map((res: Response) => res.json());
+  }
 }

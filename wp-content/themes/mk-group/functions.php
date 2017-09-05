@@ -1,5 +1,5 @@
 <?php
-
+add_theme_support('menus');
 if ( !function_exists( 'of_get_option' ) ) {
 	/**
 	 * @desc Get single option

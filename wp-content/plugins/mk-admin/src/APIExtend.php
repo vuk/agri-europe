@@ -33,6 +33,31 @@ class APIExtend {
 		} );
 	}
 
+	public function getMenu ($data) {
+		$params = $data->get_params();
+		$items = wp_get_nav_menu_items($params['menu']);
+		foreach ($items as $key => $item) {
+			if ($item->object == 'category') {
+				$segments = explode('/', $item->url);
+				$items[$key]->permalink = '/category/' . $segments[sizeof($segments) - 2];
+			}
+			if ($item->object == 'page') {
+				$post = get_post(intval($item->object_id));
+				$items[$key]->permalink = '/page/' . $post->post_name;
+			}
+		}
+		return $items;
+	}
+
+	public function addMenuEndpoint () {
+		add_action( 'rest_api_init', function () {
+			register_rest_route( 'mk', '/menu/', array(
+				'methods' => \WP_REST_Server::READABLE,
+				'callback' => array($this, 'getMenu'),
+			) );
+		} );
+	}
+
 	public function ofGetOption($name, $default = false) {
 
 		$optionsframework_settings = get_option('optionsframework');
@@ -82,23 +107,44 @@ class APIExtend {
 
 	public function getPostType ($data) {
 		$parameters = $data->get_params();
-		$slideQuery = new \WP_Query([
-			'post_type' => $parameters['post_type'],
-			'tax_query' => array(
+		$args = [
+			'post_type' => $parameters['post_type']
+		];
+		if (isset($parameters['category'])) {
+			$args['tax_query'] = array(
 				array (
 					'taxonomy' => 'slide_category',
 					'field' => 'id',
 					'terms' => $parameters['category'],
 				)
-			),
-		]);
+			);
+		}
+		if (isset($parameters['order'])) {
+			if ($parameters['order'] == 'asc') {
+				$args['order'] = 'asc';
+			} else {
+				$args['order'] = 'desc';
+			}
+		}
+		if (isset($parameters['orderby'])) {
+			$args['orderby'] = $parameters['orderby'];
+		}
+		$slideQuery = new \WP_Query($args);
 		$slides = $slideQuery->get_posts();
 		$processedSlides = [];
-		foreach ( $slides as $key => $slide ) {
-			$slide->mp4_video_url = get_field('mp4_video_url', $slide->ID);
-			$slide->webm_video_url = get_field('webm_video_url', $slide->ID);
-			$slide->video_poster = get_field('video_poster', $slide->ID);
-			array_push($processedSlides, $slide);
+		if ($parameters['post_type'] == 'slide') {
+			foreach ( $slides as $key => $slide ) {
+				$slide->mp4_video_url = get_field('mp4_video_url', $slide->ID);
+				$slide->webm_video_url = get_field('webm_video_url', $slide->ID);
+				$slide->video_poster = get_field('video_poster', $slide->ID);
+				array_push($processedSlides, $slide);
+			}
+		}
+		if ($parameters['post_type'] == 'sector') {
+			foreach ( $slides as $key => $slide ) {
+				$slide->background = get_field('background_image', $slide->ID);
+				array_push($processedSlides, $slide);
+			}
 		}
 		return [
 			'slides' => $processedSlides

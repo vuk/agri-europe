@@ -33,6 +33,7 @@ class Mk {
 		$this->rest->addOptionsEndpoint();
 		$this->rest->addOptionEndpoint();
 		$this->rest->addSlideEndpoint();
+		$this->rest->addMenuEndpoint();
 	}
 
 	public function hookCompanies () {
