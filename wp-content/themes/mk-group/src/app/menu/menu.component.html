@@ -1,6 +1,11 @@
-<div class="row menu-bar">
+<div class="row menu-bar" (darkLogo)="onLogoChange($event)">
   <div class="columns large-6 small-12">
-    <span class="logo-small"><a routerLink="/"><img src="assets/img/logo-white.png" alt="Agri Europe"></a></span>
+    <span class="logo-small">
+      <a routerLink="/">
+        <img *ngIf="!darkLogo" [src]="lightLogoUrl" alt="Agri Europe">
+        <img *ngIf="darkLogo" [src]="darkLogoUrl" alt="Agri Europe">
+      </a>
+    </span>
   </div>
   <div class="columns large-6 small-12">
     <span class="trigger"><a (click)="showMenu()">Menu <i class="fa fa-bars" aria-hidden="true"></i></a></span>

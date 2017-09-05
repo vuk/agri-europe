@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ConfigService} from "../services/config.service";
 import {
   trigger,
@@ -35,11 +35,16 @@ export class HomeComponent implements OnInit {
   mp4Video: String = '';
   videoPoster: String = '';
   state: String = 'inactive';
+  @Output()
+  darkLogo: EventEmitter<boolean> = new EventEmitter<boolean>();
   
   constructor(private configService: ConfigService) {
   }
   
   ngOnInit() {
+    setTimeout(() => {
+      this.darkLogo.emit(false);
+    }, 1000);
     this.config = this.configService.getConfig();
     this.webmVideo = this.config['home_webm'];
     this.mp4Video = this.config['home_mp4'];

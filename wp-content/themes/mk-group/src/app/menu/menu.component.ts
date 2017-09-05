@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
-import * as jQuery  from "jquery";
+import * as jQuery from "jquery";
+import {ConfigService} from "../services/config.service";
 
 @Component({
   selector: 'app-menu',
@@ -9,9 +10,18 @@ import * as jQuery  from "jquery";
 })
 export class MenuComponent implements OnInit {
   
-  constructor(private router: Router) { }
-
+  constructor(private router: Router, private config: ConfigService) {
+  }
+  
+  darkLogo: boolean = true;
+  configuration: any;
+  darkLogoUrl: string;
+  lightLogoUrl: string;
+  
   ngOnInit() {
+    this.configuration = this.config.getConfig();
+    this.darkLogoUrl = this.configuration['dark_logo'];
+    this.lightLogoUrl = this.configuration['light_logo'];
   }
   
   showMenu() {
@@ -25,5 +35,9 @@ export class MenuComponent implements OnInit {
       $menu.removeClass('white-bg');
     }, 300);
   }
-
+  
+  onLogoChange(dark: boolean) {
+    this.darkLogo = dark;
+  }
+  
 }

@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import * as jQuery from 'jquery';
 import 'rxjs/add/operator/map';
 import {ConfigService} from "../services/config.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-sectors-component',
@@ -10,14 +11,17 @@ import {ConfigService} from "../services/config.service";
 })
 export class SectorsComponent implements OnInit {
 
-  constructor(private config: ConfigService) { }
+  constructor(private config: ConfigService, private router: Router) { }
   
   sectors: any;
+  @Output()
+  darkLogo: EventEmitter<boolean> = new EventEmitter<boolean>();
   menuItems: any;
   loaded: boolean = false;
   menuLoaded: boolean = false;
 
   ngOnInit() {
+    this.darkLogo.emit(true);
     this.config.getSectors()
       .subscribe((response) => {
         this.sectors = response.slides;
@@ -34,6 +38,7 @@ export class SectorsComponent implements OnInit {
   
   openSector(sector: any) {
     console.log(sector);
+    this.router.navigate(['/sector/' + sector.post_name])
   }
 
 }

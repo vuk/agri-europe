@@ -111,6 +111,20 @@ function optionsframework_options() {
 	);
 
 	$options[] = array(
+		'name' => __( 'Dark Logo', 'agrieurope' ),
+		'desc' => __( 'Dark logo for display on light background.', 'agrieurope' ),
+		'id' => 'dark_logo',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
+		'name' => __( 'Light Logo', 'agrieurope' ),
+		'desc' => __( 'Light logo for display on dark background.', 'agrieurope' ),
+		'id' => 'light_logo',
+		'type' => 'upload'
+	);
+
+	$options[] = array(
 		'name' => __( 'Company Info Settings', 'agrieurope' ),
 		'type' => 'heading'
 	);
