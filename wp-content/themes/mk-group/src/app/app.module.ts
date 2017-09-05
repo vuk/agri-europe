@@ -19,6 +19,7 @@ import { SectorsComponent } from './sectors/sectors.component';
 import { SingleSectorComponent } from './single-sector/single-sector.component';
 import { CompaniesComponent } from './companies/companies.component';
 import { CompanyComponent } from './company/company.component';
+import { FooterComponent } from './minor-components/footer/footer.component';
 
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -38,7 +39,8 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     SectorsComponent,
     SingleSectorComponent,
     CompaniesComponent,
-    CompanyComponent
+    CompanyComponent,
+    FooterComponent
   ],
   imports: [
     BrowserModule,

@@ -110,6 +110,36 @@ function optionsframework_options() {
 		'type' => 'heading'
 	);
 
+	$options[] = array(
+		'name' => __( 'Company Info Settings', 'agrieurope' ),
+		'type' => 'heading'
+	);
+
+	$options[] = array(
+		'name' => __( 'Company Name', 'agrieurope' ),
+		'desc' => __( 'Full name of company', 'agrieurope' ),
+		'id' => 'company_name',
+		'type' => 'text'
+	);
+
+	$options[] = array(
+		'name' => __( 'Office', 'agrieurope' ),
+		'id' => 'office',
+		'type' => 'text'
+	);
+
+	$options[] = array(
+		'name' => __( 'Address', 'agrieurope' ),
+		'id' => 'office_address',
+		'type' => 'text'
+	);
+
+	$options[] = array(
+		'name' => __( 'City/County', 'agrieurope' ),
+		'id' => 'office_city',
+		'type' => 'text'
+	);
+
 	/*$options[] = array(
 		'name' => __( 'Input Text Mini', 'agrieurope' ),
 		'desc' => __( 'A mini text input field.', 'agrieurope' ),
@@ -213,11 +243,6 @@ function optionsframework_options() {
 		'type' => 'checkbox'
 	);*/
 
-	$options[] = array(
-		'name' => __( 'Advanced Settings', 'agrieurope' ),
-		'type' => 'heading'
-	);
-
 	/*$options[] = array(
 		'name' => __( 'Check to Show a Hidden Text Input', 'agrieurope' ),
 		'desc' => __( 'Click here and see what happens.', 'agrieurope' ),
@@ -294,11 +319,6 @@ function optionsframework_options() {
 		'type' => 'typography',
 		'options' => $typography_options
 	);*/
-
-	$options[] = array(
-		'name' => __( 'Text Editor', 'agrieurope' ),
-		'type' => 'heading'
-	);
 
 	/**
 	 * For $settings options see:
