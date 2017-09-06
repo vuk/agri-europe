@@ -3,6 +3,7 @@ import * as jQuery from 'jquery';
 import 'rxjs/add/operator/map';
 import {ConfigService} from "../services/config.service";
 import {Router} from "@angular/router";
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-sectors-component',
@@ -11,7 +12,7 @@ import {Router} from "@angular/router";
 })
 export class SectorsComponent implements OnInit {
 
-  constructor(private config: ConfigService, private router: Router) { }
+  constructor(private config: ConfigService, private router: Router, private titleService: Title) { }
   
   sectors: any;
   @Output()
@@ -21,7 +22,8 @@ export class SectorsComponent implements OnInit {
   menuLoaded: boolean = false;
 
   ngOnInit() {
-    this.darkLogo.emit(true);
+    this.config.setDarkLogo(true);
+    this.titleService.setTitle('Agri Europe | Sectors');
     this.config.getSectors()
       .subscribe((response) => {
         this.sectors = response.slides;

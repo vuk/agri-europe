@@ -8,6 +8,7 @@ import {
   transition
 } from '@angular/animations';
 import * as jQuery from 'jquery';
+import {Title} from "@angular/platform-browser";
 
 @Component({
   selector: 'app-home',
@@ -35,16 +36,13 @@ export class HomeComponent implements OnInit {
   mp4Video: String = '';
   videoPoster: String = '';
   state: String = 'inactive';
-  @Output()
-  darkLogo: EventEmitter<boolean> = new EventEmitter<boolean>();
   
-  constructor(private configService: ConfigService) {
+  constructor(private configService: ConfigService, private titleService: Title) {
   }
   
   ngOnInit() {
-    setTimeout(() => {
-      this.darkLogo.emit(false);
-    }, 1000);
+    this.titleService.setTitle('Agri Europe | Home Page');
+    this.configService.setDarkLogo(false);
     this.config = this.configService.getConfig();
     this.webmVideo = this.config['home_webm'];
     this.mp4Video = this.config['home_mp4'];

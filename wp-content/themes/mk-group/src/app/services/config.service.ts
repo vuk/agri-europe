@@ -3,12 +3,16 @@ import {Http, Response} from "@angular/http";
 import {Injectable} from "@angular/core";
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
+import {Subject} from "rxjs/Subject";
 
 @Injectable()
 export class ConfigService {
   
   config: Array<string>;
   apiUrl: string = 'http://localhost/agri-backend/';
+  
+  darkLogo = false;
+  darkLogoChange: Subject<boolean> = new Subject<boolean>();
   
   constructor(private http: Http) {
   }
@@ -38,5 +42,14 @@ export class ConfigService {
   getMenu (menu): Observable<any> {
     return this.http.get(this.apiUrl + 'wp-json/mk/menu/?menu=' + menu)
       .map((res: Response) => res.json());
+  }
+  
+  setDarkLogo (darkLogo: boolean) {
+    this.darkLogo = darkLogo;
+    this.darkLogoChange.next(this.darkLogo);
+  }
+  
+  getDarkLogo (): boolean {
+    return this.darkLogo;
   }
 }

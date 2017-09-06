@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Router} from "@angular/router";
 import * as jQuery from "jquery";
 import {ConfigService} from "../services/config.service";
@@ -8,12 +8,18 @@ import {ConfigService} from "../services/config.service";
   templateUrl: './menu.component.html',
   styleUrls: ['./menu.component.css']
 })
-export class MenuComponent implements OnInit {
+export class MenuComponent implements OnInit, OnDestroy {
+  
+  _subscription;
   
   constructor(private router: Router, private config: ConfigService) {
+    this.darkLogo = config.darkLogo;
+    this._subscription = config.darkLogoChange.subscribe((value) => {
+      this.darkLogo = value;
+    });
   }
-  
-  darkLogo: boolean = true;
+
+  darkLogo: boolean;
   configuration: any;
   darkLogoUrl: string;
   lightLogoUrl: string;
@@ -36,8 +42,9 @@ export class MenuComponent implements OnInit {
     }, 300);
   }
   
-  onLogoChange(dark: boolean) {
-    this.darkLogo = dark;
+  ngOnDestroy() {
+    //prevent memory leak when component destroyed
+    this._subscription.unsubscribe();
   }
   
 }
