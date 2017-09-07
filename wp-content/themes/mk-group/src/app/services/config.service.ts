@@ -52,4 +52,10 @@ export class ConfigService {
   getDarkLogo (): boolean {
     return this.darkLogo;
   }
+  
+  getPost (type: string, name?: string, id?: number): any {
+    let params = name ? '&name=' + name : '&p=' + id;
+    return this.http.get(this.apiUrl + 'wp-json/mk/single_post?post_type=' + type + params)
+      .map((res: Response) => res.json());
+  }
 }

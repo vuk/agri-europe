@@ -40,7 +40,7 @@ export class SectorsComponent implements OnInit {
   
   openSector(sector: any) {
     console.log(sector);
-    this.router.navigate(['/sectors/' + sector.post_name])
+    this.router.navigate(['/sectors/', sector.post_name])
   }
 
 }
