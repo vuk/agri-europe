@@ -143,6 +143,10 @@ class APIExtend {
 		if ($parameters['post_type'] == 'sector') {
 			foreach ( $slides as $key => $slide ) {
 				$slide->background = get_field('background_image', $slide->ID);
+				$slide->company_category_to_display = get_field('company_category_to_display', $slide->ID);
+				$slide->links_to = get_field('links_to', $slide->ID);
+				$slide->background_video_mp4 = get_field('background_video_mp4', $slide->ID);
+				$slide->background_video_webm = get_field('background_video_webm', $slide->ID);
 				array_push($processedSlides, $slide);
 			}
 		}

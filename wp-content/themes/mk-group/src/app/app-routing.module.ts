@@ -11,7 +11,7 @@ import {CompanyComponent} from "./company/company.component";
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'sectors', component: SectorsComponent},
-  {path: 'sector/:slug', component: SectorComponent},
+  {path: 'sectors/:slug', component: SectorComponent},
   {path: 'page/:slug', component: PageComponent},
   {path: 'category/:slug', component: CategoryComponent},
   {path: 'company/:slug', component: CompanyComponent},
