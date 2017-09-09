@@ -18,3 +18,12 @@
     </div>
     <app-footer></app-footer>
 </section>
+<section class="video-sector" *ngIf="linksTo === 'video_page'">
+    <app-grid-decoration></app-grid-decoration>
+    <div class="agrieurope-sector">
+        <video playsinline autoplay muted loop>
+            <source [src]="sector.background_video_webm" type="video/webm">
+            <source [src]="sector.background_video_mp4" type="video/mp4">
+        </video>
+    </div>
+</section>

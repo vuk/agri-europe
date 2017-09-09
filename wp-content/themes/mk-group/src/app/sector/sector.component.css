@@ -10,3 +10,16 @@ section.sector .companies-wrapper .single-company:hover {
 section.sector .companies-wrapper .single-company .logo-container {
     padding: 3rem 1rem;
 }
+section.video-sector {
+    display: flex;
+    width: 100%;
+    height: 100%;
+}
+section.video-sector video {
+    width: 100%;
+}
+section.video-sector .agrieurope-sector {
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}

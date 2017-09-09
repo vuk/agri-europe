@@ -15,25 +15,28 @@ export class SectorComponent implements OnInit {
   slug: string;
   linksTo: string;
   companies: any;
+  sector: any;
   
   constructor(private route: ActivatedRoute, private configService: ConfigService, private router: Router, private titleService: Title) {
   }
   
   ngOnInit() {
-    let $menu = jQuery('.menu-bar');
-    $menu.addClass('white-bg');
     this.params = this.route.params.subscribe(params => {
       this.slug = params['slug'];
-      this.configService.setDarkLogo(true);
       this.configService.getPost('sector', this.slug)
         .subscribe((response) => {
             this.titleService.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
+            this.sector = response;
             this.linksTo = response.links_to;
             if (this.linksTo === 'company_list') {
               this.configService.getCompanies(response.company_category_to_display.term_id)
                 .subscribe((companies) => {
                   this.companies = companies.slides;
                 });
+            } else {
+              this.configService.setDarkLogo(false);
+              let $menu = jQuery('.menu-bar');
+              $menu.removeClass('white-bg');
             }
           },
           (err) => {
@@ -51,7 +54,6 @@ export class SectorComponent implements OnInit {
   }
   
   loadCompany(company: any) {
-    console.log(company);
     this.router.navigate(['company', company.post_name]);
   }
   
