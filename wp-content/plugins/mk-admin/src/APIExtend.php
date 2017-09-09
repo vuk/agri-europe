@@ -154,11 +154,11 @@ class APIExtend {
 			}
 		}
 		if ( $parameters['post_type'] == 'company' ) {
-			foreach ($slides as $key => $slide) {
-				$slide->mp4 = get_field('video', $slide->ID);
-				$slide->webm = get_field('video_webm', $slide->ID);
-				$slide->logo_grey = get_field('logo_grey', $slide->ID);
-				$slide->logo_color = get_field('logo_color', $slide->ID);
+			foreach ( $slides as $key => $slide ) {
+				$slide->mp4        = get_field( 'video', $slide->ID );
+				$slide->webm       = get_field( 'video_webm', $slide->ID );
+				$slide->logo_grey  = get_field( 'logo_grey', $slide->ID );
+				$slide->logo_color = get_field( 'logo_color', $slide->ID );
 				array_push( $processedSlides, $slide );
 			}
 		}
@@ -180,14 +180,13 @@ class APIExtend {
 		if ( isset( $parameters['name'] ) ) {
 			$args['name'] = $parameters['name'];
 		}
-		$slideQuery      = new \WP_Query( $args );
-		$slides          = $slideQuery->get_posts();
+		$slideQuery = new \WP_Query( $args );
+		$slides     = $slideQuery->get_posts();
 		foreach ( $slides as $key => $slide ) {
 			if ( $parameters['post_type'] == 'slide' ) {
 				$slide->mp4_video_url  = get_field( 'mp4_video_url', $slide->ID );
 				$slide->webm_video_url = get_field( 'webm_video_url', $slide->ID );
 				$slide->video_poster   = get_field( 'video_poster', $slide->ID );
-				array_push( $processedSlides, $slide );
 			}
 			if ( $parameters['post_type'] == 'sector' ) {
 				$slide->background                  = get_field( 'background_image', $slide->ID );
@@ -195,8 +194,16 @@ class APIExtend {
 				$slide->links_to                    = get_field( 'links_to', $slide->ID );
 				$slide->background_video_mp4        = get_field( 'background_video_mp4', $slide->ID );
 				$slide->background_video_webm       = get_field( 'background_video_webm', $slide->ID );
-				array_push( $processedSlides, $slide );
+				$slide->video_poster                = get_field( 'video_poster', $slide->ID );
 			}
+			if ( $parameters['post_type'] == 'company' ) {
+				$slide->mp4          = get_field( 'video', $slide->ID );
+				$slide->webm         = get_field( 'video_webm', $slide->ID );
+				$slide->logo_grey    = get_field( 'logo_grey', $slide->ID );
+				$slide->logo_color   = get_field( 'logo_color', $slide->ID );
+				$slide->video_poster = get_field( 'video_poster', $slide->ID );
+			}
+
 			return $slide;
 		}
 	}
