@@ -113,7 +113,7 @@ class APIExtend {
 		$args       = [
 			'post_type' => $parameters['post_type']
 		];
-		if ( isset( $parameters['category'] ) ) {
+		if ( isset( $parameters['category']) && $parameters['post_type'] != 'post' ) {
 			$args['tax_query'] = array(
 				array(
 					'taxonomy' => $parameters['taxonomy'],
@@ -121,6 +121,9 @@ class APIExtend {
 					'terms'    => $parameters['category'],
 				)
 			);
+		}
+		if ( isset( $parameters['category']) && $parameters['post_type'] == 'post') {
+			$args['cat'] = $parameters['category'];
 		}
 		if ( isset( $parameters['order'] ) ) {
 			if ( $parameters['order'] == 'asc' ) {
@@ -159,6 +162,13 @@ class APIExtend {
 				$slide->webm       = get_field( 'video_webm', $slide->ID );
 				$slide->logo_grey  = get_field( 'logo_grey', $slide->ID );
 				$slide->logo_color = get_field( 'logo_color', $slide->ID );
+				array_push( $processedSlides, $slide );
+			}
+		}
+
+		if ( $parameters['post_type'] == 'post' ) {
+			foreach ( $slides as $key => $slide ) {
+				$slide->featured_image = get_the_post_thumbnail_url($slide->ID, 'full');
 				array_push( $processedSlides, $slide );
 			}
 		}

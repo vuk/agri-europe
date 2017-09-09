@@ -13,6 +13,7 @@ const appRoutes: Routes = [
   {path: 'sectors', component: SectorsComponent},
   {path: 'sectors/:slug', component: SectorComponent},
   {path: 'page/:slug', component: PageComponent},
+  {path: 'category', component: CategoryComponent},
   {path: 'category/:slug', component: CategoryComponent},
   {path: 'company/:slug', component: CompanyComponent},
   {path: '**', redirectTo: '/', pathMatch: 'full'}

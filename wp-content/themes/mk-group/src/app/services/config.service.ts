@@ -44,6 +44,11 @@ export class ConfigService {
       .map((res: Response) => res.json());
   }
   
+  getNews (category?: number): Observable<any> {
+    return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=post&category=' + category )
+      .map((res: Response) => res.json());
+  }
+  
   getMenu (menu): Observable<any> {
     return this.http.get(this.apiUrl + 'wp-json/mk/menu/?menu=' + menu)
       .map((res: Response) => res.json());

@@ -1,3 +1,32 @@
-<p>
-  category works!
-</p>
+<section class="sectors" *ngIf="loaded">
+  <div class="row">
+    <div class="columns large-12 small-12">
+      <div class="sectors-inner">
+        <div class="sector sector-menu">
+          <div class="sector-inner-wrapper">
+            <h3>News</h3>
+            <div class="sector-menu-holder" *ngIf="menuLoaded">
+              <ul>
+                <li *ngFor="let item of menuItems"><a [routerLink]="item.permalink">{{ item.title }}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="swiper-container">
+          <div class="sector" *ngFor="let sector of sectors" (click)="openSector(sector)">
+            <div class="sector-title">
+              <h4>{{sector.post_title}}</h4>
+            </div>
+            <div class="sector-dot">
+              <span></span>
+            </div>
+            <div class="image-layer">
+              <img [src]="sector.background" alt="">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</section>

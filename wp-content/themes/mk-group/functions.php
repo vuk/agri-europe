@@ -1,5 +1,6 @@
 <?php
 add_theme_support('menus');
+add_theme_support( 'post-thumbnails' );
 if ( !function_exists( 'of_get_option' ) ) {
 	/**
 	 * @desc Get single option
