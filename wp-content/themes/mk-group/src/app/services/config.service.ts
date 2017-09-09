@@ -10,7 +10,7 @@ export class ConfigService {
   
   config: Array<string>;
   apiUrl: string = 'http://localhost/agri-backend/';
-  
+  siteTitle: string = 'Agri Europe';
   darkLogo = false;
   darkLogoChange: Subject<boolean> = new Subject<boolean>();
   
@@ -23,7 +23,7 @@ export class ConfigService {
         this.config = res.json().value;
         return this.config;
       })
-      .flatMap(() => this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=slide&category=2'))
+      .flatMap(() => this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=slide&category=2&taxonomy=slide_category'))
       .map((res: Response) => {
         this.config['homeHero'] = res.json();
         return this.config;
@@ -36,6 +36,11 @@ export class ConfigService {
   
   getSectors(): Observable<any> {
     return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=sector&order=asc&orderby=menu_order')
+      .map((res: Response) => res.json());
+  }
+  
+  getCompanies(category: number): Observable<any> {
+    return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=company&category=' + category + '&taxonomy=company_category')
       .map((res: Response) => res.json());
   }
   

@@ -1,0 +1,12 @@
+section.sector {
+    padding-top: 10rem;
+}
+section.sector .companies-wrapper .single-company {
+    text-align: center;
+}
+section.sector .companies-wrapper .single-company:hover {
+    cursor: pointer;
+}
+section.sector .companies-wrapper .single-company .logo-container {
+    padding: 3rem 1rem;
+}

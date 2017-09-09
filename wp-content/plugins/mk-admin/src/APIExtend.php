@@ -116,7 +116,7 @@ class APIExtend {
 		if ( isset( $parameters['category'] ) ) {
 			$args['tax_query'] = array(
 				array(
-					'taxonomy' => 'slide_category',
+					'taxonomy' => $parameters['taxonomy'],
 					'field'    => 'id',
 					'terms'    => $parameters['category'],
 				)
@@ -150,6 +150,15 @@ class APIExtend {
 				$slide->links_to                    = get_field( 'links_to', $slide->ID );
 				$slide->background_video_mp4        = get_field( 'background_video_mp4', $slide->ID );
 				$slide->background_video_webm       = get_field( 'background_video_webm', $slide->ID );
+				array_push( $processedSlides, $slide );
+			}
+		}
+		if ( $parameters['post_type'] == 'company' ) {
+			foreach ($slides as $key => $slide) {
+				$slide->mp4 = get_field('video', $slide->ID);
+				$slide->webm = get_field('video_webm', $slide->ID);
+				$slide->logo_grey = get_field('logo_grey', $slide->ID);
+				$slide->logo_color = get_field('logo_color', $slide->ID);
 				array_push( $processedSlides, $slide );
 			}
 		}

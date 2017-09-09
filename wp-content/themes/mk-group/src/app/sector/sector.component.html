@@ -1,3 +1,20 @@
-<p>
-  sector works!
-</p>
+<section class="sector" *ngIf="linksTo === 'company_list'">
+    <div class="row">
+        <div class="companies-wrapper">
+            <div
+                    (click)="loadCompany(company)"
+                    *ngFor="let company of companies"
+                    (mouseout)="mouseOut(imgRef, company.logo_grey)"
+                    (mouseover)="mouseOver(imgRef, company.logo_color)"
+                    class="single-company columns large-4 small-12 medium-6">
+                <div class="logo-container">
+                    <img #imgRef
+                            [src]="company.logo_grey"
+                            [title]="company.post_title"
+                            [alt]="company.post_title"/>
+                </div>
+            </div>
+        </div>
+    </div>
+    <app-footer></app-footer>
+</section>

@@ -41,7 +41,7 @@ export class HomeComponent implements OnInit {
   }
   
   ngOnInit() {
-    this.titleService.setTitle('Agri Europe | Home Page');
+    this.titleService.setTitle(this.configService.siteTitle + ' | Home Page');
     this.configService.setDarkLogo(false);
     this.config = this.configService.getConfig();
     this.webmVideo = this.config['home_webm'];

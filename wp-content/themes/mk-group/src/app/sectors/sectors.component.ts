@@ -23,7 +23,7 @@ export class SectorsComponent implements OnInit {
 
   ngOnInit() {
     this.config.setDarkLogo(true);
-    this.titleService.setTitle('Agri Europe | Sectors');
+    this.titleService.setTitle('Sectors | ' + this.config.siteTitle);
     this.config.getSectors()
       .subscribe((response) => {
         this.sectors = response.slides;
