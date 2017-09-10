@@ -44,8 +44,15 @@ export class ConfigService {
       .map((res: Response) => res.json());
   }
   
-  getNews (category?: number): Observable<any> {
-    return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=post&category=' + category )
+  getNews (category?: any, perPage?: number, page?: number): Observable<any> {
+    let query: string = '';
+    if (category) {
+      query += '&category=' + category;
+    }
+    if (perPage) {
+      query += '&per_page=' + perPage + '&page=' + page;
+    }
+    return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=post' + query )
       .map((res: Response) => res.json());
   }
   

@@ -23,6 +23,7 @@ import { FooterComponent } from './minor-components/footer/footer.component';
 import { SectorComponent } from './sector/sector.component';
 import { PageComponent } from './page/page.component';
 import { CategoryComponent } from './category/category.component';
+import { ArticleComponent } from './article/article.component';
 
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -46,7 +47,8 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     FooterComponent,
     SectorComponent,
     PageComponent,
-    CategoryComponent
+    CategoryComponent,
+    ArticleComponent
   ],
   imports: [
     BrowserModule,

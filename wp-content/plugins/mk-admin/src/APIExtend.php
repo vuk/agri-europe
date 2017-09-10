@@ -135,6 +135,10 @@ class APIExtend {
 		if ( isset( $parameters['orderby'] ) ) {
 			$args['orderby'] = $parameters['orderby'];
 		}
+		if (isset($parameters['per_page'])) {
+			$args['posts_per_page'] = $parameters['per_page'];
+			$args['paged'] = $parameters['page'];
+		}
 		$slideQuery      = new \WP_Query( $args );
 		$slides          = $slideQuery->get_posts();
 		$processedSlides = [];
@@ -174,7 +178,8 @@ class APIExtend {
 		}
 
 		return [
-			'slides' => $processedSlides
+			'slides' => $processedSlides,
+			'page_count'  => $slideQuery->max_num_pages
 		];
 	}
 

@@ -1,10 +1,14 @@
 <section class="sectors" *ngIf="loaded">
   <div class="row">
     <div class="columns large-12 small-12">
-      <div class="sectors-inner">
+      <div class="sectors-inner" (mouseout)="deactivatePreview()">
         <div class="sector sector-menu">
           <div class="sector-inner-wrapper">
             <h3>News</h3>
+            <ul class="pagination">
+              <li *ngIf="page > 1" (click)="previousPage()" class="previous-wrap"><span class="previous"></span></li>
+              <li *ngIf="page < maxPages" (click)="nextPage()" class="next-wrap"><span class="next"></span></li>
+            </ul>
             <div class="sector-menu-holder" *ngIf="menuLoaded">
               <ul>
                 <li *ngFor="let item of menuItems"><a [routerLink]="item.permalink">{{ item.title }}</a></li>
@@ -13,15 +17,37 @@
           </div>
         </div>
         <div class="swiper-container">
-          <div class="sector" *ngFor="let sector of sectors" (click)="openSector(sector)">
-            <div class="sector-title">
-              <h4>{{sector.post_title}}</h4>
+          <div class="curtain-container">
+            <div class="sector-curtain-wrapper">
+              <div class="sector-curtain">
+              </div>
             </div>
-            <div class="sector-dot">
-              <span></span>
+            <div class="sector-curtain-wrapper">
+              <div class="sector-curtain">
+              </div>
             </div>
-            <div class="image-layer">
-              <img [src]="sector.background" alt="">
+            <div class="sector-curtain-wrapper">
+              <div class="sector-curtain">
+              </div>
+            </div>
+            <div class="sector-curtain-wrapper">
+              <div class="sector-curtain">
+              </div>
+            </div>
+          </div>
+          <div class="sector"
+                  *ngFor="let article of news" (click)="openArticle(article)">
+            <div class="sector-inner">
+              <div class="sector-title">
+                <h4>{{article.post_title}}</h4>
+              </div>
+            </div>
+            <div class="sector-inner-alt">
+              <div class="sector-title">
+                <h4>{{article.post_title}}</h4>
+              </div>
+              <img [src]="article.featured_image" [alt]="article.post_title">
+              {{article.post_content}}
             </div>
           </div>
         </div>

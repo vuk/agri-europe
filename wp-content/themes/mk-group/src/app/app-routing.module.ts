@@ -7,6 +7,7 @@ import {SectorComponent} from "./sector/sector.component";
 import {PageComponent} from "./page/page.component";
 import {CategoryComponent} from "./category/category.component";
 import {CompanyComponent} from "./company/company.component";
+import {ArticleComponent} from "./article/article.component";
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
   {path: 'category', component: CategoryComponent},
   {path: 'category/:slug', component: CategoryComponent},
   {path: 'company/:slug', component: CompanyComponent},
+  {path: 'article/:slug', component: ArticleComponent},
   {path: '**', redirectTo: '/', pathMatch: 'full'}
 ];
 
