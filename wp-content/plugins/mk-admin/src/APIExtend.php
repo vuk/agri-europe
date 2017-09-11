@@ -123,7 +123,7 @@ class APIExtend {
 			);
 		}
 		if ( isset( $parameters['category']) && $parameters['post_type'] == 'post') {
-			$args['cat'] = $parameters['category'];
+			$args['category_name'] = $parameters['category'];
 		}
 		if ( isset( $parameters['order'] ) ) {
 			if ( $parameters['order'] == 'asc' ) {

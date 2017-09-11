@@ -24,7 +24,6 @@ section.sectors > .row .columns {
 .sector {
     display: flex;
     width: 25%;
-    background: #fff;
     color: #151515;
     border-top: 1px solid #f1f1f1;
     border-right: 1px solid #f1f1f1;
@@ -356,4 +355,14 @@ section.sectors > .row .columns {
     -ms-transform: translateX(0);
     -o-transform: translateX(0);
     transform: translateX(0);
+}
+.news-menu li {
+    list-style: none;
+    font-weight: 700;
+}
+.news-menu li a {
+    color: #fff;
+}
+.news-menu li a.active, .news-menu li a:hover {
+    color: #86c25a;
 }

@@ -25,13 +25,13 @@ export class CompanyComponent implements OnInit {
       this.slug = params['slug'];
       this.configService.getPost('company', this.slug)
         .subscribe(response => {
+          this.company = response;
           this.titleService.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
           this.meta.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
           this.meta.setTag('og:image', this.company.video_poster);
           this.meta.setTag('og:description', this.company.post_content.substr(0, 100));
           this.meta.setTag('og:url', window.location.href);
           this.meta.setTag('og:type', 'website');
-          this.company = response;
         })
     });
   }

@@ -26,6 +26,8 @@ export class ArticleComponent implements OnInit {
   loaded: boolean = false;
   menuItems: any;
   menuLoaded: boolean = false;
+  articleHtml: string;
+  newsItems: any;
   
   ngOnInit() {
     this.config.setDarkLogo(true);
@@ -40,6 +42,7 @@ export class ArticleComponent implements OnInit {
           this.meta.setTag('og:url', window.location.href);
           this.meta.setTag('og:type', 'website');
           this.titleService.setTitle(this.article.post_title + ' | ' + this.config.siteTitle);
+          this.articleHtml = "<img class='postimage' src='" + this.article.featured_image + "'" + this.article.post_content_formatted;
           this.loaded = true;
         });
     });
@@ -47,6 +50,11 @@ export class ArticleComponent implements OnInit {
       .subscribe((response) => {
         this.menuItems = response;
         this.menuLoaded = true;
+      });
+    this.config.getMenu('news')
+      .subscribe((response) => {
+        this.newsItems = response;
+        console.log(this.newsItems);
       });
     let $menu = jQuery('.menu-bar');
     $menu.addClass('white-bg');

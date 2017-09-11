@@ -23,3 +23,6 @@ section.video-sector .agrieurope-sector {
     height: 100%;
     overflow: hidden;
 }
+.logo-container img {
+    max-height: 120px;
+}

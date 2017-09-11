@@ -24,7 +24,6 @@ section.sectors > .row .columns {
 .sector {
     display: flex;
     width: 25%;
-    background: #fff;
     color: #151515;
     border-top: 1px solid #f1f1f1;
     border-right: 1px solid #f1f1f1;

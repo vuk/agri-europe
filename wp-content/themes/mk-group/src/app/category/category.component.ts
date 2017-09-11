@@ -17,11 +17,13 @@ export class CategoryComponent implements OnInit {
   menuLoaded: boolean;
   news;
   loaded: boolean;
-  params;
+  params: any;
+  queryParams: any;
   page: number = 1;
   perPage: number = 4;
   maxPages: number = 1;
   slug: string;
+  newsItems: any;
   
   constructor(
     private activeRoute: ActivatedRoute,
@@ -40,7 +42,7 @@ export class CategoryComponent implements OnInit {
     this.meta.setTag('og:url', window.location.href);
     this.meta.setTag('og:type', 'website');
     this.params = this.activeRoute.params.subscribe(params => {
-      this.activeRoute.queryParams.subscribe(queryParams => {
+      this.queryParams = this.activeRoute.queryParams.subscribe(queryParams => {
         this.slug = params['slug'];
         if (queryParams['page']) {
           this.page = queryParams['page'];
@@ -57,6 +59,11 @@ export class CategoryComponent implements OnInit {
       .subscribe((response) => {
         this.menuItems = response;
         this.menuLoaded = true;
+      });
+    this.config.getMenu('news')
+      .subscribe((response) => {
+        this.newsItems = response;
+        console.log(this.newsItems);
       });
     let $menu = jQuery('.menu-bar');
     $menu.addClass('white-bg');
@@ -112,13 +119,9 @@ export class CategoryComponent implements OnInit {
     }
   }
   
-  activatePreview(article) {
-    jQuery('.sector-active').removeClass('activated');
-    jQuery('[data-id=' + article.ID + ']').addClass('activated');
-  }
-  
-  deactivatePreview(article) {
-    jQuery('.sector-active').removeClass('activated');
+  goCategory(permalink) {
+    this.router.navigateByUrl('/dummy', { skipLocationChange: true });
+    setTimeout(() => this.router.navigate([permalink]));
   }
   
   openArticle (article: any) {

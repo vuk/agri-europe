@@ -1,10 +1,15 @@
 <section class="sectors" *ngIf="loaded">
   <div class="row">
     <div class="columns large-12 small-12">
-      <div class="sectors-inner" (mouseout)="deactivatePreview()">
+      <div class="sectors-inner">
         <div class="sector sector-menu">
           <div class="sector-inner-wrapper">
             <h3>News</h3>
+            <div class="news-menu">
+              <ul>
+                <li *ngFor="let item of newsItems"><a [routerLink]="item.permalink" routerLinkActive="active">{{ item.title }}</a></li>
+              </ul>
+            </div>
             <ul class="pagination">
               <li *ngIf="page > 1" (click)="previousPage()" class="previous-wrap"><span class="previous"></span></li>
               <li *ngIf="page < maxPages" (click)="nextPage()" class="next-wrap"><span class="next"></span></li>

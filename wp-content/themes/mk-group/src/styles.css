@@ -19,6 +19,10 @@ h1, h2, h3, h4, h5, h6 {
     left: 50%;
     transform: translate(-50%, -50%);
 }
+main {
+    background: url('./assets/img/pozadinski.png') center center no-repeat;
+    background-size: 66%;
+}
 /* Swiper layout */
 swiper.s-wrapper>.swiper {
     position: fixed;

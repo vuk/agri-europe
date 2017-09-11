@@ -37,6 +37,9 @@ export class SectorComponent implements OnInit {
             if (this.linksTo === 'company_list') {
               this.configService.getCompanies(response.company_category_to_display.term_id)
                 .subscribe((companies) => {
+                  this.configService.setDarkLogo(true);
+                  let $menu = jQuery('.menu-bar');
+                  $menu.addClass('white-bg');
                   this.companies = companies.slides;
                 });
             } else {
@@ -60,6 +63,7 @@ export class SectorComponent implements OnInit {
   }
   
   loadCompany(company: any) {
+    console.log(company);
     this.router.navigate(['company', company.post_name]);
   }
   

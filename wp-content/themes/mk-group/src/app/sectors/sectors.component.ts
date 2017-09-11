@@ -30,6 +30,8 @@ export class SectorsComponent implements OnInit {
     this.meta.setTag('og:description', 'Sectors | ' + this.config.siteTitle);
     this.meta.setTag('og:url', window.location.href);
     this.meta.setTag('og:type', 'website');
+    let $menu = jQuery('.menu-bar');
+    $menu.addClass('white-bg');
     this.config.getSectors()
       .subscribe((response) => {
         this.sectors = response.slides;
@@ -40,8 +42,6 @@ export class SectorsComponent implements OnInit {
         this.menuItems = response;
         this.menuLoaded = true;
       });
-    let $menu = jQuery('.menu-bar');
-    $menu.addClass('white-bg');
   }
   
   openSector(sector: any) {
