@@ -4,6 +4,7 @@ import 'rxjs/add/operator/map';
 import {ConfigService} from "../services/config.service";
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
+import {MetaService} from "@nglibs/meta";
 
 @Component({
   selector: 'app-sectors-component',
@@ -12,7 +13,7 @@ import {Title} from "@angular/platform-browser";
 })
 export class SectorsComponent implements OnInit {
 
-  constructor(private config: ConfigService, private router: Router, private titleService: Title) { }
+  constructor(private config: ConfigService, private router: Router, private titleService: Title, private readonly meta: MetaService) { }
   
   sectors: any;
   @Output()
@@ -24,6 +25,11 @@ export class SectorsComponent implements OnInit {
   ngOnInit() {
     this.config.setDarkLogo(true);
     this.titleService.setTitle('Sectors | ' + this.config.siteTitle);
+    this.meta.setTitle('Sectors | ' + this.config.siteTitle);
+    this.meta.setTag('og:image', this.config['video_bg']);
+    this.meta.setTag('og:description', 'Sectors | ' + this.config.siteTitle);
+    this.meta.setTag('og:url', window.location.href);
+    this.meta.setTag('og:type', 'website');
     this.config.getSectors()
       .subscribe((response) => {
         this.sectors = response.slides;

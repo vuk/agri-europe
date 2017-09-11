@@ -106,6 +106,13 @@ function optionsframework_options() {
 	);
 
 	$options[] = array(
+		'name' => __( 'Description', 'agrieurope' ),
+		'desc' => __( 'Site description', 'agrieurope' ),
+		'id' => 'description',
+		'type' => 'text'
+	);
+
+	$options[] = array(
 		'name' => __( 'Basic Settings', 'agrieurope' ),
 		'type' => 'heading'
 	);

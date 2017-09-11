@@ -3,6 +3,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {Observable} from "rxjs/Observable";
 import {ConfigService} from "../services/config.service";
 import {Title} from "@angular/platform-browser";
+import {MetaService} from "@nglibs/meta";
 
 @Component({
   selector: 'app-sector',
@@ -17,7 +18,7 @@ export class SectorComponent implements OnInit {
   companies: any;
   sector: any;
   
-  constructor(private route: ActivatedRoute, private configService: ConfigService, private router: Router, private titleService: Title) {
+  constructor(private route: ActivatedRoute, private configService: ConfigService, private router: Router, private titleService: Title, private readonly meta: MetaService) {
   }
   
   ngOnInit() {
@@ -27,6 +28,11 @@ export class SectorComponent implements OnInit {
         .subscribe((response) => {
             this.titleService.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
             this.sector = response;
+            this.meta.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
+            this.meta.setTag('og:image', this.configService['video_bg']);
+            this.meta.setTag('og:description', response.post_title + ' | ' + this.configService.siteTitle);
+            this.meta.setTag('og:url', window.location.href);
+            this.meta.setTag('og:type', 'website');
             this.linksTo = response.links_to;
             if (this.linksTo === 'company_list') {
               this.configService.getCompanies(response.company_category_to_display.term_id)

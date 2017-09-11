@@ -3,6 +3,7 @@ import {ConfigService} from "../services/config.service";
 import {Title} from "@angular/platform-browser";
 import {ActivatedRoute, Router} from "@angular/router";
 import {Location} from "@angular/common";
+import {MetaService} from "@nglibs/meta";
 
 @Component({
   selector: 'app-article',
@@ -11,7 +12,12 @@ import {Location} from "@angular/common";
 })
 export class ArticleComponent implements OnInit {
   
-  constructor(private config: ConfigService, private titleService: Title, private activeRoute: ActivatedRoute, private location: Location) {
+  constructor(
+    private config: ConfigService,
+    private titleService: Title,
+    private activeRoute: ActivatedRoute,
+    private location: Location,
+    private readonly meta: MetaService) {
   }
   
   params: any;
@@ -28,6 +34,11 @@ export class ArticleComponent implements OnInit {
       this.config.getPost('post', params['slug'])
         .subscribe((response) => {
           this.article = response;
+          this.meta.setTitle(this.article.post_title + ' | Home Page');
+          this.meta.setTag('og:image', this.article.featured_image);
+          this.meta.setTag('og:description', this.article.post_content.substr(0, 100));
+          this.meta.setTag('og:url', window.location.href);
+          this.meta.setTag('og:type', 'website');
           this.titleService.setTitle(this.article.post_title + ' | ' + this.config.siteTitle);
           this.loaded = true;
         });

@@ -9,6 +9,7 @@ import {
 } from '@angular/animations';
 import * as jQuery from 'jquery';
 import {Title} from "@angular/platform-browser";
+import {MetaService} from "@nglibs/meta";
 
 @Component({
   selector: 'app-home',
@@ -37,13 +38,18 @@ export class HomeComponent implements OnInit {
   videoPoster: String = '';
   state: String = 'inactive';
   
-  constructor(private configService: ConfigService, private titleService: Title) {
+  constructor(private configService: ConfigService, private titleService: Title, private readonly meta: MetaService) {
   }
   
   ngOnInit() {
     this.titleService.setTitle(this.configService.siteTitle + ' | Home Page');
     this.configService.setDarkLogo(false);
     this.config = this.configService.getConfig();
+    this.meta.setTitle(this.configService.siteTitle + ' | Home Page');
+    this.meta.setTag('og:image', this.config['video_bg']);
+    this.meta.setTag('og:description', this.config['description']);
+    this.meta.setTag('og:url', window.location.href);
+    this.meta.setTag('og:type', 'website');
     this.webmVideo = this.config['home_webm'];
     this.mp4Video = this.config['home_mp4'];
     this.videoPoster = this.config['video_bg'];

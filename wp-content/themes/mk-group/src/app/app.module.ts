@@ -24,6 +24,7 @@ import { SectorComponent } from './sector/sector.component';
 import { PageComponent } from './page/page.component';
 import { CategoryComponent } from './category/category.component';
 import { ArticleComponent } from './article/article.component';
+import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@nglibs/meta';
 
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -31,6 +32,22 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
   autoplay: 0,
   keyboardControl: true
 };
+
+export function metaFactory(): MetaLoader {
+  return new MetaStaticLoader({
+    pageTitlePositioning: PageTitlePositioning.PrependPageTitle,
+    pageTitleSeparator: ' | ',
+    applicationName: 'Agri Europe',
+    defaults: {
+      title: 'Agri Europe',
+      description: 'Agri Europe',
+      'og:image': 'https://upload.wikimedia.org/wikipedia/commons/f/f8/superraton.jpg',
+      'og:type': 'website',
+      'og:locale': 'en_US',
+      'og:locale:alternate': 'sr_RS'
+    }
+  });
+}
 
 @NgModule({
   declarations: [
@@ -55,7 +72,11 @@ const SWIPER_CONFIG: SwiperConfigInterface = {
     BrowserAnimationsModule,
     HttpModule,
     AppRoutingModule,
-    SwiperModule.forRoot(SWIPER_CONFIG)
+    SwiperModule.forRoot(SWIPER_CONFIG),
+    MetaModule.forRoot({
+      provide: MetaLoader,
+      useFactory: (metaFactory)
+    })
   ],
   providers: [
     ConfigService,

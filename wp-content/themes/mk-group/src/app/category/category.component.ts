@@ -4,6 +4,7 @@ import {Title} from "@angular/platform-browser";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import * as jQuery from 'jquery';
 import {Location} from "@angular/common";
+import {MetaService} from "@nglibs/meta";
 
 @Component({
   selector: 'app-category',
@@ -27,11 +28,17 @@ export class CategoryComponent implements OnInit {
     private config: ConfigService,
     private titleService: Title,
     private location: Location,
+    private readonly meta: MetaService,
     private router: Router) { }
 
   ngOnInit() {
     this.config.setDarkLogo(true);
     this.titleService.setTitle('News | ' + this.config.siteTitle);
+    this.meta.setTitle('News | ' + this.config.siteTitle);
+    this.meta.setTag('og:image', this.config['video_bg']);
+    this.meta.setTag('og:description', 'News | ' + this.config.siteTitle);
+    this.meta.setTag('og:url', window.location.href);
+    this.meta.setTag('og:type', 'website');
     this.params = this.activeRoute.params.subscribe(params => {
       this.activeRoute.queryParams.subscribe(queryParams => {
         this.slug = params['slug'];
