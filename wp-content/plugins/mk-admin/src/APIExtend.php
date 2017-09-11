@@ -173,6 +173,7 @@ class APIExtend {
 		if ( $parameters['post_type'] == 'post' ) {
 			foreach ( $slides as $key => $slide ) {
 				$slide->featured_image = get_the_post_thumbnail_url($slide->ID, 'full');
+				$slide->post_content_formatted = wpautop(apply_filters('the_content', $slide->post_content));
 				array_push( $processedSlides, $slide );
 			}
 		}
@@ -219,8 +220,14 @@ class APIExtend {
 				$slide->video_poster = get_field( 'video_poster', $slide->ID );
 			}
 
+			if ($parameters['post_type'] == 'post') {
+				$slide->featured_image = get_the_post_thumbnail_url($slide->ID, 'full');
+				$slide->post_content_formatted = wpautop(apply_filters('the_content', $slide->post_content));
+			}
+
 			return $slide;
 		}
+		return [];
 	}
 
 	public function addSlideEndpoint() {

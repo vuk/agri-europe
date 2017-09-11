@@ -3,6 +3,7 @@ import {ConfigService} from "../services/config.service";
 import {Title} from "@angular/platform-browser";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import * as jQuery from 'jquery';
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-category',
@@ -21,19 +22,29 @@ export class CategoryComponent implements OnInit {
   maxPages: number = 1;
   slug: string;
   
-  constructor(private activeRoute: ActivatedRoute, private config: ConfigService, private titleService: Title, private router: Router) { }
+  constructor(
+    private activeRoute: ActivatedRoute,
+    private config: ConfigService,
+    private titleService: Title,
+    private location: Location,
+    private router: Router) { }
 
   ngOnInit() {
     this.config.setDarkLogo(true);
     this.titleService.setTitle('News | ' + this.config.siteTitle);
     this.params = this.activeRoute.params.subscribe(params => {
-      this.slug = params['slug'];
-      this.config.getNews(params['slug'], this.perPage, this.page)
-        .subscribe((response) => {
-          this.news = response.slides;
-          this.maxPages = response.page_count;
-          this.loaded = true;
-        });
+      this.activeRoute.queryParams.subscribe(queryParams => {
+        this.slug = params['slug'];
+        if (queryParams['page']) {
+          this.page = queryParams['page'];
+        }
+        this.config.getNews(params['slug'], this.perPage, this.page)
+          .subscribe((response) => {
+            this.news = response.slides;
+            this.maxPages = response.page_count;
+            this.loaded = true;
+          });
+      });
     });
     this.config.getMenu('main')
       .subscribe((response) => {
@@ -50,6 +61,9 @@ export class CategoryComponent implements OnInit {
       jQuery('.sector-curtain').addClass('unfolded');
       this.config.getNews(this.slug, this.perPage, ++this.page)
         .subscribe((response) => {
+          this.router.navigate(['category', this.slug], {replaceUrl: true, queryParams: {
+            page: this.page
+          }});
           setTimeout(() => {
             jQuery('.sector-curtain').addClass('opposite');
             this.news = response.slides;
@@ -73,6 +87,9 @@ export class CategoryComponent implements OnInit {
       jQuery('.sector-curtain').addClass('unfolded');
       this.config.getNews(this.slug, this.perPage, --this.page)
         .subscribe((response) => {
+          this.router.navigate(['category', this.slug], {replaceUrl: true, queryParams: {
+            page: this.page
+          }});
           setTimeout(() => {
             jQuery('.sector-curtain').addClass('opposite');
             this.news = response.slides;

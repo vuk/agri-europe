@@ -27,6 +27,7 @@
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.4.3",
     "jquery": "^3.2.1",
+    "ng2-meta": "^2.0.3",
     "ngx-swiper-wrapper": "^4.6.0",
     "rxjs": "^5.4.3",
     "zone.js": "^0.8.16"

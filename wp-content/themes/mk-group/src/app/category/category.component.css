@@ -270,6 +270,7 @@ section.sectors > .row .columns {
     height: 100%;
     position: absolute;
     top: 0;
+    cursor: pointer;
 }
 .pagination li.next-wrap {
     right: 0;

@@ -1,0 +1,27 @@
+<section class="sectors" *ngIf="loaded">
+  <div class="row">
+    <div class="columns large-12 small-12">
+      <div class="sectors-inner">
+        <div class="sector sector-menu">
+          <div class="sector-inner-wrapper">
+            <h3>News</h3>
+            <div class="sector-menu-holder" *ngIf="menuLoaded">
+              <ul>
+                <li *ngFor="let item of menuItems"><a [routerLink]="item.permalink">{{ item.title }}</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="article-container">
+          <div class="article-inner">
+            <h1>{{ article.post_title }}</h1>
+            <span class="date">{{ article.post_date | date }}</span>
+            <div class="article-content" [innerHTML]="'<img src=\'' + article.featured_image + '\'' + article.post_content_formatted"></div>
+          </div>
+          <span class="close-article"><i class="fa fa-times" aria-hidden="true" (click)="goBack()"></i></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <app-footer></app-footer>
+</section>
