@@ -28,6 +28,12 @@ swiper.s-wrapper>.swiper {
     position: fixed;
     top: 0;
 }
+.sector-inner-wrapper h3{
+    font-size: 24px;
+}
+.news-menu ul {
+    margin-left: 15px;
+}
 /* Small only */
 @media screen and (max-width: 39.9375em) {
     .hide-mob {

@@ -157,6 +157,7 @@ class APIExtend {
 				$slide->links_to                    = get_field( 'links_to', $slide->ID );
 				$slide->background_video_mp4        = get_field( 'background_video_mp4', $slide->ID );
 				$slide->background_video_webm       = get_field( 'background_video_webm', $slide->ID );
+				$slide->preload_video                = get_field( 'preload_video', $slide->ID );
 				array_push( $processedSlides, $slide );
 			}
 		}
@@ -211,6 +212,7 @@ class APIExtend {
 				$slide->background_video_mp4        = get_field( 'background_video_mp4', $slide->ID );
 				$slide->background_video_webm       = get_field( 'background_video_webm', $slide->ID );
 				$slide->video_poster                = get_field( 'video_poster', $slide->ID );
+				$slide->preload_video                = get_field( 'preload_video', $slide->ID );
 			}
 			if ( $parameters['post_type'] == 'company' ) {
 				$slide->mp4          = get_field( 'video', $slide->ID );
@@ -222,6 +224,12 @@ class APIExtend {
 
 			if ($parameters['post_type'] == 'post') {
 				$slide->featured_image = get_the_post_thumbnail_url($slide->ID, 'full');
+				$slide->post_content_formatted = wpautop(apply_filters('the_content', $slide->post_content));
+			}
+
+			if ($parameters['post_type'] == 'page') {
+				$slide->background_image = get_field('background_image', $slide->ID);
+				$slide->redirect = get_field('redirect', $slide->ID);
 				$slide->post_content_formatted = wpautop(apply_filters('the_content', $slide->post_content));
 			}
 

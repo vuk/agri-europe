@@ -149,6 +149,10 @@ section.sectors > .row .columns {
     border: 1px solid transparent;
     border-left: none;
     position: relative;
+    -webkit-background-size: contain;
+    background-size: cover;
+    background-position: center center;
+    background-repeat: no-repeat;
 }
 .sectors-inner .article-container .article-inner {
     width: 100%;

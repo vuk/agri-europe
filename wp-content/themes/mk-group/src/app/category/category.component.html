@@ -51,8 +51,8 @@
               <div class="sector-title">
                 <h4>{{article.post_title}}</h4>
               </div>
-              <img [src]="article.featured_image" [alt]="article.post_title">
-              <p>{{article.post_content}}</p>
+              <img style="margin-bottom: 1rem;" [src]="article.featured_image" [alt]="article.post_title">
+              <p>{{article.post_content | slice:0:100 }}...</p>
             </div>
           </div>
         </div>

@@ -5,6 +5,11 @@
         <div class="sector sector-menu">
           <div class="sector-inner-wrapper">
             <h3>{{ article.post_title }}</h3>
+            <div class="news-menu">
+              <ul>
+                <li *ngFor="let item of submenu"><a [routerLink]="item.permalink" routerLinkActive="active">{{ item.title }}</a></li>
+              </ul>
+            </div>
             <div class="sector-menu-holder" *ngIf="menuLoaded">
               <ul>
                 <li *ngFor="let item of menuItems"><a [routerLink]="item.permalink">{{ item.title }}</a></li>
@@ -12,13 +17,22 @@
             </div>
           </div>
         </div>
-        <div class="article-container">
+        <div class="article-container" [ngStyle]="!!background ? { 'background-image': 'url(' + background + ')' } : ''">
           <div class="article-inner">
-            <h1 class="title">{{ article.post_title }}</h1>
-            <span class="date">{{ article.post_date | date }}</span>
-            <div class="article-content" [innerHTML]="articleHtml"></div>
+            <h1 class="title" *ngIf="!background">{{ article.post_title }}</h1>
+            <div class="article-content" [ngStyle]="!!background ? {
+              'column-count': 1,
+              'width': '50%',
+              'float': 'right',
+              'display': 'flex',
+              'flex-direction': 'column',
+              'bottom': '1rem',
+              'right': '2rem',
+              'flex-grow': 1,
+              'position': 'absolute',
+              'color': '#fff'
+              } : {}" [innerHTML]="articleHtml"></div>
           </div>
-          <span class="close-article"><i class="fa fa-times" aria-hidden="true" (click)="goBack()"></i></span>
         </div>
       </div>
     </div>
