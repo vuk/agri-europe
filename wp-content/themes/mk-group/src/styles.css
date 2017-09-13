@@ -12,6 +12,17 @@ body {
 h1, h2, h3, h4, h5, h6 {
     font-family: 'CeraPRO', sans-serif;
 }
+.logo-small img {
+    max-width: 102px;
+}
+.sectors-inner {
+    padding: 0 2rem;
+}
+video {
+    position: relative;
+    top: 50%;
+    transform: translateY(-50%);
+}
 /** 2. Preloader screen */
 .logo-inner {
     position: fixed;

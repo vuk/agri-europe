@@ -31,19 +31,21 @@ export class AgriSwiperComponent implements OnInit, OnDestroy {
   }
   
   runSlider () {
-    this.sliderInterval = setInterval(() => {
-      jQuery('.curtain__tile').removeClass('transparent');
-      jQuery('.curtain__tile').addClass('unfolded');
-      setTimeout(() => {
-        this.swiper.directiveRef.nextSlide();
-        jQuery('.curtain__tile').addClass('opposite');
+    if (this.slides.length > 1) {
+      this.sliderInterval = setInterval(() => {
+        jQuery('.curtain__tile').removeClass('transparent');
+        jQuery('.curtain__tile').addClass('unfolded');
         setTimeout(() => {
-          jQuery('.curtain__tile').addClass('transparent');
-          jQuery('.curtain__tile').removeClass('unfolded');
-          jQuery('.curtain__tile').removeClass('opposite');
-        }, 500);
-      }, 1000);
-    }, this.config.time_delay);
+          this.swiper.directiveRef.nextSlide();
+          jQuery('.curtain__tile').addClass('opposite');
+          setTimeout(() => {
+            jQuery('.curtain__tile').addClass('transparent');
+            jQuery('.curtain__tile').removeClass('unfolded');
+            jQuery('.curtain__tile').removeClass('opposite');
+          }, 500);
+        }, 1000);
+      }, this.config.time_delay);
+    }
   }
   
   ngOnDestroy() {

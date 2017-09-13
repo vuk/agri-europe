@@ -38,8 +38,10 @@ export class PageComponent implements OnInit {
       this.config.getPost('page', params['slug'])
         .subscribe((response) => {
           this.article = response;
+          console.log(this.article.redirect);
           if (this.article.redirect) {
             let segments = this.article.redirect.split('/');
+            console.log(segments);
             this.router.navigate(['page', segments[segments.length - 2]]);
           }
           this.meta.setTitle(this.article.post_title + ' | ' + this.config.siteTitle);
@@ -52,6 +54,12 @@ export class PageComponent implements OnInit {
           this.articleHtml = this.article.post_content_formatted;
           if (this.article.post_name === 'chairman' || this.article.post_name === 'board-of-directors') {
             this.config.getMenu('management')
+              .subscribe((response) => {
+                this.submenu = response;
+              });
+          }
+          if (this.article.post_name === 'about-us' || this.article.post_name === 'history' || this.article.post_name === 'mission-vision-values') {
+            this.config.getMenu('about')
               .subscribe((response) => {
                 this.submenu = response;
               });
