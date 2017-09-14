@@ -44,6 +44,7 @@ export class HomeComponent implements OnInit {
   ngOnInit() {
     this.titleService.setTitle(this.configService.siteTitle + ' | Home Page');
     this.configService.setDarkLogo(false);
+    this.configService.hideMenuLabel(true);
     this.config = this.configService.getConfig();
     this.meta.setTitle(this.configService.siteTitle + ' | Home Page');
     this.meta.setTag('og:image', this.config['video_bg']);

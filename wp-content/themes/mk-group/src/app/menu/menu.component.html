@@ -8,7 +8,7 @@
     </span>
   </div>
   <div class="columns large-6 small-12">
-    <span class="trigger"><a (click)="showMenu()">Menu <i class="fa fa-bars" aria-hidden="true"></i></a></span>
+    <span class="trigger"><a (click)="showMenu()"><span *ngIf="!hideLabel">Menu</span> <i class="fa fa-bars" aria-hidden="true"></i></a></span>
   </div>
 </div>
 <div class="menu-animation">

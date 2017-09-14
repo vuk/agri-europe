@@ -223,10 +223,9 @@ span.date {
 agm-map {
     height: 100%;
 }
-/*
 :host ::ng-deep .article-content.chairman p {
-    font-size: 15pt;
+    font-size: 0.9rem;
 }
 :host ::ng-deep .article-content.chairman h3 {
-    font-size: 40pt;
-}*/
+    font-size: 1.8rem;
+}

@@ -11,11 +11,15 @@ import {ConfigService} from "../services/config.service";
 export class MenuComponent implements OnInit, OnDestroy {
   
   _subscription;
+  _subscription2;
   
   constructor(private router: Router, private config: ConfigService) {
     this.darkLogo = config.darkLogo;
     this._subscription = config.darkLogoChange.subscribe((value) => {
       this.darkLogo = value;
+    });
+    this._subscription2 = config.hideLabelChange.subscribe((value) => {
+      this.hideLAbel = value;
     });
   }
 
@@ -23,6 +27,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   configuration: any;
   darkLogoUrl: string;
   lightLogoUrl: string;
+  hideLAbel: boolean;
   
   ngOnInit() {
     this.configuration = this.config.getConfig();
@@ -45,6 +50,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
     //prevent memory leak when component destroyed
     this._subscription.unsubscribe();
+    this._subscription2.unsubscribe();
   }
   
 }

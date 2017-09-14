@@ -13,6 +13,8 @@ export class ConfigService {
   siteTitle: string = 'Agri Europe';
   darkLogo = false;
   darkLogoChange: Subject<boolean> = new Subject<boolean>();
+  hideLabelChange: Subject<boolean> = new Subject<boolean>();
+  hideLabel: boolean;
   
   constructor(private http: Http) {
   }
@@ -64,6 +66,11 @@ export class ConfigService {
   setDarkLogo (darkLogo: boolean) {
     this.darkLogo = darkLogo;
     this.darkLogoChange.next(this.darkLogo);
+  }
+  
+  hideMenuLabel (hide: boolean) {
+    this.hideLabel = hide;
+    this.hideLabelChange.next(this.hideLabel);
   }
   
   getDarkLogo (): boolean {
