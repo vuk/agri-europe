@@ -113,7 +113,7 @@ class APIExtend {
 		$args       = [
 			'post_type' => $parameters['post_type']
 		];
-		if ( isset( $parameters['category']) && $parameters['post_type'] != 'post' ) {
+		if ( isset( $parameters['category'] ) && $parameters['post_type'] != 'post' ) {
 			$args['tax_query'] = array(
 				array(
 					'taxonomy' => $parameters['taxonomy'],
@@ -122,7 +122,7 @@ class APIExtend {
 				)
 			);
 		}
-		if ( isset( $parameters['category']) && $parameters['post_type'] == 'post') {
+		if ( isset( $parameters['category'] ) && $parameters['post_type'] == 'post' ) {
 			$args['category_name'] = $parameters['category'];
 		}
 		if ( isset( $parameters['order'] ) ) {
@@ -135,9 +135,9 @@ class APIExtend {
 		if ( isset( $parameters['orderby'] ) ) {
 			$args['orderby'] = $parameters['orderby'];
 		}
-		if (isset($parameters['per_page'])) {
+		if ( isset( $parameters['per_page'] ) ) {
 			$args['posts_per_page'] = $parameters['per_page'];
-			$args['paged'] = $parameters['page'];
+			$args['paged']          = $parameters['page'];
 		}
 		$slideQuery      = new \WP_Query( $args );
 		$slides          = $slideQuery->get_posts();
@@ -157,7 +157,8 @@ class APIExtend {
 				$slide->links_to                    = get_field( 'links_to', $slide->ID );
 				$slide->background_video_mp4        = get_field( 'background_video_mp4', $slide->ID );
 				$slide->background_video_webm       = get_field( 'background_video_webm', $slide->ID );
-				$slide->preload_video                = get_field( 'preload_video', $slide->ID );
+				$slide->preload_video               = get_field( 'preload_video', $slide->ID );
+				$slide->preload_video_webm          = get_field( 'preload_video_webm', $slide->ID );
 				array_push( $processedSlides, $slide );
 			}
 		}
@@ -173,15 +174,15 @@ class APIExtend {
 
 		if ( $parameters['post_type'] == 'post' ) {
 			foreach ( $slides as $key => $slide ) {
-				$slide->featured_image = get_the_post_thumbnail_url($slide->ID, 'full');
-				$slide->post_content_formatted = wpautop(apply_filters('the_content', $slide->post_content));
+				$slide->featured_image         = get_the_post_thumbnail_url( $slide->ID, 'full' );
+				$slide->post_content_formatted = wpautop( apply_filters( 'the_content', $slide->post_content ) );
 				array_push( $processedSlides, $slide );
 			}
 		}
 
 		return [
-			'slides' => $processedSlides,
-			'page_count'  => $slideQuery->max_num_pages
+			'slides'     => $processedSlides,
+			'page_count' => $slideQuery->max_num_pages
 		];
 	}
 
@@ -212,7 +213,8 @@ class APIExtend {
 				$slide->background_video_mp4        = get_field( 'background_video_mp4', $slide->ID );
 				$slide->background_video_webm       = get_field( 'background_video_webm', $slide->ID );
 				$slide->video_poster                = get_field( 'video_poster', $slide->ID );
-				$slide->preload_video                = get_field( 'preload_video', $slide->ID );
+				$slide->preload_video               = get_field( 'preload_video', $slide->ID );
+				$slide->preload_video_webm          = get_field( 'preload_video_webm', $slide->ID );
 			}
 			if ( $parameters['post_type'] == 'company' ) {
 				$slide->mp4          = get_field( 'video', $slide->ID );
@@ -222,18 +224,19 @@ class APIExtend {
 				$slide->video_poster = get_field( 'video_poster', $slide->ID );
 			}
 
-			if ($parameters['post_type'] == 'post') {
-				$slide->featured_image = get_the_post_thumbnail_url($slide->ID, 'full');
-				$slide->post_content_formatted = wpautop(apply_filters('the_content', $slide->post_content));
+			if ( $parameters['post_type'] == 'post' ) {
+				$slide->featured_image         = get_the_post_thumbnail_url( $slide->ID, 'full' );
+				$slide->post_content_formatted = wpautop( apply_filters( 'the_content', $slide->post_content ) );
 			}
-			if ($parameters['post_type'] == 'page') {
-				$slide->background_image = get_field('background_image', $slide->ID);
-				$slide->redirect = get_field('redirect', $slide->ID);
-				$slide->post_content_formatted = wpautop(apply_filters('the_content', $slide->post_content));
+			if ( $parameters['post_type'] == 'page' ) {
+				$slide->background_image       = get_field( 'background_image', $slide->ID );
+				$slide->redirect               = get_field( 'redirect', $slide->ID );
+				$slide->post_content_formatted = wpautop( apply_filters( 'the_content', $slide->post_content ) );
 			}
 
 			return $slide;
 		}
+
 		return [];
 	}
 

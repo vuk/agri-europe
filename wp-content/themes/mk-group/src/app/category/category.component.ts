@@ -5,11 +5,26 @@ import {ActivatedRoute, Route, Router} from "@angular/router";
 import * as jQuery from 'jquery';
 import {Location} from "@angular/common";
 import {MetaService} from "@nglibs/meta";
+import {trigger, transition, style, animate} from '@angular/animations';
 
 @Component({
   selector: 'app-category',
   templateUrl: './category.component.html',
-  styleUrls: ['./category.component.css']
+  styleUrls: ['./category.component.css'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({opacity: 0}),
+          animate('500ms', style({opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({opacity: 1}),
+          animate('500ms', style({opacity: 0}))
+        ])
+      ]
+    )
+  ]
 })
 export class CategoryComponent implements OnInit {
   

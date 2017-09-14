@@ -200,6 +200,9 @@ span.date {
     margin-bottom: 1rem;
     display: block;
 }
+:host ::ng-deep .article-content p {
+    font-size: 0.9rem;
+}
 :host ::ng-deep .article-content img {
     margin: 1rem 0;
 }

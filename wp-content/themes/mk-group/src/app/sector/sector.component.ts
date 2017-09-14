@@ -1,6 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {trigger, transition, style, animate} from '@angular/animations';
 import {ActivatedRoute, Router} from "@angular/router";
-import {Observable} from "rxjs/Observable";
 import {ConfigService} from "../services/config.service";
 import {Title} from "@angular/platform-browser";
 import {MetaService} from "@nglibs/meta";
@@ -8,7 +8,21 @@ import {MetaService} from "@nglibs/meta";
 @Component({
   selector: 'app-sector',
   templateUrl: './sector.component.html',
-  styleUrls: ['./sector.component.css']
+  styleUrls: ['./sector.component.css'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({opacity: 0}),
+          animate('500ms', style({opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({opacity: 1}),
+          animate('500ms', style({opacity: 0}))
+        ])
+      ]
+    )
+  ]
 })
 export class SectorComponent implements OnInit {
   
@@ -17,6 +31,7 @@ export class SectorComponent implements OnInit {
   linksTo: string;
   companies: any;
   sector: any;
+  preload: boolean;
   
   constructor(private route: ActivatedRoute, private configService: ConfigService, private router: Router, private titleService: Title, private readonly meta: MetaService) {
   }
@@ -28,6 +43,7 @@ export class SectorComponent implements OnInit {
         .subscribe((response) => {
             this.titleService.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
             this.sector = response;
+            this.preload = true;
             this.meta.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
             this.meta.setTag('og:image', this.configService['video_bg']);
             this.meta.setTag('og:description', response.post_title + ' | ' + this.configService.siteTitle);
@@ -65,6 +81,10 @@ export class SectorComponent implements OnInit {
   loadCompany(company: any) {
     console.log(company);
     this.router.navigate(['company', company.post_name]);
+  }
+  
+  preloadEnded () {
+    this.preload = false;
   }
   
   

@@ -26,3 +26,9 @@ section.video-sector .agrieurope-sector {
 .logo-container img {
     max-height: 160px;
 }
+.preload-video {
+    display: flex;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+}

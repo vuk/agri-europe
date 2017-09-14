@@ -1,4 +1,4 @@
-<section class="sector" *ngIf="linksTo === 'company_list'">
+<section [@enterAnimation] class="sector" *ngIf="linksTo === 'company_list' && !preload">
     <div class="row">
         <div class="companies-wrapper" data-equalizer="company-logs">
             <div
@@ -18,12 +18,18 @@
     </div>
     <app-footer></app-footer>
 </section>
-<section class="video-sector" *ngIf="linksTo === 'video_page'">
+<section [@enterAnimation] class="video-sector" *ngIf="linksTo === 'video_page' && !preload">
     <!--<app-grid-decoration></app-grid-decoration>-->
     <div class="agrieurope-sector">
-        <video playsinline autoplay muted loop [poster]="sector.video_poster">
+        <video playsinline autoplay loop [poster]="sector.video_poster">
             <source [src]="sector.background_video_webm" type="video/webm">
             <source [src]="sector.background_video_mp4" type="video/mp4">
         </video>
     </div>
+</section>
+<section class="preload-video" *ngIf="preload">
+    <video playsinline autoplay muted (ended)="preloadEnded()">
+        <source [src]="sector.preload_video_webm" type="video/webm">
+        <source [src]="sector.preload_video" type="video/mp4">
+    </video>
 </section>

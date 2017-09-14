@@ -5,11 +5,26 @@ import {ConfigService} from "../services/config.service";
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
 import {MetaService} from "@nglibs/meta";
+import {animate, style, transition, trigger} from "@angular/animations";
 
 @Component({
   selector: 'app-sectors-component',
   templateUrl: './sectors.component.html',
-  styleUrls: ['./sectors.component.css']
+  styleUrls: ['./sectors.component.css'],
+  animations: [
+    trigger(
+      'enterAnimation', [
+        transition(':enter', [
+          style({opacity: 0}),
+          animate('500ms', style({opacity: 1}))
+        ]),
+        transition(':leave', [
+          style({opacity: 1}),
+          animate('500ms', style({opacity: 0}))
+        ])
+      ]
+    )
+  ]
 })
 export class SectorsComponent implements OnInit {
 
