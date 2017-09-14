@@ -26,6 +26,7 @@ export class AgriSwiperComponent implements OnInit, OnDestroy {
   constructor(private configService: ConfigService) { }
 
   ngOnInit() {
+    this.muted = localStorage.getItem('muted') === '1';
     this.config = this.configService.getConfig();
     this.slides = this.config.homeHero.slides;
     this.runSlider();
