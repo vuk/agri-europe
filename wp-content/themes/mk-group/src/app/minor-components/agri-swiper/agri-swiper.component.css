@@ -4,3 +4,10 @@ video {
     height: auto;
     overflow: hidden;
 }
+.sound-icon {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 99;
+    cursor: pointer;
+}

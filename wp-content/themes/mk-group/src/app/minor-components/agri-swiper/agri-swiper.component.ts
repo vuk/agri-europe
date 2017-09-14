@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
+import {Component, OnInit, OnDestroy, ViewChild, ElementRef} from '@angular/core';
 import {SwiperComponent, SwiperConfigInterface} from "ngx-swiper-wrapper";
 import * as jQuery from 'jquery';
 import {ConfigService} from "../../services/config.service";
@@ -19,7 +19,8 @@ export class AgriSwiperComponent implements OnInit, OnDestroy {
   config = null;
   slides = [];
   sliderInterval;
-  
+  muted;
+  @ViewChild('videoRef') video: ElementRef;
   @ViewChild('agriSwiper') swiper: SwiperComponent;
 
   constructor(private configService: ConfigService) { }
@@ -28,6 +29,9 @@ export class AgriSwiperComponent implements OnInit, OnDestroy {
     this.config = this.configService.getConfig();
     this.slides = this.config.homeHero.slides;
     this.runSlider();
+    setTimeout (() => {
+      this.video.nativeElement.muted = this.muted;
+    }, 200);
   }
   
   runSlider () {
@@ -42,6 +46,7 @@ export class AgriSwiperComponent implements OnInit, OnDestroy {
             jQuery('.curtain__tile').addClass('transparent');
             jQuery('.curtain__tile').removeClass('unfolded');
             jQuery('.curtain__tile').removeClass('opposite');
+            this.video.nativeElement.muted = this.muted;
           }, 500);
         }, 1000);
       }, this.config.time_delay);
@@ -50,5 +55,11 @@ export class AgriSwiperComponent implements OnInit, OnDestroy {
   
   ngOnDestroy() {
     clearInterval(this.sliderInterval);
+  }
+  
+  toggleMute () {
+    this.muted = !this.muted;
+    localStorage.setItem('muted', this.muted ? '1' : '0');
+    this.video.nativeElement.muted = this.muted;
   }
 }

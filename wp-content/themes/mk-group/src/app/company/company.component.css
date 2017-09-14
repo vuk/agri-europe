@@ -15,4 +15,5 @@ section.video-sector .agrieurope-sector {
     position: absolute;
     bottom: 2rem;
     right: 2rem;
+    cursor: pointer;
 }
