@@ -4,7 +4,11 @@
       <div class="sectors-inner">
         <div class="sector sector-menu">
           <div class="sector-inner-wrapper">
-            <h3>{{ article.post_title }}</h3>
+            <h3>{{
+              article.post_name === 'about-us' ||
+              article.post_name === 'mission-vision-values' ?
+              'General' : (article.post_name === 'chairman' ||
+              article.post_name === 'board-of-directors') ? 'Management' : article.post_title }}</h3>
             <div class="news-menu">
               <ul>
                 <li *ngFor="let item of submenu"><a [routerLink]="item.permalink" routerLinkActive="active">{{ item.title }}</a></li>
@@ -18,8 +22,13 @@
           </div>
         </div>
         <div class="article-container" [ngStyle]="!!background ? { 'background-image': 'url(' + background + ')' } : ''">
-          <div class="article-inner">
-            <h1 class="title" *ngIf="!background">{{ article.post_title }}</h1>
+          <div class="article-inner" [ngStyle]="article.post_name == 'contact' ? { padding: 0 } : {}">
+            <agm-map *ngIf="article.post_name === 'contact'" [zoom]="17" [latitude]="lat" [longitude]="long">
+              <agm-marker [latitude]="lat" [longitude]="long">
+                <agm-info-window>{{ article.post_content_formatted }}</agm-info-window>
+              </agm-marker>
+            </agm-map>
+            <h1 class="title" *ngIf="!background && article.post_name != 'contact'">{{ article.post_title }}</h1>
             <div class="article-content" [ngStyle]="!!background ? {
               'column-count': 1,
               'width': '50%',
@@ -31,7 +40,8 @@
               'flex-grow': 1,
               'position': 'absolute',
               'color': '#fff'
-              } : {}" [innerHTML]="articleHtml"></div>
+              } : {}" [innerHTML]="articleHtml">
+            </div>
           </div>
         </div>
       </div>

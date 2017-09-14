@@ -226,7 +226,6 @@ class APIExtend {
 				$slide->featured_image = get_the_post_thumbnail_url($slide->ID, 'full');
 				$slide->post_content_formatted = wpautop(apply_filters('the_content', $slide->post_content));
 			}
-
 			if ($parameters['post_type'] == 'page') {
 				$slide->background_image = get_field('background_image', $slide->ID);
 				$slide->redirect = get_field('redirect', $slide->ID);

@@ -70,6 +70,7 @@ section.sectors > .row .columns {
     font-weight: 100;
     text-align: left;
     padding-left: 15px;
+    padding-right: 10px;
 }
 .sector-menu-holder {
     direction: rtl;

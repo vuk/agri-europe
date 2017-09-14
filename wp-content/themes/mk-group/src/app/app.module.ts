@@ -25,6 +25,7 @@ import { PageComponent } from './page/page.component';
 import { CategoryComponent } from './category/category.component';
 import { ArticleComponent } from './article/article.component';
 import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@nglibs/meta';
+import { AgmCoreModule } from '@agm/core';
 
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -76,6 +77,9 @@ export function metaFactory(): MetaLoader {
     MetaModule.forRoot({
       provide: MetaLoader,
       useFactory: (metaFactory)
+    }),
+    AgmCoreModule.forRoot({
+      apiKey: 'AIzaSyCWFIftAlo511EyY2u3vX4hopoI6iHyj40'
     })
   ],
   providers: [

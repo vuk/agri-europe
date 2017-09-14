@@ -30,8 +30,13 @@ export class PageComponent implements OnInit {
   articleHtml: string;
   background: any;
   submenu: any;
+  long: number;
+  lat: number;
   
   ngOnInit() {
+    this.lat = 34.6904528;
+    this.long = 33.0684307;
+    this.submenu = [];
     this.config.setDarkLogo(true);
     this.params = this.activeRoute.params.subscribe(params => {
       this.slug = params['slug'];

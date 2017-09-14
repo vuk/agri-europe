@@ -9,7 +9,7 @@ section.sectors > .row {
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: calc(100% - 75px);
+    height: calc(100% - 25px);
 }
 section.sectors > .row .columns {
     display: flex;
@@ -71,6 +71,7 @@ section.sectors > .row .columns {
     font-weight: 100;
     text-align: left;
     padding-left: 15px;
+    padding-right: 10px;
 }
 .sector-menu-holder {
     direction: rtl;
@@ -218,4 +219,7 @@ span.date {
 }
 .news-menu li a.active, .news-menu li a:hover {
     color: #86c25a;
+}
+agm-map {
+    height: 100%;
 }
