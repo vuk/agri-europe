@@ -31,7 +31,7 @@
             <h1 class="title" *ngIf="!background && article.post_name != 'contact'">{{ article.post_title }}</h1>
             <div class="article-content" [ngClass]="{ 'chairman' : !!background }" *ngIf="article.post_name !== 'contact'" [ngStyle]="!!background ? {
               'column-count': 1,
-              'width': '50%',
+              'width': '45%',
               'float': 'right',
               'display': 'flex',
               'flex-direction': 'column',

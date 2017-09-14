@@ -11,3 +11,8 @@ section.video-sector .agrieurope-sector {
     height: 100%;
     overflow: hidden;
 }
+.sound-icon {
+    position: absolute;
+    bottom: 2rem;
+    right: 2rem;
+}

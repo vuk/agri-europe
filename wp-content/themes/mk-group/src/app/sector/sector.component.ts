@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {trigger, transition, style, animate} from '@angular/animations';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ConfigService} from "../services/config.service";
@@ -32,11 +32,14 @@ export class SectorComponent implements OnInit {
   companies: any;
   sector: any;
   preload: boolean;
+  muted: boolean;
+  @ViewChild('videoRef') video: ElementRef;
   
   constructor(private route: ActivatedRoute, private configService: ConfigService, private router: Router, private titleService: Title, private readonly meta: MetaService) {
   }
   
   ngOnInit() {
+    this.muted = localStorage.getItem('muted') === '1';
     this.params = this.route.params.subscribe(params => {
       this.slug = params['slug'];
       this.configService.getPost('sector', this.slug)
@@ -62,6 +65,9 @@ export class SectorComponent implements OnInit {
               this.configService.setDarkLogo(false);
               let $menu = jQuery('.menu-bar');
               $menu.removeClass('white-bg');
+              if (this.video) {
+                this.video.nativeElement.muted = this.muted;
+              }
             }
           },
           (err) => {
@@ -85,7 +91,15 @@ export class SectorComponent implements OnInit {
   
   preloadEnded () {
     this.preload = false;
+    setTimeout (() => {
+      this.video.nativeElement.muted = this.muted;
+    }, 200);
   }
   
+  toggleMute () {
+    this.muted = !this.muted;
+    localStorage.setItem('muted', this.muted ? '1' : '0');
+    this.video.nativeElement.muted = this.muted;
+  }
   
 }
