@@ -25,11 +25,11 @@
           <div class="article-inner" [ngStyle]="article.post_name == 'contact' ? { padding: 0 } : {}">
             <agm-map *ngIf="article.post_name === 'contact'" [zoom]="17" [latitude]="lat" [longitude]="long">
               <agm-marker [latitude]="lat" [longitude]="long">
-                <agm-info-window>{{ article.post_content_formatted }}</agm-info-window>
+                <agm-info-window [innerHTML]="article.post_content_formatted"></agm-info-window>
               </agm-marker>
             </agm-map>
             <h1 class="title" *ngIf="!background && article.post_name != 'contact'">{{ article.post_title }}</h1>
-            <div class="article-content" [ngStyle]="!!background ? {
+            <div class="article-content" *ngIf="article.post_name !== 'contact'" [ngStyle]="!!background ? {
               'column-count': 1,
               'width': '50%',
               'float': 'right',

@@ -22,13 +22,16 @@ video {
     position: relative;
     top: 50%;
     transform: translateY(-50%);
+    min-width: 100%;
+    min-height: 100%;
 }
 /** 2. Preloader screen */
 .logo-inner {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    text-align: center;
+}
+.logo-inner img {
+    display: block;
+    margin: 0 auto;
 }
 main {
     background: url('./assets/img/pozadinski.png') center center no-repeat;
