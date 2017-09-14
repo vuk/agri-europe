@@ -6,7 +6,7 @@
                     *ngFor="let company of companies"
                     (mouseout)="mouseOut(imgRef, company.logo_grey)"
                     (mouseover)="mouseOver(imgRef, company.logo_color)"
-                    class="single-company columns large-4 small-12 medium-6" data-equalizer-watch="company-logs">
+                    class="single-company columns large-4 small-12 medium-6 end" data-equalizer-watch="company-logs">
                 <div class="logo-container">
                     <img #imgRef
                             [src]="company.logo_grey"

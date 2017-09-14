@@ -32,6 +32,7 @@ export class PageComponent implements OnInit {
   submenu: any;
   long: number;
   lat: number;
+  replaced: string;
   
   ngOnInit() {
     this.lat = 34.6904528;
@@ -57,6 +58,8 @@ export class PageComponent implements OnInit {
           this.titleService.setTitle(this.article.post_title + ' | ' + this.config.siteTitle);
           this.background = this.article.background_image;
           this.articleHtml = this.article.post_content_formatted;
+          const regex = /<br\s*[\/]?>/gi;
+          this.replaced = this.article.post_content.replace(regex, "\n");
           if (this.article.post_name === 'chairman' || this.article.post_name === 'board-of-directors') {
             this.config.getMenu('management')
               .subscribe((response) => {
