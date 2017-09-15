@@ -25,8 +25,6 @@
             <source [src]="sector.background_video_webm" type="video/webm">
             <source [src]="sector.background_video_mp4" type="video/mp4">
         </video>
-        <span *ngIf="!muted" class="sound-icon sound-on" (click)="toggleMute()"><img [src]="'./assets/img/sound-on.png'" [alt]="'Sound On'"></span>
-        <span *ngIf="muted" class="sound-icon sound-off" (click)="toggleMute()"><img [src]="'./assets/img/sound-off.png'" [alt]="'Sound Off'"></span>
         <div class="popup">
             <div class="popup-outer-wrapper">
                 <div class="popup-inner" [@visibility]="visibility">
@@ -35,10 +33,22 @@
                     </div>
                     <span class="closepopup"><i class="fa fa-times" (click)="goBack()"></i></span>
                 </div>
+            </div>
+        </div>
+        <div class="row video-controls">
+            <div class="columns large-6 small-6 more-info-col control-col">
                 <span [@visibility]="opositeVisibility" class="more-info" (click)="togglePopup()"><img
                         [src]="'./assets/img/more-info-button.png'"/></span>
                 <span [@visibility]="visibility" class="more-info more-info-collapsed" (click)="togglePopup()"><img
                         [src]="'./assets/img/moreinfocollapse.png'"/></span>
+            </div>
+            <div class="columns large-6 small-6 toggle-sound-col control-col">
+                <span *ngIf="!muted" class="sound-icon sound-on" (click)="toggleMute()">
+                    <img [src]="'./assets/img/sound-on.png'" [alt]="'Sound On'">
+                </span>
+                <span *ngIf="muted" class="sound-icon sound-off" (click)="toggleMute()">
+                    <img [src]="'./assets/img/sound-off.png'" [alt]="'Sound Off'">
+                </span>
             </div>
         </div>
     </div>
