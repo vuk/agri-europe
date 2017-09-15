@@ -233,6 +233,9 @@ h1.title {
     font-size: 28px;
     margin-bottom: 2rem;
 }
+h1.title.single-column {
+    text-align: center;
+}
 
 span.date {
     margin-bottom: 1rem;
@@ -289,4 +292,6 @@ agm-map {
     -webkit-column-count: 1;
     -moz-column-count: 1;
     column-count: 1;
+    max-width: 60%;
+    margin: 0 auto;
 }

@@ -88,4 +88,18 @@ section.video-sector .agrieurope-sector {
 }
 .toggle-sound-col span {
     right: 1rem;
+    width: 30px;
+}
+.backbutton {
+    position: absolute;
+    right: 2rem;
+    bottom: 1rem;
+    font-size: 18px;
+    font-weight: 700;
+    cursor: pointer;
+}
+:host ::ng-deep .video-sector .popup .popup-inner .popup-content a img{
+    background: #fff;
+    margin-left: 10px;
+    width: 80px;
 }

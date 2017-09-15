@@ -6,5 +6,12 @@
     </video>
   </div>
 </swiper>
-<span *ngIf="!muted" class="sound-icon sound-on" (click)="toggleMute()"><img [src]="'./assets/img/sound-on.png'" [alt]="'Sound On'"></span>
-<span *ngIf="muted" class="sound-icon sound-off" (click)="toggleMute()"><img [src]="'./assets/img/sound-off.png'" [alt]="'Sound Off'"></span>
+<div class="row video-controls">
+  <div class="columns large-6 small-6 more-info-col control-col">
+    &nbsp;
+  </div>
+  <div class="columns large-6 small-6 toggle-sound-col control-col">
+    <span *ngIf="!muted" class="sound-icon sound-on" (click)="toggleMute()"><img [src]="'./assets/img/sound-on.png'" [alt]="'Sound On'"></span>
+    <span *ngIf="muted" class="sound-icon sound-off" (click)="toggleMute()"><img [src]="'./assets/img/sound-off.png'" [alt]="'Sound Off'"></span>
+  </div>
+</div>

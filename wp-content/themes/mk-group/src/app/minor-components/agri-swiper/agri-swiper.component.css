@@ -6,8 +6,27 @@ video {
 }
 .sound-icon {
     z-index: 99;
-    position: absolute;
-    bottom: 5rem;
-    right: 5rem;
     cursor: pointer;
+}
+.video-controls {
+    position: absolute;
+    width: 100%;
+    bottom: 5rem;
+    z-index: 99;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.control-col {
+    position: relative;
+}
+.control-col span {
+    position: absolute;
+}
+.more-info-col span {
+    left: 1rem;
+}
+.toggle-sound-col span {
+    right: 1rem;
+    width: 30px;
 }

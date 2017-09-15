@@ -28,7 +28,7 @@
                 <agm-info-window [innerHTML]="article.post_content_formatted"></agm-info-window>
               </agm-marker>
             </agm-map>
-            <h1 class="title" *ngIf="!background && article.post_name != 'contact'">{{ article.post_title }}</h1>
+            <h1 class="title" [ngClass]="{'single-column': article.columns == 1 && !background }" *ngIf="!background && article.post_name != 'contact'">{{ article.post_title }}</h1>
             <div class="featured-image" *ngIf="article.post_name !== 'about-us' && article.featured_image">
               <img [src]="article.featured_image" alt="article.post_title"/>
             </div>
