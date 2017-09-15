@@ -1,9 +1,10 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {trigger, transition, style, animate} from '@angular/animations';
+import {trigger, transition, style, animate, state} from '@angular/animations';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ConfigService} from "../services/config.service";
 import {Title} from "@angular/platform-browser";
 import {MetaService} from "@nglibs/meta";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-sector',
@@ -21,7 +22,16 @@ import {MetaService} from "@nglibs/meta";
           animate('500ms', style({opacity: 0}))
         ])
       ]
-    )
+    ),
+    trigger('visibility', [
+      state('shown', style({
+        opacity: 1
+      })),
+      state('hidden', style({
+        opacity: 0
+      })),
+      transition('* => *', animate('.3s'))
+    ])
   ]
 })
 export class SectorComponent implements OnInit {
@@ -33,9 +43,12 @@ export class SectorComponent implements OnInit {
   sector: any;
   preload: boolean;
   muted: boolean;
+  moreCollapse: boolean;
+  visibility: string;
+  opositeVisibility: string;
   @ViewChild('videoRef') video: ElementRef;
   
-  constructor(private route: ActivatedRoute, private configService: ConfigService, private router: Router, private titleService: Title, private readonly meta: MetaService) {
+  constructor(private location: Location, private route: ActivatedRoute, private configService: ConfigService, private router: Router, private titleService: Title, private readonly meta: MetaService) {
   }
   
   ngOnInit() {
@@ -85,21 +98,32 @@ export class SectorComponent implements OnInit {
   }
   
   loadCompany(company: any) {
-    console.log(company);
     this.router.navigate(['company', company.post_name]);
   }
   
   preloadEnded () {
     this.preload = false;
-    setTimeout (() => {
-      this.video.nativeElement.muted = this.muted;
-    }, 200);
+    if (this.linksTo === 'video_page') {
+      setTimeout (() => {
+        this.video.nativeElement.muted = this.muted;
+      }, 200);
+    }
   }
   
   toggleMute () {
     this.muted = !this.muted;
     localStorage.setItem('muted', this.muted ? '1' : '0');
     this.video.nativeElement.muted = this.muted;
+  }
+  
+  togglePopup () {
+    this.moreCollapse = !this.moreCollapse;
+    this.visibility = this.moreCollapse ? 'shown' : 'hidden';
+    this.opositeVisibility = this.moreCollapse ? 'hidden' : 'shown';
+  }
+  
+  goBack() {
+    this.location.back();
   }
   
 }

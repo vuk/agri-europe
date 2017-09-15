@@ -357,6 +357,9 @@ section.sectors > .row .columns {
     -o-transform: translateX(0);
     transform: translateX(0);
 }
+sector .sector-inner-alt {
+    font-size: 0.9rem;
+}
 .news-menu li {
     list-style: none;
     font-weight: 700;

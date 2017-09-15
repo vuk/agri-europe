@@ -3,11 +3,24 @@ import {ConfigService} from "../services/config.service";
 import {Title} from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
 import {MetaService} from "@nglibs/meta";
+import {animate, style, transition, trigger, state} from "@angular/animations";
+import {Location} from "@angular/common";
 
 @Component({
   selector: 'app-company',
   templateUrl: './company.component.html',
-  styleUrls: ['./company.component.css']
+  styleUrls: ['./company.component.css'],
+  animations: [
+    trigger('visibility', [
+      state('shown', style({
+        opacity: 1
+      })),
+      state('hidden', style({
+        opacity: 0
+      })),
+      transition('* => *', animate('.3s'))
+    ])
+  ],
 })
 export class CompanyComponent implements OnInit {
 
@@ -15,11 +28,20 @@ export class CompanyComponent implements OnInit {
   slug: string;
   company: any;
   muted: boolean;
+  moreCollapse: boolean;
+  visibility: string;
+  opositeVisibility: string;
   @ViewChild('videoRef') video: ElementRef;
   
-  constructor(private route: ActivatedRoute, private configService: ConfigService, private titleService: Title, private readonly meta: MetaService) { }
+  constructor(
+    private route: ActivatedRoute,
+    private configService: ConfigService,
+    private titleService: Title,
+    private location: Location,
+    private readonly meta: MetaService) { }
 
   ngOnInit() {
+    this.moreCollapse = false;
     this.muted = localStorage.getItem('muted') === '1';
     let $menu = jQuery('.menu-bar');
     $menu.removeClass('white-bg');
@@ -46,6 +68,16 @@ export class CompanyComponent implements OnInit {
     this.muted = !this.muted;
     localStorage.setItem('muted', this.muted ? '1' : '0');
     this.video.nativeElement.muted = this.muted;
+  }
+  
+  togglePopup () {
+    this.moreCollapse = !this.moreCollapse;
+    this.visibility = this.moreCollapse ? 'shown' : 'hidden';
+    this.opositeVisibility = this.moreCollapse ? 'hidden' : 'shown';
+  }
+  
+  goBack() {
+    this.location.back();
   }
 
 }

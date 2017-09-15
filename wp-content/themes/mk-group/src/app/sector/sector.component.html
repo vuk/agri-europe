@@ -27,6 +27,20 @@
         </video>
         <span *ngIf="!muted" class="sound-icon sound-on" (click)="toggleMute()"><img [src]="'./assets/img/sound-on.png'" [alt]="'Sound On'"></span>
         <span *ngIf="muted" class="sound-icon sound-off" (click)="toggleMute()"><img [src]="'./assets/img/sound-off.png'" [alt]="'Sound Off'"></span>
+        <div class="popup">
+            <div class="popup-outer-wrapper">
+                <div class="popup-inner" [@visibility]="visibility">
+                    <div class="popup-content"
+                         [innerHTML]="'<h2>' + sector.post_title + '</h2>' + sector.post_content_formatted">
+                    </div>
+                    <span class="closepopup"><i class="fa fa-times" (click)="goBack()"></i></span>
+                </div>
+                <span [@visibility]="opositeVisibility" class="more-info" (click)="togglePopup()"><img
+                        [src]="'./assets/img/more-info-button.png'"/></span>
+                <span [@visibility]="visibility" class="more-info more-info-collapsed" (click)="togglePopup()"><img
+                        [src]="'./assets/img/moreinfocollapse.png'"/></span>
+            </div>
+        </div>
     </div>
 </section>
 <section class="preload-video" *ngIf="preload">

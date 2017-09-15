@@ -5,9 +5,9 @@ video {
     overflow: hidden;
 }
 .sound-icon {
-    position: absolute;
-    bottom: 2rem;
-    right: 2rem;
     z-index: 99;
+    position: absolute;
+    bottom: 5rem;
+    right: 5rem;
     cursor: pointer;
 }

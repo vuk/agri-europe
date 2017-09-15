@@ -1,11 +1,28 @@
 <section class="video-sector" *ngIf="company">
-  <!--<app-grid-decoration></app-grid-decoration>-->
-  <div class="agrieurope-sector">
-    <video #videoRef playsinline autoplay preload="auto" loop [poster]="company.video_poster">
-      <source [src]="company.webm" type="video/webm">
-      <source [src]="company.mp4" type="video/mp4">
-    </video>
-    <span *ngIf="!muted" class="sound-icon sound-on" (click)="toggleMute()"><img [src]="'./assets/img/sound-on.png'" [alt]="'Sound On'"></span>
-    <span *ngIf="muted" class="sound-icon sound-off" (click)="toggleMute()"><img [src]="'./assets/img/sound-off.png'" [alt]="'Sound Off'"></span>
-  </div>
+    <!--<app-grid-decoration></app-grid-decoration>-->
+    <div class="agrieurope-sector">
+        <video #videoRef playsinline autoplay preload="auto" loop
+               [poster]="company.video_poster ? company.video_poster : ''">
+            <source [src]="company.webm" type="video/webm">
+            <source [src]="company.mp4" type="video/mp4">
+        </video>
+        <span *ngIf="!muted" class="sound-icon sound-on" (click)="toggleMute()"><img [src]="'./assets/img/sound-on.png'"
+                                                                                     [alt]="'Sound On'"></span>
+        <span *ngIf="muted" class="sound-icon sound-off" (click)="toggleMute()"><img
+                [src]="'./assets/img/sound-off.png'" [alt]="'Sound Off'"></span>
+        <div class="popup">
+            <div class="popup-outer-wrapper">
+                <div class="popup-inner" [@visibility]="visibility">
+                    <div class="popup-content"
+                         [innerHTML]="'<h2>' + company.post_title + '</h2>' + company.post_content_formatted">
+                    </div>
+                    <span class="closepopup"><i class="fa fa-times" (click)="goBack()"></i></span>
+                </div>
+                <span [@visibility]="opositeVisibility" class="more-info" (click)="togglePopup()"><img
+                        [src]="'./assets/img/more-info-button.png'"/></span>
+                <span [@visibility]="visibility" class="more-info more-info-collapsed" (click)="togglePopup()"><img
+                        [src]="'./assets/img/moreinfocollapse.png'"/></span>
+            </div>
+        </div>
+    </div>
 </section>
