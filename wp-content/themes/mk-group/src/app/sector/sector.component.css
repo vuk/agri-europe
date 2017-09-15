@@ -74,6 +74,23 @@ section.video-sector .agrieurope-sector {
     font-size: 80%;
     opacity: 0;
     position: relative;
+    height: 500px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    overflow-y: auto;
+}
+.video-sector .popup .popup-inner::-webkit-scrollbar {
+    width: 0.5em;
+}
+
+.video-sector .popup .popup-inner::-webkit-scrollbar-track {
+    -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+}
+
+.video-sector .popup .popup-inner::-webkit-scrollbar-thumb {
+    background-color: darkgrey;
+    outline: 1px solid slategrey;
 }
 .popup-outer-wrapper {
     position: relative;
