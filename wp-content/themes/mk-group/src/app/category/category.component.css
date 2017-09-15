@@ -9,7 +9,7 @@ section.sectors > .row {
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: calc(100% - 100px);
+    height: calc(100% - 25px);
 }
 section.sectors > .row .columns {
     display: flex;

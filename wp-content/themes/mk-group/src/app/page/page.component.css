@@ -183,7 +183,7 @@ section.sectors > .row .columns {
     height: 100%;
     border: 1px solid #f1f1f1;
     overflow-y: auto;
-    padding: 2rem 4rem;
+    padding: 4rem;
 }
 
 .sectors-inner .article-container .article-inner::-webkit-scrollbar {
@@ -203,10 +203,14 @@ section.sectors > .row .columns {
     -moz-column-count: 2;
     -webkit-column-count: 2;
     column-count: 2;
-    -webkit-column-gap: 2rem; /* Chrome, Safari, Opera */
-    -moz-column-gap: 2rem; /* Firefox */
-    column-gap: 2rem;
+    -webkit-column-gap: 4rem; /* Chrome, Safari, Opera */
+    -moz-column-gap: 4rem; /* Firefox */
+    column-gap: 4rem;
     text-align: justify;
+}
+
+.article-content p {
+    font-size: 0.9rem;
 }
 
 .sectors-inner .article-container .close-article {
@@ -227,6 +231,7 @@ h1.title {
     text-decoration: none;
     font-weight: 700;
     font-size: 28px;
+    margin-bottom: 2rem;
 }
 
 span.date {

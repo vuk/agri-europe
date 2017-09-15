@@ -43,7 +43,7 @@ export class SectorComponent implements OnInit {
   sector: any;
   preload: boolean;
   muted: boolean;
-  moreCollapse: boolean;
+  moreCollapse: boolean = false;
   visibility: string;
   opositeVisibility: string;
   @ViewChild('videoRef') video: ElementRef;
@@ -59,6 +59,7 @@ export class SectorComponent implements OnInit {
         .subscribe((response) => {
             this.titleService.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
             this.sector = response;
+            this.togglePopup();
             this.preload = true;
             this.meta.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
             this.meta.setTag('og:image', this.configService['video_bg']);
@@ -106,7 +107,7 @@ export class SectorComponent implements OnInit {
     if (this.linksTo === 'video_page') {
       setTimeout (() => {
         this.video.nativeElement.muted = this.muted;
-      }, 200);
+      }, 100);
     }
   }
   

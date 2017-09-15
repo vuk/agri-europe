@@ -28,7 +28,7 @@ export class CompanyComponent implements OnInit {
   slug: string;
   company: any;
   muted: boolean;
-  moreCollapse: boolean;
+  moreCollapse: boolean = false;
   visibility: string;
   opositeVisibility: string;
   @ViewChild('videoRef') video: ElementRef;
@@ -51,9 +51,10 @@ export class CompanyComponent implements OnInit {
       this.configService.getPost('company', this.slug)
         .subscribe(response => {
           this.company = response;
+          this.togglePopup();
           setTimeout (() => {
             this.video.nativeElement.muted = this.muted;
-          }, 200);
+          }, 100);
           this.titleService.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
           this.meta.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
           this.meta.setTag('og:image', this.company.video_poster);

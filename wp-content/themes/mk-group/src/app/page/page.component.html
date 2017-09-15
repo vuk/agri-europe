@@ -29,6 +29,9 @@
               </agm-marker>
             </agm-map>
             <h1 class="title" *ngIf="!background && article.post_name != 'contact'">{{ article.post_title }}</h1>
+            <div class="featured-image" *ngIf="article.post_name !== 'about-us' && article.featured_image">
+              <img [src]="article.featured_image" alt="article.post_title"/>
+            </div>
             <div class="article-content" [ngClass]="{ 'chairman' : !!background, 'single-column': article.columns == 1 && !background }" *ngIf="article.post_name !== 'contact'" [ngStyle]="[!!background ? {
               'column-count': 1,
               'width': '45%',
@@ -41,6 +44,9 @@
               'position': 'absolute',
               'color': '#fff'
               } : {}]" [innerHTML]="articleHtml">
+            </div>
+            <div class="featured-image" *ngIf="article.post_name === 'about-us' && article.featured_image">
+              <img [src]="article.featured_image" alt="article.post_title"/>
             </div>
           </div>
         </div>
