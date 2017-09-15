@@ -12,16 +12,9 @@ section.video-sector .agrieurope-sector {
     overflow: hidden;
 }
 .sound-icon {
-    position: absolute;
-    bottom: 5rem;
-    right: 5rem;
     cursor: pointer;
-    z-index: 10;
 }
 .more-info {
-    position: absolute;
-    left: -1rem;
-    bottom: -1rem;
     cursor: pointer;
 }
 .more-info-collapsed {
@@ -34,32 +27,35 @@ section.video-sector .agrieurope-sector {
     display: flex;
     flex-direction:column;
     width: 100%;
-    height: 75%;
+    height: calc(100% - 10rem);
     justify-content:center;
     align-items: center;
 }
 .video-sector .popup .popup-inner {
     max-width: 1170px;
     background: rgba(255,255,255,0.8);
-    padding: 2rem 5rem;
+    padding: 3rem 0;
     font-size: 80%;
     opacity: 0;
     position: relative;
-    height: 500px;
     display: flex;
     justify-content: center;
     flex-direction: column;
-    overflow-y: auto;
 }
-.video-sector .popup .popup-inner::-webkit-scrollbar {
+.video-sector .popup .popup-inner .popup-content {
+    padding: 0 5rem;
+    overflow-y: auto;
+    max-height: 50vh;
+}
+.video-sector .popup .popup-inner .popup-content::-webkit-scrollbar {
     width: 0.5em;
 }
 
-.video-sector .popup .popup-inner::-webkit-scrollbar-track {
+.video-sector .popup .popup-inner .popup-content::-webkit-scrollbar-track {
     -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
 
-.video-sector .popup .popup-inner::-webkit-scrollbar-thumb {
+.video-sector .popup .popup-inner .popup-content::-webkit-scrollbar-thumb {
     background-color: darkgrey;
     outline: 1px solid slategrey;
 }
@@ -71,4 +67,25 @@ section.video-sector .agrieurope-sector {
     right: 2rem;
     top:2rem;
     cursor: pointer;
+}
+.video-controls {
+    position: absolute;
+    width: 100%;
+    bottom: 5rem;
+    z-index: 10;
+    left: 50%;
+    -webkit-transform: translateX(-50%);
+    transform: translateX(-50%);
+}
+.control-col {
+    position: relative;
+}
+.control-col span {
+    position: absolute;
+}
+.more-info-col span {
+    left: 1rem;
+}
+.toggle-sound-col span {
+    right: 1rem;
 }
