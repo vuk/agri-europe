@@ -1,5 +1,5 @@
 section.sector {
-    padding-top: 9rem;
+    padding-top: 7rem;
     display: flex;
     flex-direction: column;
     height: 100%;
@@ -11,6 +11,7 @@ section.sector > .row {
     display: flex;
     flex-direction: column;
     height: calc(100% - 25px);
+    justify-content: center;
 }
 section.sector .companies-wrapper {
     display: flex;
@@ -49,6 +50,10 @@ section.video-sector .agrieurope-sector {
     width: 100%;
     height: 100%;
     background: #fff;
+}
+.preload-video video {
+    background: #fff;
+    z-index: 10;
 }
 .sound-icon {
     cursor: pointer;
