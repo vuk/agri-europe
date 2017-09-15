@@ -29,18 +29,20 @@
               </agm-marker>
             </agm-map>
             <h1 class="title" *ngIf="!background && article.post_name != 'contact'">{{ article.post_title }}</h1>
-            <div class="article-content" [ngClass]="{ 'chairman' : !!background }" *ngIf="article.post_name !== 'contact'" [ngStyle]="!!background ? {
+            <div class="article-content" [ngClass]="{ 'chairman' : !!background, 'single-column': article.columns == 1 }" *ngIf="article.post_name !== 'contact'" [ngStyle]="[!!background ? {
               'column-count': 1,
               'width': '45%',
               'float': 'right',
               'display': 'flex',
-              'flex-direction': 'column',
+              'flex-direction': 'columns',
               'bottom': '2rem',
               'right': '3rem',
               'flex-grow': 1,
               'position': 'absolute',
               'color': '#fff'
-              } : {}" [innerHTML]="articleHtml">
+              } : article.columns == 1 ? {
+                'column-count': 1
+              } : {}]" [innerHTML]="articleHtml">
             </div>
           </div>
         </div>

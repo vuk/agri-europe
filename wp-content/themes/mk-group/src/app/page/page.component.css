@@ -229,3 +229,9 @@ agm-map {
 :host ::ng-deep .article-content.chairman h3 {
     font-size: 1.8rem;
 }
+
+:host ::ng-deep .single-column {
+    -webkit-column-count: 1;
+    -moz-column-count: 1;
+    column-count: 1;
+}

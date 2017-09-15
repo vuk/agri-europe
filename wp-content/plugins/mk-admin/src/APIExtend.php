@@ -233,6 +233,7 @@ class APIExtend {
 			if ( $parameters['post_type'] == 'page' ) {
 				$slide->background_image       = get_field( 'background_image', $slide->ID );
 				$slide->redirect               = get_field( 'redirect', $slide->ID );
+				$slide->columns               = get_field( 'columns', $slide->ID );
 				$slide->post_content_formatted = wpautop( apply_filters( 'the_content', $slide->post_content ) );
 			}
 
