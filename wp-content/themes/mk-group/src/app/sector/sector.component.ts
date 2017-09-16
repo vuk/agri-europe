@@ -45,6 +45,7 @@ export class SectorComponent implements OnInit {
   muted: boolean;
   moreCollapse: boolean = false;
   visibility: string;
+  loaded: boolean = false;
   opositeVisibility: string;
   @ViewChild('videoRef') video: ElementRef;
   
@@ -60,7 +61,8 @@ export class SectorComponent implements OnInit {
             this.titleService.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
             this.sector = response;
             this.togglePopup();
-            this.preload = true;
+            this.preload = this.configService.getCurrentStateType() !== 'company';
+            this.configService.setCurrentStateType('sector');
             this.meta.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
             this.meta.setTag('og:image', this.configService['video_bg']);
             this.meta.setTag('og:description', response.post_title + ' | ' + this.configService.siteTitle);
@@ -71,6 +73,7 @@ export class SectorComponent implements OnInit {
               this.configService.getCompanies(response.company_category_to_display.term_id)
                 .subscribe((companies) => {
                   this.configService.setDarkLogo(true);
+                  this.loaded = true;
                   let $menu = jQuery('.menu-bar');
                   $menu.addClass('white-bg');
                   this.companies = companies.slides;

@@ -42,6 +42,7 @@ export class CompanyComponent implements OnInit {
 
   ngOnInit() {
     this.moreCollapse = false;
+    this.configService.setCurrentStateType('company');
     this.muted = localStorage.getItem('muted') === '1';
     let $menu = jQuery('.menu-bar');
     $menu.removeClass('white-bg');

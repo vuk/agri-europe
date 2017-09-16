@@ -17,7 +17,6 @@ import { CurtainComponent } from './minor-components/curtain/curtain.component';
 import { AgriSwiperComponent } from './minor-components/agri-swiper/agri-swiper.component';
 import { SectorsComponent } from './sectors/sectors.component';
 import { SingleSectorComponent } from './single-sector/single-sector.component';
-import { CompaniesComponent } from './companies/companies.component';
 import { CompanyComponent } from './company/company.component';
 import { FooterComponent } from './minor-components/footer/footer.component';
 import { SectorComponent } from './sector/sector.component';
@@ -61,7 +60,6 @@ export function metaFactory(): MetaLoader {
     AgriSwiperComponent,
     SectorsComponent,
     SingleSectorComponent,
-    CompaniesComponent,
     CompanyComponent,
     FooterComponent,
     SectorComponent,

@@ -15,6 +15,7 @@ export class ConfigService {
   darkLogoChange: Subject<boolean> = new Subject<boolean>();
   hideLabelChange: Subject<boolean> = new Subject<boolean>();
   hideLabel: boolean;
+  currentStateType: string;
   
   constructor(private http: Http) {
   }
@@ -46,7 +47,7 @@ export class ConfigService {
       .map((res: Response) => res.json());
   }
   
-  getNews (category?: any, perPage?: number, page?: number): Observable<any> {
+  getNews(category?: any, perPage?: number, page?: number): Observable<any> {
     let query: string = '';
     if (category) {
       query += '&category=' + category;
@@ -54,32 +55,40 @@ export class ConfigService {
     if (perPage) {
       query += '&per_page=' + perPage + '&page=' + page;
     }
-    return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=post' + query )
+    return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=post' + query)
       .map((res: Response) => res.json());
   }
   
-  getMenu (menu): Observable<any> {
+  getMenu(menu): Observable<any> {
     return this.http.get(this.apiUrl + 'wp-json/mk/menu/?menu=' + menu)
       .map((res: Response) => res.json());
   }
   
-  setDarkLogo (darkLogo: boolean) {
+  setDarkLogo(darkLogo: boolean) {
     this.darkLogo = darkLogo;
     this.darkLogoChange.next(this.darkLogo);
   }
   
-  hideMenuLabel (hide: boolean) {
+  hideMenuLabel(hide: boolean) {
     this.hideLabel = hide;
     this.hideLabelChange.next(this.hideLabel);
   }
   
-  getDarkLogo (): boolean {
+  getDarkLogo(): boolean {
     return this.darkLogo;
   }
   
-  getPost (type: string, name?: string, id?: number): any {
+  getPost(type: string, name?: string, id?: number): any {
     let params = name ? '&name=' + name : '&p=' + id;
     return this.http.get(this.apiUrl + 'wp-json/mk/single_post?post_type=' + type + params)
       .map((res: Response) => res.json());
+  }
+  
+  setCurrentStateType (stateType: string) {
+    this.currentStateType = stateType;
+  }
+  
+  getCurrentStateType () : string {
+    return this.currentStateType;
   }
 }
