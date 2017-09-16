@@ -99,7 +99,6 @@ section.video-sector .agrieurope-sector {
     cursor: pointer;
 }
 :host ::ng-deep .video-sector .popup .popup-inner .popup-content a img{
-    background: #fff;
     margin-left: 10px;
     width: 80px;
 }

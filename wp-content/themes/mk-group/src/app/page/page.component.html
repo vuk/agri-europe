@@ -7,8 +7,7 @@
             <h3>{{
               article.post_name === 'about-us' ||
               article.post_name === 'mission-vision-values' ?
-              'General' : (article.post_name === 'chairman' ||
-              article.post_name === 'board-of-directors') ? 'Management' : article.post_title }}</h3>
+              'General' : article.post_title }}</h3>
             <div class="news-menu">
               <ul>
                 <li *ngFor="let item of submenu"><a [routerLink]="item.permalink" routerLinkActive="active">{{ item.title }}</a></li>

@@ -74,12 +74,12 @@ export class PageComponent implements OnInit {
           this.articleHtml = this.article.post_content_formatted;
           const regex = /<br\s*[\/]?>/gi;
           this.replaced = this.article.post_content.replace(regex, "\n");
-          if (this.article.post_name === 'chairman' || this.article.post_name === 'board-of-directors') {
+          /*if (this.article.post_name === 'chairman' || this.article.post_name === 'board-of-directors') {
             this.config.getMenu('management')
               .subscribe((response) => {
                 this.submenu = response;
               });
-          }
+          }*/
           if (this.article.post_name === 'about-us' || this.article.post_name === 'history' || this.article.post_name === 'mission-vision-values') {
             this.config.getMenu('about')
               .subscribe((response) => {
