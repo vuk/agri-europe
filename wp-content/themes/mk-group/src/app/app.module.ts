@@ -26,6 +26,7 @@ import { CategoryComponent } from './category/category.component';
 import { ArticleComponent } from './article/article.component';
 import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@nglibs/meta';
 import { AgmCoreModule } from '@agm/core';
+import { ExcerptPipe } from './excerpt.pipe';
 
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -66,7 +67,8 @@ export function metaFactory(): MetaLoader {
     SectorComponent,
     PageComponent,
     CategoryComponent,
-    ArticleComponent
+    ArticleComponent,
+    ExcerptPipe
   ],
   imports: [
     BrowserModule,

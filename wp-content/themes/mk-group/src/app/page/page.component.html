@@ -21,7 +21,7 @@
             </div>
           </div>
         </div>
-        <div class="article-container" [ngStyle]="!!background ? { 'background-image': 'url(' + background + ')' } : ''">
+        <div class="article-container" [ngClass]="{'history': article.post_name}" [ngStyle]="!!background ? { 'background-image': 'url(' + background + ')' } : ''">
           <div class="article-inner" [ngStyle]="article.post_name == 'contact' ? { padding: 0 } : {}">
             <agm-map *ngIf="article.post_name === 'contact'" [zoom]="17" [latitude]="lat" [longitude]="long">
               <agm-marker [latitude]="lat" [longitude]="long">
@@ -29,7 +29,7 @@
               </agm-marker>
             </agm-map>
             <h1 class="title" [ngClass]="{'single-column': article.columns == 1 && !background }" *ngIf="!background && article.post_name != 'contact'">{{ article.post_title }}</h1>
-            <div class="featured-image" *ngIf="article.post_name !== 'about-us' && article.featured_image">
+            <div class="featured-image" *ngIf="article.featured_image">
               <img [src]="article.featured_image" alt="article.post_title"/>
             </div>
             <div class="article-content" [ngClass]="{ 'chairman' : !!background, 'single-column': article.columns == 1 && !background }" *ngIf="article.post_name !== 'contact'" [ngStyle]="[!!background ? {
@@ -44,9 +44,6 @@
               'position': 'absolute',
               'color': '#fff'
               } : {}]" [innerHTML]="articleHtml">
-            </div>
-            <div class="featured-image" *ngIf="article.post_name === 'about-us' && article.featured_image">
-              <img [src]="article.featured_image" alt="article.post_title"/>
             </div>
           </div>
         </div>

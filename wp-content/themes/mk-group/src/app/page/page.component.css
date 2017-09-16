@@ -177,6 +177,9 @@ section.sectors > .row .columns {
     background-position: center center;
     background-repeat: no-repeat;
 }
+.sectors-inner .article-container.history {
+    background-size: 100%;
+}
 
 .sectors-inner .article-container .article-inner {
     width: 100%;
