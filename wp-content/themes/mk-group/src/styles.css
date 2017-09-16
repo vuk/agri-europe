@@ -27,6 +27,8 @@ video {
     transform: translateY(-50%);
     min-width: 100%;
     min-height: 100%;
+    width: auto;
+    height: auto;
 }
 /** 2. Preloader screen */
 .logo-inner {
