@@ -31,7 +31,7 @@
                     <div class="popup-content"
                          [innerHTML]="'<h2>' + sector.post_title + '</h2>' + sector.post_content_formatted">
                     </div>
-                    <span class="closepopup"><i class="fa fa-times" (click)="goBack()"></i></span>
+                    <span class="closepopup"><i class="fa fa-times" (click)="togglePopup()"></i></span>
                     <span (click)="goBack()" class="backbutton"><i class="fa fa-chevron-left" aria-hidden="true"></i> Back</span>
                 </div>
             </div>
