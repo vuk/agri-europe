@@ -23,7 +23,7 @@ section.sectors > .row .columns {
 }
 .sector {
     display: flex;
-    width: 25%;
+    width: 50%;
     color: #151515;
     border-top: 1px solid #f1f1f1;
     border-right: 1px solid #f1f1f1;
@@ -42,12 +42,13 @@ section.sectors > .row .columns {
 .swiper-container {
     display: flex;
     flex-direction: row;
-    width: 81%;
+    width: 75%;
     position: relative;
+    flex-wrap: wrap;
 }
 .sector.sector-menu {
     color: #fff;
-    width: 19%;
+    width: 25%;
     background: #151515;
     border-right: none;
 }
@@ -166,6 +167,7 @@ section.sectors > .row .columns {
     overflow: hidden;
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 .swiper-container .sector-curtain {
     width: 100%;
@@ -372,4 +374,24 @@ section.sectors > .row .columns {
 }
 .news-menu li a.active, .news-menu li a:hover {
     color: #86c25a;
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+    .swiper-container {
+        width: 81%;
+        flex-wrap: nowrap;
+    }
+    .sector.sector-menu {
+        width: 19%;
+    }
+    .sector {
+        width: 20%;
+    }
 }

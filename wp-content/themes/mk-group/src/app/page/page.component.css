@@ -48,13 +48,13 @@ section.sectors > .row .columns {
 .swiper-container {
     display: flex;
     flex-direction: row;
-    width: 80%;
+    width: 75%;
     position: relative;
 }
 
 .sector.sector-menu {
     color: #fff;
-    width: 20%;
+    width: 25%;
     background: #151515;
     border-right: none;
 }
@@ -167,7 +167,7 @@ section.sectors > .row .columns {
 
 .sectors-inner .article-container {
     display: flex;
-    width: 80%;
+    width: 75%;
     height: 100%;
     border: 1px solid transparent;
     border-left: none;
@@ -203,12 +203,9 @@ section.sectors > .row .columns {
 }
 
 .article-content {
-    -moz-column-count: 2;
-    -webkit-column-count: 2;
-    column-count: 2;
-    -webkit-column-gap: 4rem; /* Chrome, Safari, Opera */
-    -moz-column-gap: 4rem; /* Firefox */
-    column-gap: 4rem;
+    -moz-column-count: 1;
+    -webkit-column-count: 1;
+    column-count: 1;
     text-align: justify;
 }
 
@@ -295,6 +292,43 @@ agm-map {
     -webkit-column-count: 1;
     -moz-column-count: 1;
     column-count: 1;
-    max-width: 60%;
+    max-width: 100%;
     margin: 0 auto;
 }
+
+/* Medium and up */
+@media screen and (min-width: 40em) {}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
+    .article-content {
+        -moz-column-count: 2;
+        -webkit-column-count: 2;
+        column-count: 2;
+        -webkit-column-gap: 4rem; /* Chrome, Safari, Opera */
+        -moz-column-gap: 4rem; /* Firefox */
+        column-gap: 4rem;
+        text-align: justify;
+    }
+    .sectors-inner .article-container {
+        width: 80%;
+    }
+    .swiper-container {
+        width: 80%;
+    }
+    .sector.sector-menu {
+        width: 20%;
+    }
+    .sector {
+        width: 20%;
+    }
+    :host ::ng-deep .single-column {
+        max-width: 60%;
+    }
+}
+
+/* Large only */
+@media screen and (min-width: 64em) and (max-width: 74.9375em) {}
