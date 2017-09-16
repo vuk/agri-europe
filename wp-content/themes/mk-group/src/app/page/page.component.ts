@@ -60,10 +60,8 @@ export class PageComponent implements OnInit {
       this.config.getPost('page', params['slug'])
         .subscribe((response) => {
           this.article = response;
-          console.log(this.article.redirect);
           if (this.article.redirect) {
             let segments = this.article.redirect.split('/');
-            console.log(segments);
             this.router.navigate(['page', segments[segments.length - 2]]);
           }
           this.meta.setTitle(this.article.post_title + ' | ' + this.config.siteTitle);

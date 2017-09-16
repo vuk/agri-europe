@@ -85,7 +85,7 @@ export class SectorComponent implements OnInit {
             }
           },
           (err) => {
-            console.log(err);
+            console.debug(err);
           });
     });
   }

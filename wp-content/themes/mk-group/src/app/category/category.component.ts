@@ -140,7 +140,6 @@ export class CategoryComponent implements OnInit {
   }
   
   openArticle (article: any) {
-    console.log(article);
     this.router.navigate(['article', article.post_name]);
   }
 }
