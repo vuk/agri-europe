@@ -19,7 +19,7 @@ export class MenuComponent implements OnInit, OnDestroy {
       this.darkLogo = value;
     });
     this._subscription2 = config.hideLabelChange.subscribe((value) => {
-      this.hideLabel = value;
+      //this.hideLabel = value;
     });
   }
 

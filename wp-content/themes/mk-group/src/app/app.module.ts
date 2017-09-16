@@ -22,7 +22,7 @@ import { SectorComponent } from './sector/sector.component';
 import { PageComponent } from './page/page.component';
 import { CategoryComponent } from './category/category.component';
 import { ArticleComponent } from './article/article.component';
-import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@nglibs/meta';
+import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '@ngx-meta/core';
 import { AgmCoreModule } from '@agm/core';
 import { ExcerptPipe } from './excerpt.pipe';
 

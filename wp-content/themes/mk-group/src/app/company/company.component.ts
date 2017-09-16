@@ -2,7 +2,7 @@ import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ConfigService} from "../services/config.service";
 import {Title} from "@angular/platform-browser";
 import {ActivatedRoute} from "@angular/router";
-import {MetaService} from "@nglibs/meta";
+import {MetaService} from "@ngx-meta/core";
 import {animate, style, transition, trigger, state} from "@angular/animations";
 import {Location} from "@angular/common";
 

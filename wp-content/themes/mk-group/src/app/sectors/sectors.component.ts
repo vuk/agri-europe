@@ -4,7 +4,7 @@ import 'rxjs/add/operator/map';
 import {ConfigService} from "../services/config.service";
 import {Router} from "@angular/router";
 import {Title} from "@angular/platform-browser";
-import {MetaService} from "@nglibs/meta";
+import {MetaService} from "@ngx-meta/core";
 import {animate, style, transition, trigger} from "@angular/animations";
 
 @Component({

@@ -4,7 +4,7 @@ import {Title} from "@angular/platform-browser";
 import {ActivatedRoute, Route, Router} from "@angular/router";
 import * as jQuery from 'jquery';
 import {Location} from "@angular/common";
-import {MetaService} from "@nglibs/meta";
+import {MetaService} from "@ngx-meta/core";
 import {trigger, transition, style, animate} from '@angular/animations';
 
 @Component({

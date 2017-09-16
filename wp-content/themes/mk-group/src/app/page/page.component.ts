@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ConfigService} from "../services/config.service";
 import {Title} from "@angular/platform-browser";
 import {ActivatedRoute, Router} from "@angular/router";
-import {MetaService} from "@nglibs/meta";
+import {MetaService} from "@ngx-meta/core";
 import {Location} from "@angular/common";
 import {trigger, transition, style, animate} from '@angular/animations';
 

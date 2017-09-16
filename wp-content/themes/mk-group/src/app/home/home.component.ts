@@ -9,7 +9,7 @@ import {
 } from '@angular/animations';
 import * as jQuery from 'jquery';
 import {Title} from "@angular/platform-browser";
-import {MetaService} from "@nglibs/meta";
+import {MetaService} from "@ngx-meta/core";
 
 @Component({
   selector: 'app-home',

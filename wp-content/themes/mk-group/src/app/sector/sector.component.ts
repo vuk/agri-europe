@@ -3,7 +3,7 @@ import {trigger, transition, style, animate, state} from '@angular/animations';
 import {ActivatedRoute, Router} from "@angular/router";
 import {ConfigService} from "../services/config.service";
 import {Title} from "@angular/platform-browser";
-import {MetaService} from "@nglibs/meta";
+import {MetaService} from "@ngx-meta/core";
 import {Location} from "@angular/common";
 
 @Component({
