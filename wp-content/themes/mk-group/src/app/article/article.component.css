@@ -2,14 +2,14 @@ section.sectors {
     padding-top: 9rem;
     display: flex;
     width: 100%;
-    height: 100%;
+    height: auto;
     flex-direction: column;
 }
 section.sectors > .row {
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: calc(100% - 25px);
+    height: auto;
 }
 section.sectors > .row .columns {
     display: flex;
@@ -18,7 +18,7 @@ section.sectors > .row .columns {
 }
 .sectors-inner {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     height: 100%;
 }
 .sector {
@@ -42,12 +42,12 @@ section.sectors > .row .columns {
 .swiper-container {
     display: flex;
     flex-direction: row;
-    width: 75%;
+    width: 100%;
     position: relative;
 }
 .sector.sector-menu {
     color: #fff;
-    width: 25%;
+    width: 100%;
     background: #151515;
     border-right: none;
 }
@@ -64,7 +64,7 @@ section.sectors > .row .columns {
 }
 .sector-inner-wrapper {
     width: 100%;
-    padding: 3rem 0;
+    padding: 3rem 0 0 0;
     position: relative;
 }
 .sector-inner-wrapper h3 {
@@ -76,7 +76,7 @@ section.sectors > .row .columns {
 .sector-menu-holder {
     direction: rtl;
     bottom: 0;
-    position: absolute;
+    position: relative;
     width: 100%;
 }
 .sector-menu-holder ul {
@@ -146,7 +146,7 @@ section.sectors > .row .columns {
 .sectors-inner .article-container {
     display: flex;
     flex-direction:row;
-    width: 80%;
+    width: 100%;
     max-height: 100%;
     border: 1px solid transparent;
     border-left: none;
@@ -157,7 +157,7 @@ section.sectors > .row .columns {
     max-height: 100%;
     border: 1px solid #f1f1f1;
     overflow-y: auto;
-    padding: 4rem;
+    padding: 0.5rem;
 }
 .sectors-inner .article-container .article-inner::-webkit-scrollbar {
     width: 0.5em;
@@ -192,7 +192,7 @@ section.sectors > .row .columns {
 h1.title {
     text-decoration: none;
     font-weight: 700;
-    font-size: 28px;
+    font-size: 18px;
 }
 span.date {
     margin-bottom: 1rem;
@@ -219,7 +219,35 @@ span.date {
 }
 
 /* Medium and up */
-@media screen and (min-width: 40em) {}
+@media screen and (min-width: 40em) {
+    h1.title {
+        font-size:28px;
+    }
+    .sectors-inner .article-container .article-inner {
+        padding: 4rem;
+    }
+    section.sectors > .row {
+        height: calc(100% - 25px);
+    }
+    section.sectors {
+        height: 100%;
+    }
+    .sectors-inner {
+        flex-direction:row;
+    }
+    .sector.sector-menu {
+        width: 25%;
+    }
+    .sector-menu-holder {
+        position: absolute;
+    }
+    .sector-inner-wrapper {
+        padding: 3rem 0;
+    }
+    .sectors-inner .article-container {
+        width: 75%;
+    }
+}
 
 /* Medium only */
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {}
