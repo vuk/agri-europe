@@ -13,6 +13,7 @@
     color: #151515;
     background: #fff;
     padding-bottom: 1rem;
+    z-index:99;
 }
 .trigger {
     float: right;

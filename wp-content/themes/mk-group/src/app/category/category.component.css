@@ -2,7 +2,7 @@ section.sectors {
     padding-top: 9rem;
     display: flex;
     width: 100%;
-    height: 100%;
+    height: auto;
     flex-direction: column;
 }
 section.sectors > .row {
@@ -18,16 +18,17 @@ section.sectors > .row .columns {
 }
 .sectors-inner {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     height: 100%;
 }
 .sector {
     display: flex;
-    width: 50%;
+    width: 100%;
     color: #151515;
     border-top: 1px solid #f1f1f1;
     border-right: 1px solid #f1f1f1;
     border-bottom: 1px solid #f1f1f1;
+    border-left: 1px solid #f1f1f1;
     overflow: hidden;
     -webkit-transition: all 300ms;
     -moz-transition: all 300ms;
@@ -37,18 +38,18 @@ section.sectors > .row .columns {
     background: #fff;
 }
 .sector:hover {
-    width: 50%;
+    width: 100%;
 }
 .swiper-container {
     display: flex;
-    flex-direction: row;
-    width: 75%;
+    flex-direction: column;
+    width: 100%;
     position: relative;
     flex-wrap: wrap;
 }
 .sector.sector-menu {
     color: #fff;
-    width: 25%;
+    width: 100%;
     background: #151515;
     border-right: none;
 }
@@ -65,7 +66,7 @@ section.sectors > .row .columns {
 }
 .sector-inner-wrapper {
     width: 100%;
-    padding: 3rem 0;
+    padding: 3rem 0 0 0;
     position: relative;
 }
 .sector-inner-wrapper h3 {
@@ -77,7 +78,7 @@ section.sectors > .row .columns {
 .sector-menu-holder {
     direction: rtl;
     bottom: 0;
-    position: absolute;
+    position: relative;
     width: 100%;
 }
 .sector-menu-holder ul {
@@ -150,7 +151,7 @@ section.sectors > .row .columns {
 }
 
 .swiper-container .sector .sector-inner {
-    padding: 3rem 1rem;
+    padding: 1rem 1rem;
     width: 100%;
 }
 .sector-curtain-wrapper {
@@ -378,10 +379,45 @@ section.sectors > .row .columns {
 }
 
 /* Medium and up */
-@media screen and (min-width: 40em) {}
+@media screen and (min-width: 40em) {
+    section.sectors {
+        height: 100%;
+    }
+    .sectors-inner {
+        flex-direction: row;
+    }
+    .sector.sector-menu {
+        width: 25%;
+    }
+    .sector-inner-wrapper {
+        padding: 3rem 0;
+    }
+    .sector-menu-holder {
+        position: absolute;
+    }
+    .swiper-container {
+        width: 75%;
+    }
+    .swiper-container .sector .sector-inner {
+        padding: 3rem 1rem;
+    }
+    .sector:hover {
+        width: 50%;
+    }
+    .sector {
+        border-left: none;
+    }
+}
 
 /* Medium only */
-@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {
+    .swiper-container {
+        flex-direction: row;
+    }
+    .sector {
+        width: 50%;
+    }
+}
 
 /* Large and up */
 @media screen and (min-width: 64em) {
