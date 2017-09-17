@@ -11,6 +11,8 @@
 }
 .menu-bar.white-bg {
     color: #151515;
+    background: #fff;
+    padding-bottom: 1rem;
 }
 .trigger {
     float: right;
@@ -68,4 +70,19 @@
 .menu-animation.open {
     width: 200%;
     height: 200%;
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+    .menu-bar.white-bg {
+        background: transparent;
+        padding-bottom:0;
+    }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
 }

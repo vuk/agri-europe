@@ -2,7 +2,7 @@ section.sector {
     padding-top: 7rem;
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: auto;
     width: 100%;
     justify-content: space-between;
 }
@@ -153,6 +153,9 @@ section.video-sector .agrieurope-sector {
 @media screen and (min-width: 40em) {
     .video-sector .popup .popup-inner .popup-content {
         padding: 0 5rem;
+    }
+    section.sector {
+        height: 100%;
     }
 }
 
