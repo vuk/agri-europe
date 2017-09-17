@@ -397,6 +397,7 @@ section.sectors > .row .columns {
     }
     .swiper-container {
         width: 75%;
+        flex-direction: row;
     }
     .swiper-container .sector .sector-inner {
         padding: 3rem 1rem;
@@ -411,9 +412,6 @@ section.sectors > .row .columns {
 
 /* Medium only */
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
-    .swiper-container {
-        flex-direction: row;
-    }
     .sector {
         width: 50%;
     }
@@ -429,7 +427,7 @@ section.sectors > .row .columns {
         width: 19%;
     }
     .sector {
-        width: 20%;
+        width: 25%;
     }
     .sector-inner-alt {
         display: block;
