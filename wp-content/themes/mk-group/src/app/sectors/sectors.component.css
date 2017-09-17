@@ -2,14 +2,14 @@ section.sectors {
     padding-top: 9rem;
     display: flex;
     width: 100%;
-    height: 100%;
+    height: auto;
     flex-direction: column;
 }
 section.sectors > .row {
     width: 100%;
     display: flex;
     flex-direction: column;
-    height: calc(100% - 25px);
+    height: auto;
 }
 section.sectors > .row .columns {
     display: flex;
@@ -18,22 +18,24 @@ section.sectors > .row .columns {
 }
 .sectors-inner {
     display: flex;
-    flex-direction: row;
+    flex-direction: column-reverse;
     height: 100%;
 }
 .sector {
     display: flex;
-    width: 25%;
+    width: 100%;
     color: #151515;
     border-top: 1px solid #f1f1f1;
     border-right: 1px solid #f1f1f1;
     border-bottom: 1px solid #f1f1f1;
+    border-left: 1px solid #f1f1f1;
     overflow: hidden;
+    padding: 0.5rem 0;
 }
 .swiper-container {
     display: flex;
-    flex-direction: row;
-    width: 81%;
+    flex-direction: column;
+    width: 100%;
     background-color: #fff;
     background-image: url('../../assets/img/pozadinski.png');
     background-position: center center;
@@ -42,7 +44,7 @@ section.sectors > .row .columns {
 }
 .sector.sector-menu {
     color: #fff;
-    width: 19%;
+    width: 100%;
     background: #151515;
 }
 .sector:before {
@@ -58,7 +60,7 @@ section.sectors > .row .columns {
 }
 .sector-inner-wrapper {
     width: 100%;
-    padding: 3rem 0;
+    padding: 3rem 0 0 0;
     position: relative;
 }
 .sector-inner-wrapper h3 {
@@ -70,7 +72,7 @@ section.sectors > .row .columns {
 .sector-menu-holder {
     direction: rtl;
     bottom: 0;
-    position: absolute;
+    position: relative;
     width: 100%;
 }
 .sector-menu-holder ul {
@@ -149,6 +151,7 @@ section.sectors > .row .columns {
     bottom:2rem;
     width: 100%;
     z-index: 2;
+    display: none;
 }
 .sector-dot span {
     width: 10px;
@@ -170,10 +173,12 @@ section.sectors > .row .columns {
     text-transform: uppercase;
     font-weight: 900;
     font-size: 18px;
+    margin-bottom: 0;
 }
 .image-layer {
     position: absolute;
     height: 100%;
+    width: 100%;
     overflow: hidden;
     z-index: 0;
     transform: translateY(100%);
@@ -201,4 +206,44 @@ section.sectors > .row .columns {
 .swiper-container .sector:hover .sector-dot span {
     background: #fff;
     zoom: 1.5;
+}
+/* Medium and up */
+@media screen and (min-width: 40em) {
+    section.sectors > .row {
+        height: calc(100% - 25px);
+    }
+    section.sectors {
+        height: 100%;
+    }
+    .sectors-inner {
+        flex-direction: row;
+    }
+    .sector.sector-menu {
+        width: 19%;
+    }
+    .sector-menu-holder {
+        position: absolute;
+    }
+    .sector-inner-wrapper {
+        padding: 3rem 0;
+    }
+    .swiper-container {
+        width:81%;
+        flex-direction:row;
+    }
+    .sector {
+        width: 25%;
+        border-left: none;
+        padding: 0;
+    }
+    .sector-dot {
+        display: block;
+    }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
 }
