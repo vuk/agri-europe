@@ -51,6 +51,7 @@ export class ArticleComponent implements OnInit {
       this.config.getPost('post', params['slug'])
         .subscribe((response) => {
           this.article = response;
+          this.article.post_date = this.article.post_date.replace(/-/g, "/");
           this.meta.setTitle(this.article.post_title + ' | ' + this.config.siteTitle);
           this.meta.setTag('og:image', this.article.featured_image);
           this.meta.setTag('og:description', this.article.post_content.substr(0, 100));

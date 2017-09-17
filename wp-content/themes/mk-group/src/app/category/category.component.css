@@ -338,6 +338,7 @@ section.sectors > .row .columns {
 }
 .sector-inner-alt {
     position: absolute;
+    display: none;
     width: 100%;
     background: #151515;
     color: #fff;
@@ -393,5 +394,11 @@ section.sectors > .row .columns {
     }
     .sector {
         width: 20%;
+    }
+    .sector-inner-alt {
+        display: block;
+    }
+    .sector:hover .sector-inner-alt {
+        display: block;
     }
 }
