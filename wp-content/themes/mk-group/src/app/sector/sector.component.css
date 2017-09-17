@@ -89,7 +89,7 @@ section.video-sector .agrieurope-sector {
     flex-direction: column;
 }
 .video-sector .popup .popup-inner .popup-content {
-    padding: 0 5rem;
+    padding: 0 2rem;
     overflow-y: auto;
     max-height: 50vh;
 }
@@ -147,4 +147,18 @@ section.video-sector .agrieurope-sector {
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+    .video-sector .popup .popup-inner .popup-content {
+        padding: 0 5rem;
+    }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
 }

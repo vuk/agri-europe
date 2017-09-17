@@ -43,7 +43,7 @@ section.video-sector .agrieurope-sector {
     flex-direction: column;
 }
 .video-sector .popup .popup-inner .popup-content {
-    padding: 0 5rem;
+    padding: 0 2rem;
     overflow-y: auto;
     max-height: 50vh;
 }
@@ -101,4 +101,18 @@ section.video-sector .agrieurope-sector {
 :host ::ng-deep .video-sector .popup .popup-inner .popup-content a img{
     margin-left: 10px;
     width: 80px;
+}
+
+/* Medium and up */
+@media screen and (min-width: 40em) {
+    .video-sector .popup .popup-inner .popup-content {
+        padding: 0 5rem;
+    }
+}
+
+/* Medium only */
+@media screen and (min-width: 40em) and (max-width: 63.9375em) {}
+
+/* Large and up */
+@media screen and (min-width: 64em) {
 }
