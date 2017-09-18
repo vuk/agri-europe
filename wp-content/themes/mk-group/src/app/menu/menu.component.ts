@@ -12,6 +12,9 @@ export class MenuComponent implements OnInit, OnDestroy {
   
   _subscription;
   _subscription2;
+  langSelectorActive: boolean = false;
+  activeLang = 'en';
+  availableLangs = ['gr', 'sr'];
   
   constructor(private router: Router, private config: ConfigService) {
     this.darkLogo = config.darkLogo;
@@ -45,6 +48,21 @@ export class MenuComponent implements OnInit, OnDestroy {
       $menuAnimation.removeClass('open');
       $menu.removeClass('white-bg');
     }, 300);
+  }
+  
+  showLanguages() {
+    this.langSelectorActive = !this.langSelectorActive;
+  }
+  
+  pickLanguage(lang: string) {
+    for(let i = 0; i < this.availableLangs.length; i++) {
+      if (this.availableLangs[i] === lang) {
+        this.availableLangs.splice(i, 1);
+      }
+    }
+    this.availableLangs.push(this.activeLang);
+    this.activeLang = lang;
+    this.langSelectorActive = false;
   }
   
   ngOnDestroy() {
