@@ -11,8 +11,8 @@
               </ul>
             </div>
             <ul class="pagination">
-              <li *ngIf="page > 1" (click)="previousPage()" class="previous-wrap"><span class="previous"></span></li>
-              <li *ngIf="page < maxPages" (click)="nextPage()" class="next-wrap"><span class="next"></span></li>
+              <li *ngIf="page > 1" (click)="previousPage()" title="Older news"  class="previous-wrap"><span class="previous"></span></li>
+              <li *ngIf="page < maxPages" (click)="nextPage()" title="Newer news" class="next-wrap"><span class="next"></span></li>
             </ul>
             <div class="sector-menu-holder" *ngIf="menuLoaded">
               <ul>

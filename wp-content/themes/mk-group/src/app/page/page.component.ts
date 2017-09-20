@@ -86,7 +86,6 @@ export class PageComponent implements OnInit {
             .subscribe((response) => {
               this.menuItems = response;
               this.menuLoaded = true;
-              console.log(response);
               if (this.article.post_name === 'general' || this.article.post_name === 'about-us' || this.article.post_name === 'history' || this.article.post_name === 'mission-vision-values') {
                 this.config.getMenu('about')
                   .subscribe((response) => {

@@ -20,7 +20,7 @@
             </div>
           </div>
         </div>
-        <div class="article-container" [ngClass]="{'history': article.post_name === 'history'}" [ngStyle]="!!background ? { 'background-image': 'url(' + background + ')' } : ''">
+        <div class="article-container" [ngClass]="{'history': article.post_name === 'history'}" [ngStyle]="!!background ? { 'background-image': 'url(' + background + ')', 'background-size': 'cover' } : ''">
           <div class="article-inner" [ngStyle]="article.post_name == 'contact' ? { padding: 0 } : {}">
             <agm-map *ngIf="article.post_name === 'contact'" [zoom]="17" [latitude]="lat" [longitude]="long">
               <agm-marker [latitude]="lat" [longitude]="long">

@@ -180,9 +180,11 @@ section.sectors > .row .columns {
     border-left: none;
     position: relative;
     -webkit-background-size: contain;
-    background-size: cover;
+    background-size: 60%;
     background-position: center center;
     background-repeat: no-repeat;
+    background-image: url('../../assets/img/pozadinski.png');
+    background-color: #fff;
 }
 .sectors-inner .article-container.history {
     background-size: 100%;

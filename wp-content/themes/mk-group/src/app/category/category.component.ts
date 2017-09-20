@@ -78,7 +78,6 @@ export class CategoryComponent implements OnInit {
     this.config.getMenu('news')
       .subscribe((response) => {
         this.newsItems = response;
-        console.log(this.newsItems);
       });
     let $menu = jQuery('.menu-bar');
     $menu.addClass('white-bg');
