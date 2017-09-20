@@ -50,21 +50,6 @@ export class MenuComponent implements OnInit, OnDestroy {
     }, 300);
   }
   
-  showLanguages() {
-    this.langSelectorActive = !this.langSelectorActive;
-  }
-  
-  pickLanguage(lang: string) {
-    for(let i = 0; i < this.availableLangs.length; i++) {
-      if (this.availableLangs[i] === lang) {
-        this.availableLangs.splice(i, 1);
-      }
-    }
-    this.availableLangs.push(this.activeLang);
-    this.activeLang = lang;
-    this.langSelectorActive = false;
-  }
-  
   ngOnDestroy() {
     //prevent memory leak when component destroyed
     this._subscription.unsubscribe();
