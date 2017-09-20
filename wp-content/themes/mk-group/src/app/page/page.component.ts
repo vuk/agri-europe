@@ -51,6 +51,7 @@ export class PageComponent implements OnInit {
   replaced: string;
   
   ngOnInit() {
+    this.loaded = false;
     this.lat = 34.6904528;
     this.long = 33.0684307;
     this.submenu = [];
@@ -59,6 +60,7 @@ export class PageComponent implements OnInit {
       this.slug = params['slug'];
       this.config.getPost('page', params['slug'])
         .subscribe((response) => {
+          this.loaded = false;
           this.article = response;
           if (this.article.redirect) {
             let segments = this.article.redirect.split('/');
@@ -80,20 +82,23 @@ export class PageComponent implements OnInit {
                 this.submenu = response;
               });
           }*/
-          if (this.article.post_name === 'about-us' || this.article.post_name === 'history' || this.article.post_name === 'mission-vision-values') {
-            this.config.getMenu('about')
-              .subscribe((response) => {
-                this.submenu = response;
-              });
-          }
-          this.loaded = true;
+          this.config.getMenu('main')
+            .subscribe((response) => {
+              this.menuItems = response;
+              this.menuLoaded = true;
+              console.log(response);
+              if (this.article.post_name === 'general' || this.article.post_name === 'about-us' || this.article.post_name === 'history' || this.article.post_name === 'mission-vision-values') {
+                this.config.getMenu('about')
+                  .subscribe((response) => {
+                    this.submenu = response;
+                    this.loaded = true;
+                  });
+              } else {
+                this.loaded = true;
+              }
+            });
         });
     });
-    this.config.getMenu('main')
-      .subscribe((response) => {
-        this.menuItems = response;
-        this.menuLoaded = true;
-      });
     let $menu = jQuery('.menu-bar');
     $menu.addClass('white-bg');
   }
