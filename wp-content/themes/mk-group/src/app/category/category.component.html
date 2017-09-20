@@ -7,7 +7,7 @@
             <h3>News</h3>
             <div class="news-menu">
               <ul>
-                <li *ngFor="let item of newsItems"><a [routerLink]="item.permalink" routerLinkActive="active">{{ item.title }}</a></li>
+                <li *ngFor="let item of newsItems"><a [routerLink]="item.permalink ? item.permalink : item.url" routerLinkActive="active">{{ item.title }}</a></li>
               </ul>
             </div>
             <ul class="pagination">
@@ -16,7 +16,7 @@
             </ul>
             <div class="sector-menu-holder" *ngIf="menuLoaded">
               <ul>
-                <li *ngFor="let item of menuItems"><a [routerLink]="item.permalink">{{ item.title }}</a></li>
+                <li *ngFor="let item of menuItems"><a [routerLink]="item.permalink ? item.permalink : item.url">{{ item.title }}</a></li>
               </ul>
             </div>
           </div>
