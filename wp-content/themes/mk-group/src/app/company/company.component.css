@@ -100,7 +100,7 @@ section.video-sector .agrieurope-sector {
 }
 :host ::ng-deep .video-sector .popup .popup-inner .popup-content a img{
     margin-left: 10px;
-    width: 80px;
+    width: 100px;
 }
 
 /* Medium and up */

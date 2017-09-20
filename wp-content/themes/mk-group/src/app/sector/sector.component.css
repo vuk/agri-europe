@@ -95,7 +95,7 @@ section.video-sector .agrieurope-sector {
 }
 :host ::ng-deep .video-sector .popup .popup-inner .popup-content a img{
     margin-left: 10px;
-    width: 80px;
+    width: 100px;
 }
 .video-sector .popup .popup-inner .popup-content::-webkit-scrollbar {
     width: 0.5em;

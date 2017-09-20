@@ -151,6 +151,11 @@ section.sectors > .row .columns {
     border: 1px solid transparent;
     border-left: none;
     position: relative;
+    background-image: url('../../assets/img/pozadinski.png');
+    background-repeat: no-repeat;
+    background-size: 60%;
+    background-position: center center;
+    background-color: #fff;
 }
 .sectors-inner .article-container .article-inner {
     width: 100%;
