@@ -187,7 +187,7 @@ section.sectors > .row .columns {
     background-color: #fff;
 }
 .sectors-inner .article-container.history {
-    background-size: 100%;
+    background-size: 100% !important;
 }
 
 .sectors-inner .article-container .article-inner {

@@ -31,7 +31,7 @@ export class CategoryComponent implements OnInit {
   menuItems;
   menuLoaded: boolean;
   news;
-  loaded: boolean;
+  loaded: boolean = false;
   params: any;
   queryParams: any;
   page: number = 1;
@@ -49,6 +49,7 @@ export class CategoryComponent implements OnInit {
     private router: Router) { }
 
   ngOnInit() {
+    this.loaded = false;
     this.config.setDarkLogo(true);
     this.titleService.setTitle('News | ' + this.config.siteTitle);
     this.meta.setTitle('News | ' + this.config.siteTitle);
