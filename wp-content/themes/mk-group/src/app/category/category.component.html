@@ -51,7 +51,7 @@
               <div class="sector-title">
                 <h4>{{article.post_title}}</h4>
               </div>
-              <img style="margin-bottom: 1rem;" [src]="article.featured_image" [alt]="article.post_title">
+              <img *ngIf="article.featured_image" style="margin-bottom: 1rem;" [src]="article.featured_image" [alt]="article.post_title">
               <p [innerHTML]="article.post_content | excerpt:20"></p>
               <p><strong>Details...</strong></p>
             </div>

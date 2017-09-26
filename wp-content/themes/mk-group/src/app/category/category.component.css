@@ -367,9 +367,13 @@ section.sectors > .row .columns {
     -o-transform: translateX(0);
     transform: translateX(0);
 }
+.news-menu {
+    padding-right: 2%;
+}
 .news-menu li {
     list-style: none;
     font-weight: 700;
+    font-size: 0.75rem;
 }
 .news-menu li a {
     color: #fff;
