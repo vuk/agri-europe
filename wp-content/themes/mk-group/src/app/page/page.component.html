@@ -22,15 +22,15 @@
         </div>
         <div class="article-container" (click)="openImage(bgImage, article.post_name === 'history' ? false : true);" [ngClass]="{'history': article.post_name === 'history'}" [ngStyle]="!!background && article.post_name != 'chairman' ? { 'background-image': 'url(' + background + ')', 'background-size': 'cover' } : ''">
           <div class="article-inner" [ngStyle]="article.post_name == 'contact' || article.post_name == 'chairman' ? { padding: 0 } : {}">
-            <div class="row" *ngIf="article.post_name === 'contact'" style="margin: 0;height: 100%;display: flex;flex-direction: row;position: relative;">
-              <div class="columns large-4 medium-6 small-12 large-push-8" style="display: flex;flex-direction: column;justify-content: center;">
+            <div class="row contact-row" *ngIf="article.post_name === 'contact'">
+              <div class="columns large-4 medium-12 small-12 large-push-8 image-contain">
                 <!--<h1 class="title">{{ article.post_title }}</h1>-->
                 <div class="featured-image" *ngIf="article.featured_image" style="margin-top: 1rem;text-align: center;">
                   <img [src]="article.featured_image" alt="article.post_title"/>
                 </div>
                 <div class="article-content"[innerHTML]="articleHtml" style="column-count: 1;text-align: center;"></div>
               </div>
-              <div class="columns large-8 medium-6 small-12 large-pull-4" style="height: 100%;flex-grow: 1;padding-left: 0;display: flex;position: relative;">
+              <div class="columns large-8 medium-12 small-12 large-pull-4 map-container">
                 <agm-map [zoom]="17" [latitude]="lat" [longitude]="long">
                   <agm-marker [latitude]="lat" [longitude]="long">
                     <agm-info-window [innerHTML]="article.post_content_formatted"></agm-info-window>
