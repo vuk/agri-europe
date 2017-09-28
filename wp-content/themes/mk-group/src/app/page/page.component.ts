@@ -5,6 +5,7 @@ import {ActivatedRoute, Router} from "@angular/router";
 import {MetaService} from "@ngx-meta/core";
 import {Location} from "@angular/common";
 import {trigger, transition, style, animate} from '@angular/animations';
+import { LightboxModule, Lightbox } from 'angular2-lightbox';
 
 
 @Component({
@@ -34,6 +35,7 @@ export class PageComponent implements OnInit {
     private activeRoute: ActivatedRoute,
     private location: Location,
     private router: Router,
+    private lightbox: Lightbox,
     private readonly meta: MetaService) {
   }
   
@@ -49,6 +51,7 @@ export class PageComponent implements OnInit {
   long: number;
   lat: number;
   replaced: string;
+  bgImage: object;
   
   ngOnInit() {
     this.loaded = false;
@@ -62,6 +65,10 @@ export class PageComponent implements OnInit {
         .subscribe((response) => {
           this.loaded = false;
           this.article = response;
+          this.bgImage = {
+            src: this.article.background_image,
+            caption: this.article.post_title
+          };
           if (this.article.redirect) {
             let segments = this.article.redirect.split('/');
             this.router.navigate(['page', segments[segments.length - 2]]);
@@ -104,6 +111,12 @@ export class PageComponent implements OnInit {
   
   goBack() {
     this.location.back();
+  }
+  
+  openImage(imageObject, disable = true) {
+    if (!disable) {
+      this.lightbox.open([imageObject]);
+    }
   }
 
 }

@@ -27,6 +27,7 @@
     "@angular/platform-server": "^4.4.3",
     "@angular/router": "^4.4.3",
     "@ngx-meta/core": "^4.0.1",
+    "angular2-lightbox": "^1.2.1",
     "core-js": "^2.5.1",
     "font-awesome": "^4.7.0",
     "foundation-sites": "^6.4.3",
