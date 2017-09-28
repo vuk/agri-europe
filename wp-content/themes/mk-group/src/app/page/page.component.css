@@ -323,6 +323,9 @@ agm-map {
     .row.small-only-collapse .columns {
         padding: 0;
     }
+    .row.small-only-collapse .featured-image {
+        min-height: 230px;
+    }
 }
 
 /* Medium and up */
@@ -386,6 +389,9 @@ agm-map {
 @media screen and (min-width: 40em) and (max-width: 63.9375em) {
     .sectors-inner .article-container .article-inner {
         padding: 4rem;
+    }
+    .row.small-only-collapse {
+        flex-direction: column;
     }
 }
 
