@@ -16,7 +16,7 @@ p, ul, ul li {
     font-size: 0.8rem;
 }
 .logo-small img {
-    max-width: 90px;
+    max-width: 110px;
 }
 .sectors-inner {
     padding: 0 2rem;
@@ -39,8 +39,7 @@ video {
     margin: 0 auto;
 }
 main {
-    background: url('./assets/img/pozadinski.png') center center no-repeat;
-    background-size: 66%;
+
 }
 /* Swiper layout */
 swiper.s-wrapper>.swiper {

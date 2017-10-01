@@ -48,7 +48,7 @@ section.sectors > .row .columns {
 .sector.sector-menu {
     color: #fff;
     width: 100%;
-    background: #151515;
+    background: #012842;
     border-right: none;
 }
 .sector:before {
@@ -152,8 +152,7 @@ section.sectors > .row .columns {
     border-left: none;
     position: relative;
     background-image: url('../../assets/img/pozadinski.png');
-    background-repeat: no-repeat;
-    background-size: 60%;
+    background-repeat: repeat;
     background-position: center center;
     background-color: #fff;
 }
@@ -220,7 +219,7 @@ span.date {
     color: #fff;
 }
 .news-menu li a.active, .news-menu li a:hover {
-    color: #86c25a;
+    color: #DDB871;
 }
 
 /* Medium and up */

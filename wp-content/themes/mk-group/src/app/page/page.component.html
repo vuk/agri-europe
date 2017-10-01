@@ -1,63 +1,89 @@
 <section class="sectors" *ngIf="loaded" [@enterAnimation]>
-  <div class="row">
-    <div class="columns large-12 small-12">
-      <div class="sectors-inner">
-        <div class="sector sector-menu">
-          <div class="sector-inner-wrapper">
-            <h3>{{
-              article.post_name === 'about-us' ||
-              article.post_name === 'mission-vision-values' ?
-              'General' : article.post_title }}</h3>
-            <div class="news-menu">
-              <ul>
-                <li *ngFor="let item of submenu"><a [routerLink]="item.permalink ? item.permalink : item.url" routerLinkActive="active">{{ item.title }}</a></li>
-              </ul>
-            </div>
-            <div class="sector-menu-holder" *ngIf="menuLoaded">
-              <ul>
-                <li *ngFor="let item of menuItems"><a [routerLink]="item.permalink ? item.permalink : item.url">{{ item.title }}</a></li>
-              </ul>
-            </div>
-          </div>
-        </div>
-        <div class="article-container" (click)="openImage(bgImage, article.post_name === 'history' ? false : true);" [ngClass]="{'history': article.post_name === 'history'}" [ngStyle]="!!background && article.post_name != 'chairman' ? { 'background-image': 'url(' + background + ')', 'background-size': 'cover' } : ''">
-          <div class="article-inner" [ngStyle]="article.post_name == 'contact' || article.post_name == 'chairman' ? { padding: 0 } : {}">
-            <div class="row contact-row" *ngIf="article.post_name === 'contact'">
-              <div class="columns large-4 medium-12 small-12 large-push-8 image-contain">
-                <!--<h1 class="title">{{ article.post_title }}</h1>-->
-                <div class="featured-image" *ngIf="article.featured_image" style="margin-top: 1rem;text-align: center;">
-                  <img [src]="article.featured_image" alt="article.post_title"/>
+    <div class="row">
+        <div class="columns large-12 small-12">
+            <div class="sectors-inner">
+                <div class="sector sector-menu">
+                    <div class="sector-inner-wrapper">
+                        <h3>{{
+                            article.post_name === 'about-us' ||
+                            article.post_name === 'mission-vision-values' ?
+                            'General' : article.post_title }}</h3>
+                        <div class="news-menu">
+                            <ul>
+                                <li *ngFor="let item of submenu"><a
+                                        [routerLink]="item.permalink ? item.permalink : item.url"
+                                        routerLinkActive="active">{{ item.title }}</a></li>
+                            </ul>
+                        </div>
+                        <div class="sector-menu-holder" *ngIf="menuLoaded">
+                            <ul>
+                                <li *ngFor="let item of menuItems"><a
+                                        [routerLink]="item.permalink ? item.permalink : item.url">{{ item.title }}</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
                 </div>
-                <div class="article-content"[innerHTML]="articleHtml" style="column-count: 1;text-align: center;"></div>
-              </div>
-              <div class="columns large-8 medium-12 small-12 large-pull-4 map-container">
-                <agm-map [zoom]="17" [latitude]="lat" [longitude]="long">
-                  <agm-marker [latitude]="lat" [longitude]="long">
-                    <agm-info-window [innerHTML]="article.post_content_formatted"></agm-info-window>
-                  </agm-marker>
-                </agm-map>
-              </div>
-            </div>
-            <div class="row small-only-collapse" *ngIf="article.post_name === 'chairman'">
-              <div class="columns large-8 medium-12 small-12" style="height: 100%;flex-grow: 1;padding-left: 0;display: flex;position: relative;">
-                <div class="featured-image" *ngIf="!!background" [ngStyle]="{
+                <div class="article-container"
+                     (click)="openImage(bgImage, article.post_name === 'history' ? false : true);"
+                     [ngClass]="{'history': article.post_name === 'history'}"
+                     [ngStyle]="!!background && article.post_name != 'chairman' && article.post_name != 'contact' ? { 'background-image': 'url(' + background + ')', 'background-size': 'cover' } : ''">
+                    <div class="article-inner"
+                         [ngStyle]="article.post_name == 'contact' || article.post_name == 'chairman' ? { padding: 0, display: flex, flexDirection: column } : {}">
+                        <div class="row collapse" *ngIf="article.post_name === 'contact'" style="height: 50%;" [ngStyle]="{
+                            'background-image': 'url(\'' + background + '\')',
+                            'background-size': 'cover',
+                            'background-repeat': 'no-repeat',
+                            'background-position': 'center center'
+                            }">
+                            <div class="columns large-12 small-12">
+                            </div>
+                        </div>
+                        <div class="row contact-row" *ngIf="article.post_name === 'contact'" style="height: 50%;">
+                            <div class="columns large-6 medium-12 small-12 large-push-6 image-contain" style="flex-direction: row-reverse">
+                                <!--<h1 class="title">{{ article.post_title }}</h1>-->
+                                <div class="featured-image" *ngIf="article.featured_image"
+                                     style="margin-top: 1rem;text-align: center;display: flex;flex-direction: column;justify-content: center;">
+                                    <img style="max-height: 100%;" [src]="article.featured_image" alt="article.post_title"/>
+                                </div>
+                                <div class="article-content" [innerHTML]="articleHtml"
+                                     style="column-count: 1;text-align: center;display: flex;flex-direction: column;justify-content: center;"></div>
+                            </div>
+                            <div class="columns large-6 medium-12 small-12 large-pull-6 map-container">
+                                <agm-map [zoom]="17" [latitude]="lat" [longitude]="long">
+                                    <agm-marker [iconUrl]="'../../assets/img/pin.png'" [latitude]="lat" [longitude]="long">
+                                        <agm-info-window><content [innerHTML]="article.post_content_formatted"></content></agm-info-window>
+                                    </agm-marker>
+                                </agm-map>
+                            </div>
+                        </div>
+                        <div class="row small-only-collapse" *ngIf="article.post_name === 'chairman'">
+                            <div class="columns large-8 medium-12 small-12"
+                                 style="height: 100%;flex-grow: 1;padding-left: 0;display: flex;position: relative;">
+                                <div class="featured-image" *ngIf="!!background" [ngStyle]="{
                   'background-image': 'url(\'' + background + '\')',
                   'height': '100%',
                   'background-repeat': 'no-repeat',
                   'background-size': 'cover',
                   'background-position': 'center center'
                 }">
-                </div>
-              </div>
-              <div class="columns large-4 medium-12 small-12">
-                <div class="article-content" [innerHTML]="articleHtml" style="column-count: 1;margin-top: 1rem;"></div>
-              </div>
-            </div>
-            <h1 class="title" [ngClass]="{'single-column': article.columns == 1 && !background }" *ngIf="!background && article.post_name != 'contact' && article.post_name != 'chairman'">{{ article.post_title }}</h1>
-            <div class="featured-image" *ngIf="article.featured_image && article.post_name != 'contact' && article.post_name != 'chairman'">
-              <img [src]="article.featured_image" alt="article.post_title"/>
-            </div>
-            <div class="article-content" [ngClass]="{ 'chairman' : !!background, 'single-column': article.columns == 1 && !background }" *ngIf="article.post_name !== 'contact' && article.post_name != 'chairman'" [ngStyle]="[!!background ? {
+                                </div>
+                            </div>
+                            <div class="columns large-4 medium-12 small-12">
+                                <div class="article-content" [innerHTML]="articleHtml"
+                                     style="column-count: 1;margin-top: 1rem;"></div>
+                            </div>
+                        </div>
+                        <h1 class="title" [ngClass]="{'single-column': article.columns == 1 && !background }"
+                            *ngIf="!background && article.post_name != 'contact' && article.post_name != 'chairman'">{{
+                            article.post_title }}</h1>
+                        <div class="featured-image"
+                             *ngIf="article.featured_image && article.post_name != 'contact' && article.post_name != 'chairman'">
+                            <img [src]="article.featured_image" alt="article.post_title"/>
+                        </div>
+                        <div class="article-content"
+                             [ngClass]="{ 'chairman' : !!background, 'single-column': article.columns == 1 && !background }"
+                             *ngIf="article.post_name !== 'contact' && article.post_name != 'chairman'" [ngStyle]="[!!background ? {
               'column-count': 1,
               'width': '45%',
               'float': 'right',
@@ -69,11 +95,11 @@
               'position': 'absolute',
               'color': '#fff'
               } : {}]" [innerHTML]="articleHtml">
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
         </div>
-      </div>
     </div>
-  </div>
-  <app-footer></app-footer>
+    <app-footer></app-footer>
 </section>

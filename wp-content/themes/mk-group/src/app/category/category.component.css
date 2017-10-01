@@ -50,7 +50,7 @@ section.sectors > .row .columns {
 .sector.sector-menu {
     color: #fff;
     width: 100%;
-    background: #151515;
+    background: #012842;
     border-right: none;
 }
 .sector:before {
@@ -341,7 +341,7 @@ section.sectors > .row .columns {
     position: absolute;
     display: none;
     width: 100%;
-    background: #151515;
+    background: #012842;
     color: #fff;
     padding: 3rem 1rem;
     z-index: 10;
@@ -379,7 +379,7 @@ section.sectors > .row .columns {
     color: #fff;
 }
 .news-menu li a.active, .news-menu li a:hover {
-    color: #86c25a;
+    color: #DDB871;
 }
 
 /* Medium and up */

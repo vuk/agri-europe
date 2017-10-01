@@ -49,19 +49,17 @@ section.sectors > .row .columns {
 .swiper-container {
     display: flex;
     flex-direction: row;
-    width: 75%;
     position: relative;
     background-color: #fff;
     background-image: url('../../assets/img/pozadinski.png');
     background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 66%;
+    background-repeat: repeat;
 }
 
 .sector.sector-menu {
     color: #fff;
     width: 100%;
-    background: #151515;
+    background: #012842;
     border-right: none;
 }
 
@@ -180,11 +178,10 @@ section.sectors > .row .columns {
     border-left: none;
     position: relative;
     -webkit-background-size: contain;
-    background-size: 60%;
     background-position: center center;
-    background-repeat: no-repeat;
     background-image: url('../../assets/img/pozadinski.png');
     background-color: #fff;
+    background-repeat: repeat;
 }
 
 .sectors-inner .article-container.history {
@@ -271,7 +268,7 @@ span.date {
 }
 
 .news-menu li a.active, .news-menu li a:hover {
-    color: #86c25a;
+    color: #DDB871;
 }
 
 agm-map {

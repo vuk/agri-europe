@@ -36,16 +36,14 @@ section.sectors > .row .columns {
     display: flex;
     flex-direction: column;
     width: 100%;
-    background-color: #fff;
     background-image: url('../../assets/img/pozadinski.png');
     background-position: center center;
-    background-repeat: no-repeat;
-    background-size: 66%;
+    background-repeat: repeat;
 }
 .sector.sector-menu {
     color: #fff;
     width: 100%;
-    background: #151515;
+    background: #012842;
 }
 .sector:before {
     display: inline-block;
