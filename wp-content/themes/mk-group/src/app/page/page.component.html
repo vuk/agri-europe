@@ -27,7 +27,7 @@
                 <div class="article-container"
                      (click)="openImage(bgImage, article.post_name === 'history' ? false : true);"
                      [ngClass]="{'history': article.post_name === 'history'}"
-                     [ngStyle]="!!background && article.post_name != 'chairman' && article.post_name != 'contact' ? { 'background-image': 'url(' + background + ')', 'background-size': 'cover' } : ''">
+                     [ngStyle]="!!background && article.post_name != 'chairman' && article.post_name != 'contact' ? { 'background-image': 'url(' + background + ')', 'background-size': 'cover', 'background-repeat': 'no-repeat' } : ''">
                     <div class="article-inner"
                          [ngStyle]="article.post_name == 'contact' || article.post_name == 'chairman' ? { padding: 0, display: flex, flexDirection: column } : {}">
                         <div class="row collapse" *ngIf="article.post_name === 'contact'" style="height: 50%;" [ngStyle]="{
