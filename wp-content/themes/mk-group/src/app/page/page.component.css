@@ -439,7 +439,7 @@ section.sectors .row.contact-row > .columns.image-contain {
 /* Large and up */
 @media screen and (min-width: 64em) {
     .sectors-inner .article-container .article-inner {
-        padding: 6rem;
+        padding: 6rem 6rem 3rem 6rem;
     }
 
     .article-content {

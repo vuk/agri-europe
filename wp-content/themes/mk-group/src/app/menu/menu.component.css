@@ -10,7 +10,7 @@
     width: 100%;
 }
 .menu-bar.white-bg {
-    color: #151515;
+    color: #012842;
     background: #fff;
     padding-bottom: 1rem;
     z-index:99;
@@ -32,10 +32,10 @@
     text-decoration: none;
 }
 .menu-bar.white-bg .trigger a, .menu-bar.white-bg .lang a {
-    color: #151515;
+    color: #012842;
 }
 .menu-bar.white-bg .trigger a:hover, .menu-bar.white-bg .lang a:hover {
-    color: #151515;
+    color: #012842;
 }
 .trigger i {
     -ms-transform: rotate(90deg); /* IE 9 */

@@ -67,6 +67,7 @@ section.video-sector .agrieurope-sector {
     right: 2rem;
     top:2rem;
     cursor: pointer;
+    color: #012842;
 }
 .video-controls {
     position: absolute;
@@ -97,10 +98,14 @@ section.video-sector .agrieurope-sector {
     font-size: 18px;
     font-weight: 700;
     cursor: pointer;
+    color: #012842;
 }
 :host ::ng-deep .video-sector .popup .popup-inner .popup-content a img{
     margin-left: 10px;
     width: 100px;
+}
+:host ::ng-deep .popup-content h2 {
+    color: #012842;
 }
 
 /* Medium and up */
