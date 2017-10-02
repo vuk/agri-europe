@@ -55,8 +55,8 @@ export class PageComponent implements OnInit {
   
   ngOnInit() {
     this.loaded = false;
-    this.lat = 34.6904528;
-    this.long = 33.0684307;
+    this.lat = 34.6899695;
+    this.long = 33.0703334;
     this.submenu = [];
     this.config.setDarkLogo(true);
     this.params = this.activeRoute.params.subscribe(params => {
