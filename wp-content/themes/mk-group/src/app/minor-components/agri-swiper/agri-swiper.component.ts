@@ -2,6 +2,7 @@ import {Component, OnInit, OnDestroy, ViewChild, ElementRef} from '@angular/core
 import {SwiperComponent, SwiperConfigInterface} from "ngx-swiper-wrapper";
 import * as jQuery from 'jquery';
 import {ConfigService} from "../../services/config.service";
+import {Router} from "@angular/router";
 
 @Component({
   selector: 'app-agri-swiper',
@@ -23,7 +24,7 @@ export class AgriSwiperComponent implements OnInit, OnDestroy {
   @ViewChild('videoRef') video: ElementRef;
   @ViewChild('agriSwiper') swiper: SwiperComponent;
 
-  constructor(private configService: ConfigService) { }
+  constructor(private configService: ConfigService, private router: Router) { }
 
   ngOnInit() {
     this.muted = localStorage.getItem('muted') === '1';
@@ -62,5 +63,9 @@ export class AgriSwiperComponent implements OnInit, OnDestroy {
     this.muted = !this.muted;
     localStorage.setItem('muted', this.muted ? '1' : '0');
     this.video.nativeElement.muted = this.muted;
+  }
+  
+  videoEnded () {
+    this.router.navigate(['/sectors']);
   }
 }
