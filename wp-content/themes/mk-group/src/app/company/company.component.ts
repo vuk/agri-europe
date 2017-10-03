@@ -1,10 +1,10 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
-import {ConfigService} from "../services/config.service";
-import {Title} from "@angular/platform-browser";
-import {ActivatedRoute} from "@angular/router";
-import {MetaService} from "@ngx-meta/core";
-import {animate, style, transition, trigger, state} from "@angular/animations";
-import {Location} from "@angular/common";
+import {ConfigService} from '../services/config.service';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute} from '@angular/router';
+import {MetaService} from '@ngx-meta/core';
+import {animate, style, transition, trigger, state} from '@angular/animations';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-company',
@@ -23,28 +23,25 @@ import {Location} from "@angular/common";
   ],
 })
 export class CompanyComponent implements OnInit {
-
   params: any;
   slug: string;
   company: any;
   muted: boolean;
-  moreCollapse: boolean = false;
+  moreCollapse = false;
   visibility: string;
   opositeVisibility: string;
   @ViewChild('videoRef') video: ElementRef;
-  
-  constructor(
-    private route: ActivatedRoute,
-    private configService: ConfigService,
-    private titleService: Title,
-    private location: Location,
-    private readonly meta: MetaService) { }
-
+  constructor(private route: ActivatedRoute,
+              private configService: ConfigService,
+              private titleService: Title,
+              private location: Location,
+              private readonly meta: MetaService) {
+  }
   ngOnInit() {
     this.moreCollapse = false;
     this.configService.setCurrentStateType('company');
     this.muted = localStorage.getItem('muted') === '1';
-    let $menu = jQuery('.menu-bar');
+    const $menu = jQuery('.menu-bar');
     $menu.removeClass('white-bg');
     this.configService.setDarkLogo(false);
     this.params = this.route.params.subscribe(params => {
@@ -53,7 +50,7 @@ export class CompanyComponent implements OnInit {
         .subscribe(response => {
           this.company = response;
           this.togglePopup();
-          setTimeout (() => {
+          setTimeout(() => {
             this.video.nativeElement.muted = this.muted;
           }, 100);
           this.titleService.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
@@ -65,21 +62,17 @@ export class CompanyComponent implements OnInit {
         })
     });
   }
-  
-  toggleMute () {
+  toggleMute() {
     this.muted = !this.muted;
     localStorage.setItem('muted', this.muted ? '1' : '0');
     this.video.nativeElement.muted = this.muted;
   }
-  
-  togglePopup () {
+  togglePopup() {
     this.moreCollapse = !this.moreCollapse;
     this.visibility = this.moreCollapse ? 'shown' : 'hidden';
     this.opositeVisibility = this.moreCollapse ? 'hidden' : 'shown';
   }
-  
   goBack() {
     this.location.back();
   }
-
 }

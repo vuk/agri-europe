@@ -1,9 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {ConfigService} from "../services/config.service";
-import {Title} from "@angular/platform-browser";
-import {ActivatedRoute, Router} from "@angular/router";
-import {Location} from "@angular/common";
-import {MetaService} from "@ngx-meta/core";
+import {ConfigService} from '../services/config.service';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute, Router} from '@angular/router';
+import {Location} from '@angular/common';
+import {MetaService} from '@ngx-meta/core';
 import {trigger, transition, style, animate} from '@angular/animations';
 
 @Component({
@@ -26,24 +26,20 @@ import {trigger, transition, style, animate} from '@angular/animations';
   ]
 })
 export class ArticleComponent implements OnInit {
-  
-  constructor(
-    private config: ConfigService,
-    private titleService: Title,
-    private activeRoute: ActivatedRoute,
-    private location: Location,
-    private readonly meta: MetaService) {
-  }
-  
   params: any;
   slug: string;
   article: any;
-  loaded: boolean = false;
+  loaded = false;
   menuItems: any;
-  menuLoaded: boolean = false;
+  menuLoaded = false;
   articleHtml: string;
   newsItems: any;
-  
+  constructor(private config: ConfigService,
+              private titleService: Title,
+              private activeRoute: ActivatedRoute,
+              private location: Location,
+              private readonly meta: MetaService) {
+  }
   ngOnInit() {
     this.config.setDarkLogo(true);
     this.params = this.activeRoute.params.subscribe(params => {
@@ -51,14 +47,14 @@ export class ArticleComponent implements OnInit {
       this.config.getPost('post', params['slug'])
         .subscribe((response) => {
           this.article = response;
-          this.article.post_date = this.article.post_date.replace(/-/g, "/");
+          this.article.post_date = this.article.post_date.replace(/-/g, '/');
           this.meta.setTitle(this.article.post_title + ' | ' + this.config.siteTitle);
           this.meta.setTag('og:image', this.article.featured_image);
           this.meta.setTag('og:description', this.article.post_content.substr(0, 100));
           this.meta.setTag('og:url', window.location.href);
           this.meta.setTag('og:type', 'website');
           this.titleService.setTitle(this.article.post_title + ' | ' + this.config.siteTitle);
-          this.articleHtml = "<img class='postimage' src='" + this.article.featured_image + "'/>" + this.article.post_content_formatted;
+          this.articleHtml = '<img class=\'postimage\' src=\'' + this.article.featured_image + '\'/>' + this.article.post_content_formatted;
           this.loaded = true;
         });
     });
@@ -71,12 +67,10 @@ export class ArticleComponent implements OnInit {
       .subscribe((response) => {
         this.newsItems = response;
       });
-    let $menu = jQuery('.menu-bar');
+    const $menu = jQuery('.menu-bar');
     $menu.addClass('white-bg');
   }
-  
   goBack() {
     this.location.back();
   }
-  
 }

@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class ExcerptPipe implements PipeTransform {
 
   transform(value: string, args?: any): string {
-    let words = value.split(' ', args);
+    const words = value.split(' ', args);
     let excerpt = words.join(' ');
     return excerpt += '...';
   }

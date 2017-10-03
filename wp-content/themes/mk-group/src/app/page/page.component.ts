@@ -1,11 +1,11 @@
-import { Component, OnInit } from '@angular/core';
-import {ConfigService} from "../services/config.service";
-import {Title} from "@angular/platform-browser";
-import {ActivatedRoute, Router} from "@angular/router";
-import {MetaService} from "@ngx-meta/core";
-import {Location} from "@angular/common";
+import {Component, OnInit} from '@angular/core';
+import {ConfigService} from '../services/config.service';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute, Router} from '@angular/router';
+import {MetaService} from '@ngx-meta/core';
+import {Location} from '@angular/common';
 import {trigger, transition, style, animate} from '@angular/animations';
-import { LightboxModule, Lightbox } from 'angular2-lightbox';
+import {LightboxModule, Lightbox} from 'angular2-lightbox';
 
 
 @Component({
@@ -28,23 +28,12 @@ import { LightboxModule, Lightbox } from 'angular2-lightbox';
   ]
 })
 export class PageComponent implements OnInit {
-  
-  constructor(
-    private config: ConfigService,
-    private titleService: Title,
-    private activeRoute: ActivatedRoute,
-    private location: Location,
-    private router: Router,
-    private lightbox: Lightbox,
-    private readonly meta: MetaService) {
-  }
-  
   params: any;
   slug: string;
   article: any;
-  loaded: boolean = false;
+  loaded = false;
   menuItems: any;
-  menuLoaded: boolean = false;
+  menuLoaded = false;
   articleHtml: string;
   background: any;
   submenu: any;
@@ -52,7 +41,15 @@ export class PageComponent implements OnInit {
   lat: number;
   replaced: string;
   bgImage: object;
-  
+  constructor(private config: ConfigService,
+              private titleService: Title,
+              private activeRoute: ActivatedRoute,
+              private location: Location,
+              private router: Router,
+              private lightbox: Lightbox,
+              private readonly meta: MetaService) {
+  }
+
   ngOnInit() {
     this.loaded = false;
     this.lat = 34.6899695;
@@ -70,7 +67,7 @@ export class PageComponent implements OnInit {
             caption: this.article.post_title
           };
           if (this.article.redirect) {
-            let segments = this.article.redirect.split('/');
+            const segments = this.article.redirect.split('/');
             this.router.navigate(['page', segments[segments.length - 2]]);
           }
           this.meta.setTitle(this.article.post_title + ' | ' + this.config.siteTitle);
@@ -82,7 +79,7 @@ export class PageComponent implements OnInit {
           this.background = this.article.background_image;
           this.articleHtml = this.article.post_content_formatted;
           const regex = /<br\s*[\/]?>/gi;
-          this.replaced = this.article.post_content.replace(regex, "\n");
+          this.replaced = this.article.post_content.replace(regex, '\n');
           /*if (this.article.post_name === 'chairman' || this.article.post_name === 'board-of-directors') {
             this.config.getMenu('management')
               .subscribe((response) => {
@@ -90,13 +87,15 @@ export class PageComponent implements OnInit {
               });
           }*/
           this.config.getMenu('main')
-            .subscribe((response) => {
-              this.menuItems = response;
+            .subscribe((response2) => {
+              this.menuItems = response2;
               this.menuLoaded = true;
-              if (this.article.post_name === 'general' || this.article.post_name === 'about-us' || this.article.post_name === 'history' || this.article.post_name === 'mission-vision-values') {
+              if (this.article.post_name === 'general' ||
+                this.article.post_name === 'about-us' ||
+                this.article.post_name === 'history' || this.article.post_name === 'mission-vision-values') {
                 this.config.getMenu('about')
-                  .subscribe((response) => {
-                    this.submenu = response;
+                  .subscribe((response1) => {
+                    this.submenu = response1;
                     this.loaded = true;
                   });
               } else {
@@ -105,18 +104,17 @@ export class PageComponent implements OnInit {
             });
         });
     });
-    let $menu = jQuery('.menu-bar');
+    const $menu = jQuery('.menu-bar');
     $menu.addClass('white-bg');
   }
-  
+
   goBack() {
     this.location.back();
   }
-  
+
   openImage(imageObject, disable = true) {
     if (!disable) {
       this.lightbox.open([imageObject]);
     }
   }
-
 }

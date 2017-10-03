@@ -1,5 +1,5 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ConfigService} from "../services/config.service";
+import {Component, OnInit} from '@angular/core';
+import {ConfigService} from '../services/config.service';
 import {
   trigger,
   state,
@@ -8,8 +8,8 @@ import {
   transition
 } from '@angular/animations';
 import * as jQuery from 'jquery';
-import {Title} from "@angular/platform-browser";
-import {MetaService} from "@ngx-meta/core";
+import {Title} from '@angular/platform-browser';
+import {MetaService} from '@ngx-meta/core';
 
 @Component({
   selector: 'app-home',
@@ -17,7 +17,7 @@ import {MetaService} from "@ngx-meta/core";
   styleUrls: ['./home.component.css'],
   animations: [
     trigger('load', [
-      state('in', style ({
+      state('in', style({
         opacity: 1,
         transform: 'translateX(0)'
       })),
@@ -31,16 +31,16 @@ import {MetaService} from "@ngx-meta/core";
   ]
 })
 export class HomeComponent implements OnInit {
-  
+
   config: Array<String>;
   webmVideo: String = '';
   mp4Video: String = '';
   videoPoster: String = '';
   state: String = 'inactive';
-  
+
   constructor(private configService: ConfigService, private titleService: Title, private readonly meta: MetaService) {
   }
-  
+
   ngOnInit() {
     this.titleService.setTitle(this.configService.siteTitle + ' | Home Page');
     this.configService.setDarkLogo(false);
@@ -54,8 +54,7 @@ export class HomeComponent implements OnInit {
     this.webmVideo = this.config['home_webm'];
     this.mp4Video = this.config['home_mp4'];
     this.videoPoster = this.config['video_bg'];
-    let $menu = jQuery('.menu-bar');
+    const $menu = jQuery('.menu-bar');
     $menu.removeClass('white-bg');
   }
-  
 }

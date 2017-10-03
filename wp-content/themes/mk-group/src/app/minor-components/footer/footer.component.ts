@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import {ConfigService} from "../../services/config.service";
+import {ConfigService} from '../../services/config.service';
 
 @Component({
   selector: 'app-footer',
@@ -7,7 +7,7 @@ import {ConfigService} from "../../services/config.service";
   styleUrls: ['./footer.component.css']
 })
 export class FooterComponent implements OnInit {
-  
+
   address: string;
   office: string;
   company: string;

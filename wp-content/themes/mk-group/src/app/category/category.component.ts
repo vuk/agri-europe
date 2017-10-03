@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import {ConfigService} from "../services/config.service";
-import {Title} from "@angular/platform-browser";
-import {ActivatedRoute, Route, Router} from "@angular/router";
+import {ConfigService} from '../services/config.service';
+import {Title} from '@angular/platform-browser';
+import {ActivatedRoute, Router} from '@angular/router';
 import * as jQuery from 'jquery';
-import {Location} from "@angular/common";
-import {MetaService} from "@ngx-meta/core";
+import {MetaService} from '@ngx-meta/core';
 import {trigger, transition, style, animate} from '@angular/animations';
 
 @Component({
@@ -27,24 +26,21 @@ import {trigger, transition, style, animate} from '@angular/animations';
   ]
 })
 export class CategoryComponent implements OnInit {
-  
   menuItems;
   menuLoaded: boolean;
   news;
-  loaded: boolean = false;
+  loaded = false;
   params: any;
   queryParams: any;
-  page: number = 1;
-  perPage: number = 4;
-  maxPages: number = 1;
+  page = 1;
+  perPage = 4;
+  maxPages = 1;
   slug: string;
   newsItems: any;
-  
   constructor(
     private activeRoute: ActivatedRoute,
     private config: ConfigService,
     private titleService: Title,
-    private location: Location,
     private readonly meta: MetaService,
     private router: Router) { }
 
@@ -80,10 +76,9 @@ export class CategoryComponent implements OnInit {
       .subscribe((response) => {
         this.newsItems = response;
       });
-    let $menu = jQuery('.menu-bar');
+    const $menu = jQuery('.menu-bar');
     $menu.addClass('white-bg');
   }
-  
   nextPage () {
     if (this.page < this.maxPages) {
       jQuery('.sector-curtain').removeClass('transparent');
@@ -109,7 +104,6 @@ export class CategoryComponent implements OnInit {
         });
     }
   }
-  
   previousPage () {
     if (this.page - 1 > 0) {
       jQuery('.sector-curtain').removeClass('transparent');
@@ -133,12 +127,10 @@ export class CategoryComponent implements OnInit {
         });
     }
   }
-  
   goCategory(permalink) {
     this.router.navigateByUrl('/dummy', { skipLocationChange: true });
     setTimeout(() => this.router.navigate([permalink]));
   }
-  
   openArticle (article: any) {
     this.router.navigate(['article', article.post_name]);
   }

@@ -1,10 +1,10 @@
 import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {trigger, transition, style, animate, state} from '@angular/animations';
-import {ActivatedRoute, Router} from "@angular/router";
-import {ConfigService} from "../services/config.service";
-import {Title} from "@angular/platform-browser";
-import {MetaService} from "@ngx-meta/core";
-import {Location} from "@angular/common";
+import {ActivatedRoute, Router} from '@angular/router';
+import {ConfigService} from '../services/config.service';
+import {Title} from '@angular/platform-browser';
+import {MetaService} from '@ngx-meta/core';
+import {Location} from '@angular/common';
 
 @Component({
   selector: 'app-sector',
@@ -35,7 +35,6 @@ import {Location} from "@angular/common";
   ]
 })
 export class SectorComponent implements OnInit {
-  
   params: any;
   slug: string;
   linksTo: string;
@@ -43,15 +42,17 @@ export class SectorComponent implements OnInit {
   sector: any;
   preload: boolean;
   muted: boolean;
-  moreCollapse: boolean = false;
+  moreCollapse = false;
   visibility: string;
-  loaded: boolean = false;
+  loaded = false;
   opositeVisibility: string;
   @ViewChild('videoRef') video: ElementRef;
-  
-  constructor(private location: Location, private route: ActivatedRoute, private configService: ConfigService, private router: Router, private titleService: Title, private readonly meta: MetaService) {
+
+  constructor(private location: Location, private route: ActivatedRoute,
+              private configService: ConfigService, private router: Router,
+              private titleService: Title, private readonly meta: MetaService) {
+    // nothing to do
   }
-  
   ngOnInit() {
     this.muted = localStorage.getItem('muted') === '1';
     this.params = this.route.params.subscribe(params => {
@@ -74,13 +75,13 @@ export class SectorComponent implements OnInit {
                 .subscribe((companies) => {
                   this.configService.setDarkLogo(true);
                   this.loaded = true;
-                  let $menu = jQuery('.menu-bar');
+                  const $menu = jQuery('.menu-bar');
                   $menu.addClass('white-bg');
                   this.companies = companies.slides;
                 });
             } else {
               this.configService.setDarkLogo(false);
-              let $menu = jQuery('.menu-bar');
+              const $menu = jQuery('.menu-bar');
               $menu.removeClass('white-bg');
               if (this.video) {
                 this.video.nativeElement.muted = this.muted;
@@ -88,46 +89,44 @@ export class SectorComponent implements OnInit {
             }
           },
           (err) => {
-            console.debug(err);
           });
     });
   }
-  
+
   mouseOver(img, logoColor) {
     img.attributes.src.nodeValue = logoColor;
   }
-  
+
   mouseOut(img, logoGray) {
     img.attributes.src.nodeValue = logoGray;
   }
-  
+
   loadCompany(company: any) {
     this.router.navigate(['company', company.post_name]);
   }
-  
-  preloadEnded () {
+
+  preloadEnded() {
     this.preload = false;
     if (this.linksTo === 'video_page') {
-      setTimeout (() => {
+      setTimeout(() => {
         this.video.nativeElement.muted = this.muted;
       }, 100);
     }
   }
-  
-  toggleMute () {
+
+  toggleMute() {
     this.muted = !this.muted;
     localStorage.setItem('muted', this.muted ? '1' : '0');
     this.video.nativeElement.muted = this.muted;
   }
-  
-  togglePopup () {
+
+  togglePopup() {
     this.moreCollapse = !this.moreCollapse;
     this.visibility = this.moreCollapse ? 'shown' : 'hidden';
     this.opositeVisibility = this.moreCollapse ? 'hidden' : 'shown';
   }
-  
+
   goBack() {
     this.location.back();
   }
-  
 }

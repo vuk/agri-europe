@@ -1,13 +1,12 @@
-import {NgModule} from "@angular/core";
-import {RouterModule, Routes} from "@angular/router";
-import {HomeComponent} from "./home/home.component";
-import {MenuComponent} from "./menu/menu.component";
-import {SectorsComponent} from "./sectors/sectors.component";
-import {SectorComponent} from "./sector/sector.component";
-import {PageComponent} from "./page/page.component";
-import {CategoryComponent} from "./category/category.component";
-import {CompanyComponent} from "./company/company.component";
-import {ArticleComponent} from "./article/article.component";
+import {NgModule} from '@angular/core';
+import {RouterModule, Routes} from '@angular/router';
+import {HomeComponent} from './home/home.component';
+import {SectorsComponent} from './sectors/sectors.component';
+import {SectorComponent} from './sector/sector.component';
+import {PageComponent} from './page/page.component';
+import {CategoryComponent} from './category/category.component';
+import {CompanyComponent} from './company/company.component';
+import {ArticleComponent} from './article/article.component';
 
 const appRoutes: Routes = [
   {path: '', component: HomeComponent},

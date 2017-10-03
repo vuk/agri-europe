@@ -1,11 +1,11 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import * as jQuery from 'jquery';
 import 'rxjs/add/operator/map';
-import {ConfigService} from "../services/config.service";
-import {Router} from "@angular/router";
-import {Title} from "@angular/platform-browser";
-import {MetaService} from "@ngx-meta/core";
-import {animate, style, transition, trigger} from "@angular/animations";
+import {ConfigService} from '../services/config.service';
+import {Router} from '@angular/router';
+import {Title} from '@angular/platform-browser';
+import {MetaService} from '@ngx-meta/core';
+import {animate, style, transition, trigger} from '@angular/animations';
 
 @Component({
   selector: 'app-sectors-component',
@@ -27,15 +27,14 @@ import {animate, style, transition, trigger} from "@angular/animations";
   ]
 })
 export class SectorsComponent implements OnInit {
-
-  constructor(private config: ConfigService, private router: Router, private titleService: Title, private readonly meta: MetaService) { }
-  
   sectors: any;
   @Output()
   darkLogo: EventEmitter<boolean> = new EventEmitter<boolean>();
   menuItems: any;
-  loaded: boolean = false;
-  menuLoaded: boolean = false;
+  loaded = false;
+  menuLoaded = false;
+  constructor(private config: ConfigService, private router: Router, private titleService: Title, private readonly meta: MetaService) {
+  }
 
   ngOnInit() {
     this.config.setDarkLogo(true);
@@ -45,7 +44,7 @@ export class SectorsComponent implements OnInit {
     this.meta.setTag('og:description', 'Sectors | ' + this.config.siteTitle);
     this.meta.setTag('og:url', window.location.href);
     this.meta.setTag('og:type', 'website');
-    let $menu = jQuery('.menu-bar');
+    const $menu = jQuery('.menu-bar');
     $menu.addClass('white-bg');
     this.config.getSectors()
       .subscribe((response) => {
@@ -58,9 +57,8 @@ export class SectorsComponent implements OnInit {
         this.menuLoaded = true;
       });
   }
-  
+
   openSector(sector: any) {
     this.router.navigate(['/sectors/', sector.post_name])
   }
-
 }
