@@ -9,7 +9,7 @@ import {Subject} from "rxjs/Subject";
 export class ConfigService {
   
   config: Array<string>;
-  apiUrl: string = 'http://agrieurope.loveandbrands.rs/backend/';
+  apiUrl: string = 'http://agrieurope.com.cy/backend/';
   siteTitle: string = 'Agri Europe';
   darkLogo = false;
   darkLogoChange: Subject<boolean> = new Subject<boolean>();
