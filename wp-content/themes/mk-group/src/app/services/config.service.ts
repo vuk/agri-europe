@@ -4,11 +4,12 @@ import {Injectable} from '@angular/core';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 import {Subject} from 'rxjs/Subject';
+import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class ConfigService {
 
-  config: Array<string>;
+  config: any;
   apiUrl = 'http://www.agrieurope.com.cy/backend/';
   siteTitle = 'Agri Europe';
   darkLogo = false;
@@ -17,18 +18,18 @@ export class ConfigService {
   hideLabel: boolean;
   currentStateType: string;
 
-  constructor(private http: Http) {
+  constructor(private http: HttpClient) {
   }
 
   init(): Observable<String[]> {
     return this.http.get(this.apiUrl + 'wp-json/mk/options')
       .map((res: Response) => {
-        this.config = res.json().value;
+        this.config = res['value'];
         return this.config;
       })
       .flatMap(() => this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=slide&category=2&taxonomy=slide_category'))
       .map((res: Response) => {
-        this.config['homeHero'] = res.json();
+        this.config['homeHero'] = res;
         return this.config;
       });
   }
@@ -39,12 +40,12 @@ export class ConfigService {
 
   getSectors(): Observable<any> {
     return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=sector&order=asc&orderby=menu_order')
-      .map((res: Response) => res.json());
+      .map((res: Response) => res);
   }
 
   getCompanies(category: number): Observable<any> {
     return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=company&category=' + category + '&taxonomy=company_category')
-      .map((res: Response) => res.json());
+      .map((res: Response) => res);
   }
 
   getNews(category?: any, perPage?: number, page?: number): Observable<any> {
@@ -56,12 +57,12 @@ export class ConfigService {
       query += '&per_page=' + perPage + '&page=' + page;
     }
     return this.http.get(this.apiUrl + 'wp-json/mk/post_type?post_type=post' + query)
-      .map((res: Response) => res.json());
+      .map((res: Response) => res);
   }
 
   getMenu(menu): Observable<any> {
     return this.http.get(this.apiUrl + 'wp-json/mk/menu/?menu=' + menu)
-      .map((res: Response) => res.json());
+      .map((res: Response) => res);
   }
 
   setDarkLogo(darkLogo: boolean) {
@@ -81,7 +82,7 @@ export class ConfigService {
   getPost(type: string, name?: string, id?: number): any {
     const params = name ? '&name=' + name : '&p=' + id;
     return this.http.get(this.apiUrl + 'wp-json/mk/single_post?post_type=' + type + params)
-      .map((res: Response) => res.json());
+      .map((res: Response) => res);
   }
 
   setCurrentStateType (stateType: string) {

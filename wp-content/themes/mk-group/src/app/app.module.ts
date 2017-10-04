@@ -26,6 +26,7 @@ import { MetaModule, MetaLoader, MetaStaticLoader, PageTitlePositioning } from '
 import { AgmCoreModule } from '@agm/core';
 import { ExcerptPipe } from './excerpt.pipe';
 import { LightboxModule } from 'angular2-lightbox';
+import {HttpClientModule} from '@angular/common/http';
 
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -71,6 +72,7 @@ export function metaFactory(): MetaLoader {
     BrowserModule,
     BrowserAnimationsModule,
     HttpModule,
+    HttpClientModule,
     AppRoutingModule,
     SwiperModule.forRoot(SWIPER_CONFIG),
     MetaModule.forRoot({
