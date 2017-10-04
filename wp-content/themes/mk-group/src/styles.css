@@ -31,6 +31,13 @@ video {
     width: auto;
     height: auto;
 }
+.sector:hover .image-layer {
+    -ms-transform: translateY(0) !important;
+}
+.sector-menu-holder ul li a {
+    width: 80%;
+    float: left;
+}
 /** 2. Preloader screen */
 .logo-inner {
     text-align: center;

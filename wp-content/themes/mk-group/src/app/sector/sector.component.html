@@ -55,8 +55,10 @@
     </div>
 </section>
 <section class="preload-video" *ngIf="preload">
-    <video playsinline autoplay muted (ended)="preloadEnded()">
-        <source [src]="sector.preload_video_webm" type="video/webm">
-        <source [src]="sector.preload_video" type="video/mp4">
-    </video>
+    <div class="preload-video-container">
+        <video playsinline autoplay muted (ended)="preloadEnded()" [poster]="'../../assets/img/white.jpg'">
+            <source [src]="sector.preload_video_webm" type="video/webm">
+            <source [src]="sector.preload_video" type="video/mp4">
+        </video>
+    </div>
 </section>
