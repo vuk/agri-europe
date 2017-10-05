@@ -56,7 +56,7 @@
 </section>
 <section class="preload-video" *ngIf="preload">
     <div class="preload-video-container">
-        <video playsinline autoplay muted (ended)="preloadEnded()" [poster]="'../../assets/img/white.jpg'">
+        <video playsinline autoplay preload="auto" (ended)="preloadEnded()" [poster]="'../../assets/img/white.jpg'">
             <source [src]="sector.preload_video_webm" type="video/webm">
             <source [src]="sector.preload_video" type="video/mp4">
         </video>

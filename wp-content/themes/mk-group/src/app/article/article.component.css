@@ -7,12 +7,12 @@ section.sectors {
 }
 section.sectors > .row {
     width: 100%;
-    display: flex;
+    display: block;
     flex-direction: column;
     height: auto;
 }
 section.sectors > .row .columns {
-    display: flex;
+    display: block;
     flex-direction: column;
     height: 100%;
 }
@@ -247,6 +247,12 @@ span.date {
     }
     .sectors-inner .article-container {
         width: 75%;
+    }
+    section.sectors > .row {
+        display: flex;
+    }
+    section.sectors > .row .columns {
+        display: flex;
     }
 }
 

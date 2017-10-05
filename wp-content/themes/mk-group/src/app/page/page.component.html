@@ -30,28 +30,18 @@
                      [ngStyle]="!!background && article.post_name != 'chairman' && article.post_name != 'contact' ? { 'background-image': 'url(' + background + ')', 'background-size': 'cover', 'background-repeat': 'no-repeat' } : ''">
                     <div class="article-inner"
                          [ngStyle]="article.post_name == 'contact' || article.post_name == 'chairman' ? { padding: 0, display: flex, flexDirection: column } : {}">
-                        <div class="row collapse" *ngIf="article.post_name === 'contact'" style="display: flex;flex-direction: row;height: 100%;">
-                            <div class="columns large-6 small-12 show-for-large" [ngStyle]="{
+                        <div class="row collapse" *ngIf="article.post_name === 'contact'" style="display: flex;flex-direction: column;height: 100%;">
+                            <div class="columns large-12 small-12" [ngStyle]="{
                             'background-image': 'url(\'' + background + '\')',
                             'background-size': 'cover',
                             'background-repeat': 'no-repeat',
-                            'background-position': 'center center'
+                            'background-position': 'center center',
+                            'min-height': '250px'
                             }">
                             </div>
-                            <div class="columns large-6 small-12">
+                            <div class="columns large-12 small-12">
                                 <div class="row contact-row collapse" *ngIf="article.post_name === 'contact'" style="display: flex;flex-direction: column;">
-                                    <div class="columns large-12 medium-12 small-12 map-container">
-                                        <agm-map [zoom]="17" [latitude]="lat" [longitude]="long">
-                                            <agm-marker [iconUrl]="'../../assets/img/pin.png'" [latitude]="lat" [longitude]="long">
-                                                <agm-info-window><content [innerHTML]="article.post_content_formatted"></content></agm-info-window>
-                                            </agm-marker>
-                                        </agm-map>
-                                    </div>
                                     <div class="columns large-12 medium-12 small-12 image-contain" style="flex-direction: row-reverse">
-                                        <div class="featured-image" *ngIf="article.featured_image"
-                                             style="margin-top: 1rem;text-align: center;display: flex;flex-direction: column;justify-content: center;">
-                                            <img style="max-height: 100%;" [src]="article.featured_image" alt="article.post_title"/>
-                                        </div>
                                         <div class="article-content" [innerHTML]="articleHtml"
                                              style="column-count: 1;text-align: center;display: flex;flex-direction: column;justify-content: center;"></div>
                                     </div>

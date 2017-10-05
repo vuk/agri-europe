@@ -7,12 +7,12 @@ section.sectors {
 }
 section.sectors > .row {
     width: 100%;
-    display: flex;
+    display: block;
     flex-direction: column;
     height: auto;
 }
 section.sectors > .row .columns {
-    display: flex;
+    display: block;
     flex-direction: column;
     height: 100%;
 }
@@ -240,6 +240,12 @@ section.sectors > .row .columns {
     }
     .sector-dot {
         display: block;
+    }
+    section.sectors > .row .columns {
+        display: flex;
+    }
+    section.sectors > .row {
+        display: flex;
     }
 }
 

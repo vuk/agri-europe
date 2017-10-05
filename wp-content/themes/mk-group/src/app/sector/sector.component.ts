@@ -54,6 +54,9 @@ export class SectorComponent implements OnInit {
     // nothing to do
   }
   ngOnInit() {
+    const iOS = /iPhone|iPod/.test(window.navigator.userAgent);
+    const androidPhone = /Android/.test(window.navigator.userAgent) && /Mobile/.test(window.navigator.userAgent);
+    console.log(iOS);
     this.muted = localStorage.getItem('muted') === '1';
     this.params = this.route.params.subscribe(params => {
       this.slug = params['slug'];
@@ -62,7 +65,11 @@ export class SectorComponent implements OnInit {
             this.titleService.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
             this.sector = response;
             this.togglePopup();
-            this.preload = this.configService.getCurrentStateType() !== 'company';
+            if (iOS || androidPhone) {
+              this.preload = false;
+            } else {
+              this.preload = this.configService.getCurrentStateType() !== 'company';
+            }
             this.configService.setCurrentStateType('sector');
             this.meta.setTitle(response.post_title + ' | ' + this.configService.siteTitle);
             this.meta.setTag('og:image', this.configService['video_bg']);

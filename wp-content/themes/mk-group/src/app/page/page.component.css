@@ -8,15 +8,14 @@ section.sectors {
 
 section.sectors > .row {
     width: 100%;
-    display: flex;
+    display: block;
     flex-direction: column;
     height: auto;
 }
 
 section.sectors > .row .columns {
-    display: flex;
+    display: block;
     flex-direction: column;
-    height: 100%;
 }
 
 .sectors-inner {
@@ -360,8 +359,13 @@ section.sectors .row.contact-row > .columns.image-contain {
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
+    section.sectors > .row .columns {
+        display: flex;
+        height: 100%;
+    }
     section.sectors > .row {
         height: calc(100% - 25px);
+        display: flex;
     }
 
     section.sectors {

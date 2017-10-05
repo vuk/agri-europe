@@ -1,18 +1,18 @@
 section.sectors {
     padding-top: 9rem;
-    display: flex;
+    display: block;
     width: 100%;
     height: auto;
     flex-direction: column;
 }
 section.sectors > .row {
     width: 100%;
-    display: flex;
+    display: block;
     flex-direction: column;
     height: calc(100% - 25px);
 }
 section.sectors > .row .columns {
-    display: flex;
+    display: block;
     flex-direction: column;
     height: 100%;
 }
@@ -384,7 +384,14 @@ section.sectors > .row .columns {
 
 /* Medium and up */
 @media screen and (min-width: 40em) {
+    section.sectors > .row {
+        display: flex;
+    }
+    section.sectors > .row .columns {
+        display: flex;
+    }
     section.sectors {
+        display: flex;
         height: 100%;
     }
     .sectors-inner {
