@@ -57,6 +57,7 @@ section.video-sector .agrieurope-sector {
 }
 .preload-video-container {
     justify-content: center;
+    text-align: center;
 }
 .preload-video video {
     background: #fff;
@@ -67,6 +68,8 @@ section.video-sector .agrieurope-sector {
     min-height: auto;
     min-width: initial;
     min-height: initial;
+    top: auto;
+    transform: initial;
 }
 .sound-icon {
     cursor: pointer;

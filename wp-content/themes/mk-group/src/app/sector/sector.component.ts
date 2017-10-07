@@ -113,12 +113,12 @@ export class SectorComponent implements OnInit {
   }
 
   preloadEnded() {
-    this.preload = false;
+    /*this.preload = false;
     if (this.linksTo === 'video_page') {
       setTimeout(() => {
         this.video.nativeElement.muted = this.muted;
       }, 100);
-    }
+    }*/
   }
 
   toggleMute() {
