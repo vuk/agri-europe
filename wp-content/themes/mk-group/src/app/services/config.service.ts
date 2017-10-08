@@ -5,13 +5,14 @@ import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/map';
 import {Subject} from 'rxjs/Subject';
 import {HttpClient} from '@angular/common/http';
+import { environment } from '../../environments/environment';
 
 @Injectable()
 export class ConfigService {
 
   config: any;
-  apiUrl = 'http://www.agrieurope.com.cy/backend/';
-  siteTitle = 'Agri Europe';
+  apiUrl = environment.apiUrl;
+  siteTitle = environment.siteTitle;
   darkLogo = false;
   darkLogoChange: Subject<boolean> = new Subject<boolean>();
   hideLabelChange: Subject<boolean> = new Subject<boolean>();
