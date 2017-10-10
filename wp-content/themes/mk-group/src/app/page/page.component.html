@@ -55,14 +55,14 @@
                   'background-image': 'url(\'' + background + '\')',
                   'height': '100%',
                   'background-repeat': 'no-repeat',
-                  'background-size': 'cover',
+                  'background-size': 'contain',
                   'background-position': 'center center'
                 }">
                                 </div>
                             </div>
-                            <div class="columns large-4 medium-12 small-12">
+                            <div class="columns large-4 medium-12 small-12" style="justify-content: center;">
                                 <div class="article-content" [innerHTML]="articleHtml"
-                                     style="column-count: 1;margin-top: 1rem;"></div>
+                                     style="column-count: 1;"></div>
                             </div>
                         </div>
                         <h1 class="title" [ngClass]="{'single-column': article.columns == 1 && !background }"
