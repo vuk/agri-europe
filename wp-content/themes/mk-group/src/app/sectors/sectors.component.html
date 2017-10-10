@@ -4,7 +4,7 @@
       <div class="sectors-inner">
         <div class="sector sector-menu">
           <div class="sector-inner-wrapper">
-            <h3>Portfolio companies</h3>
+            <h3>{{ portfolioCompanies }}</h3>
             <div class="sector-menu-holder" *ngIf="menuLoaded">
               <ul>
                 <li *ngFor="let item of menuItems"><a [routerLink]="item.permalink">{{ item.title }}</a></li>

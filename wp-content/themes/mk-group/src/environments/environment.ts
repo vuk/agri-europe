@@ -7,5 +7,7 @@ export const environment = {
   production: false,
   apiUrl: 'http://www.agrieurope.com.cy/backend/',
   siteTitle: 'Agri Europe',
-  lang: 'en'
+  lang: 'en',
+  portfolioCompanies: 'Portfolio Companies',
+  general: 'General'
 };

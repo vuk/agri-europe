@@ -14,7 +14,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   _subscription2;
   langSelectorActive = false;
   activeLang = environment.lang;
-  availableLangs = ['cn', 'en'];
+  availableLangs = ['cn', 'en', 'ru'];
   darkLogo: boolean;
   configuration: any;
   darkLogoUrl: string;

@@ -6,7 +6,7 @@ import {MetaService} from '@ngx-meta/core';
 import {Location} from '@angular/common';
 import {trigger, transition, style, animate} from '@angular/animations';
 import {LightboxModule, Lightbox} from 'angular2-lightbox';
-
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-page',
@@ -41,6 +41,7 @@ export class PageComponent implements OnInit {
   lat: number;
   replaced: string;
   bgImage: object;
+  general = environment.general;
   constructor(private config: ConfigService,
               private titleService: Title,
               private activeRoute: ActivatedRoute,

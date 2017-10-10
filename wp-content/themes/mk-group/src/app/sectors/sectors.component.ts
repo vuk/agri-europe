@@ -6,6 +6,7 @@ import {Router} from '@angular/router';
 import {Title} from '@angular/platform-browser';
 import {MetaService} from '@ngx-meta/core';
 import {animate, style, transition, trigger} from '@angular/animations';
+import {environment} from '../../environments/environment';
 
 @Component({
   selector: 'app-sectors-component',
@@ -33,6 +34,7 @@ export class SectorsComponent implements OnInit {
   menuItems: any;
   loaded = false;
   menuLoaded = false;
+  portfolioCompanies: string = environment.portfolioCompanies;
   constructor(private config: ConfigService, private router: Router, private titleService: Title, private readonly meta: MetaService) {
   }
 

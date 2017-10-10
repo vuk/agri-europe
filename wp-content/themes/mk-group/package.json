@@ -8,6 +8,9 @@
     "build": "ng build",
     "build_prod": "ng build --base-href \"wp-content/themes/mk-group/dist/\" --prod",
     "build_dev": "ng build --base-href \"wp-content/themes/mk-group/dist/\"",
+    "build_ru": "ng build --no-sourcemap --base-href=\"/ru/\" --env=ru",
+    "build_cn": "ng build --no-sourcemap --base-href=\"/cn/\" --env=cn",
+    "build_en": "ng build --no-sourcemap --env=prod",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e"
