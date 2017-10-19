@@ -20,6 +20,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   darkLogoUrl: string;
   lightLogoUrl: string;
   hideLabel: boolean;
+  menuLabel: string = environment.menuLabel;
 
   constructor(private router: Router, private config: ConfigService) {
     this.darkLogo = config.darkLogo;
@@ -29,6 +30,9 @@ export class MenuComponent implements OnInit, OnDestroy {
     this._subscription2 = config.hideLabelChange.subscribe((value) => {
       // this.hideLabel = value;
     });
+    if (this.availableLangs.indexOf(this.activeLang) >= 0) {
+      this.availableLangs.splice(this.availableLangs.indexOf(this.activeLang), 1);
+    }
   }
 
   ngOnInit() {
@@ -44,7 +48,7 @@ export class MenuComponent implements OnInit, OnDestroy {
     setTimeout(() => {
       this.router.navigate(['/sectors']);
       $menuAnimation.removeClass('open');
-      $menu.removeClass('white-bg');
+      // $menu.removeClass('white-bg');
     }, 300);
   }
 

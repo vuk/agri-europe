@@ -4,5 +4,6 @@ export const environment = {
   siteTitle: 'Agri Europe',
   lang: 'ru',
   portfolioCompanies: 'Группа компаний',
-  general: 'Общая информация'
+  general: 'Общая информация',
+  menuLabel: 'меню'
 };
