@@ -27,6 +27,7 @@ import { AgmCoreModule } from '@agm/core';
 import { ExcerptPipe } from './excerpt.pipe';
 import { LightboxModule } from 'angular2-lightbox';
 import {HttpClientModule} from '@angular/common/http';
+import { HtmlescapePipe } from './services/htmlescape.pipe';
 
 const SWIPER_CONFIG: SwiperConfigInterface = {
   direction: 'horizontal',
@@ -66,7 +67,8 @@ export function metaFactory(): MetaLoader {
     PageComponent,
     CategoryComponent,
     ArticleComponent,
-    ExcerptPipe
+    ExcerptPipe,
+    HtmlescapePipe
   ],
   imports: [
     BrowserModule,
