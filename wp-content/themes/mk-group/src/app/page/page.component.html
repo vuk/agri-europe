@@ -29,7 +29,7 @@
                      [ngClass]="{'history': article.post_name === 'history'}"
                      [ngStyle]="!!background && article.post_name != 'chairman' && article.post_name != 'contact' ? { 'background-image': 'url(' + background + ')', 'background-size': 'cover', 'background-repeat': 'no-repeat' } : ''">
                     <div class="article-inner"
-                         [ngStyle]="article.post_name == 'contact' || article.post_name == 'chairman' ? { padding: 0, display: flex, flexDirection: column } : {}">
+                         [ngStyle]="article.post_name == 'contact' || article.post_name == 'chairman' ? { padding: 0, display: 'flex', flexDirection: 'column' } : {}">
                         <div class="row collapse" *ngIf="article.post_name === 'contact'"
                              style="display: flex;flex-direction: column;">
                             <div class="columns large-12 small-12" [ngStyle]="{
@@ -90,95 +90,6 @@
               'position': 'absolute',
               'color': '#fff'
               } : {}]" [innerHTML]="articleHtml | keepHtml">
-                        </div>
-                        <div class="article-content">
-                            <div id='report2016' #finances2016>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-01.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-02.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-03.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-04.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-05.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-06.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-07.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-08.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-09.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-10.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-11.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-12.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-13.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-14.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-15.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-16.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-17.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-18.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-19.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-20.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-21.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-22.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-23.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-24.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-25.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-26.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-27.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-28.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-29.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-30.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-31.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-32.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-33.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-34.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-35.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-36.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-37.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-38.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-39.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-40.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-41.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-42.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-43.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-44.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-45.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-46.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-47.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-48.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-49.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-50.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-51.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-52.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-53.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-54.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-55.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-56.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-57.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-58.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-59.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-60.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-61.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-62.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-63.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-64.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-65.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-66.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-67.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-68.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-69.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-70.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-71.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-72.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-73.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-74.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-75.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-76.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-77.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-78.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-79.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-80.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-81.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-82.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-83.jpg');"></div>
-                                <div style="background-image:url('http://www.agrieurope.com.cy/backend/wp-content/uploads/2017/12/AEC-Annual-Report-E_Version1-84.jpg');"></div>
-                            </div>
-                            <button id="show_book" #show2016>Open</button>
                         </div>
                     </div>
                 </div>

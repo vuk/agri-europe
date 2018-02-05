@@ -42,7 +42,6 @@ export class PageComponent implements OnInit {
   lat: number;
   replaced: string;
   bgImage: object;
-  @ViewChild('finances2016') finances2016: ElementRef;
   general = environment.general;
   constructor(private config: ConfigService,
               private titleService: Title,

@@ -57,7 +57,7 @@ export class MenuComponent implements OnInit, OnDestroy {
   }
 
   pickLanguage(lang: string) {
-    for(let i = 0; i < this.availableLangs.length; i++) {
+    for (let i = 0; i < this.availableLangs.length; i++) {
       if (this.availableLangs[i] === lang) {
         this.availableLangs.splice(i, 1);
       }
