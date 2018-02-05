@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ConfigService} from '../services/config.service';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
@@ -7,6 +7,7 @@ import {Location} from '@angular/common';
 import {trigger, transition, style, animate} from '@angular/animations';
 import {LightboxModule, Lightbox} from 'angular2-lightbox';
 import {environment} from '../../environments/environment';
+declare var jQuery: any;
 
 @Component({
   selector: 'app-page',
@@ -27,7 +28,7 @@ import {environment} from '../../environments/environment';
     )
   ]
 })
-export class PageComponent implements OnInit {
+export class PageComponent implements OnInit, AfterViewInit {
   params: any;
   slug: string;
   article: any;
@@ -41,6 +42,7 @@ export class PageComponent implements OnInit {
   lat: number;
   replaced: string;
   bgImage: object;
+  @ViewChild('finances2016') finances2016: ElementRef;
   general = environment.general;
   constructor(private config: ConfigService,
               private titleService: Title,
@@ -107,6 +109,13 @@ export class PageComponent implements OnInit {
     });
     const $menu = jQuery('.menu-bar');
     $menu.addClass('white-bg');
+  }
+
+  ngAfterViewInit() {
+    jQuery(this.finances2016.nativeElement).wowBook({
+      height: 500,
+      width: 600
+    });
   }
 
   goBack() {
