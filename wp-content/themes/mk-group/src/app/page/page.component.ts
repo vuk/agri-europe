@@ -1,11 +1,11 @@
-import {AfterViewInit, Component, ElementRef, OnInit, ViewChild} from '@angular/core';
+import {Component, ElementRef, OnInit, ViewChild} from '@angular/core';
 import {ConfigService} from '../services/config.service';
 import {Title} from '@angular/platform-browser';
 import {ActivatedRoute, Router} from '@angular/router';
 import {MetaService} from '@ngx-meta/core';
 import {Location} from '@angular/common';
 import {trigger, transition, style, animate} from '@angular/animations';
-import {LightboxModule, Lightbox} from 'angular2-lightbox';
+import {Lightbox} from 'angular2-lightbox';
 import {environment} from '../../environments/environment';
 declare var jQuery: any;
 
@@ -28,7 +28,7 @@ declare var jQuery: any;
     )
   ]
 })
-export class PageComponent implements OnInit, AfterViewInit {
+export class PageComponent implements OnInit {
   params: any;
   slug: string;
   article: any;
@@ -109,13 +109,6 @@ export class PageComponent implements OnInit, AfterViewInit {
     });
     const $menu = jQuery('.menu-bar');
     $menu.addClass('white-bg');
-  }
-
-  ngAfterViewInit() {
-    jQuery(this.finances2016.nativeElement).wowBook({
-      height: 500,
-      width: 600
-    });
   }
 
   goBack() {
